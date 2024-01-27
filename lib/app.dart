@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ex/route/app_page.dart';
+import 'package:flutter_ex/routes/app_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_ex/l10n/l10n.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -24,6 +28,13 @@ class _AppState extends State<App> {
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
           useMaterial3: true),
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
+      ],
+      supportedLocales: L10n.listLocale,
       getPages: AppPage.listRoute,
       initialRoute: AppPage.splash,
     );

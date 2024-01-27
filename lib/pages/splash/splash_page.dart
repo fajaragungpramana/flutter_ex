@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/ui/splash/splash_controller.dart';
+import 'package:flutter_ex/pages/splash/splash_controller.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashPage extends GetView<SplashController> {
   SplashPage({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class SplashPage extends GetView<SplashController> {
 
                           Obx(() => Text(_splashController.appName)),
 
-                          Text("Manage Your Expense")
+                          Text(AppLocalizations.of(context)!.manageYourExpense)
 
                         ]
                     )

@@ -1,6 +1,6 @@
-import 'package:flutter_ex/route/app_route.dart';
-import 'package:flutter_ex/ui/splash/splash_binding.dart';
-import 'package:flutter_ex/ui/splash/splash_page.dart';
+import 'package:flutter_ex/routes/app_route.dart';
+import 'package:flutter_ex/pages/splash/splash_binding.dart';
+import 'package:flutter_ex/pages/splash/splash_page.dart';
 import 'package:get/get.dart';
 
 class AppPage {

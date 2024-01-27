@@ -1,4 +1,4 @@
-import 'package:flutter_ex/ui/splash/splash_controller.dart';
+import 'package:flutter_ex/pages/splash/splash_controller.dart';
 import 'package:get/get.dart';
 
 class SplashBinding extends Bindings {
