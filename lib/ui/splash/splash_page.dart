@@ -1,23 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_ex/ui/splash/splash_controller.dart';
+import 'package:get/get.dart';
 
-class SplashPage extends HookWidget {
-  const SplashPage({super.key});
+class SplashPage extends GetView<SplashController> {
+  SplashPage({Key? key}) : super(key: key);
+
+  final _splashController = Get.find<SplashController>();
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+        child: Container(
+          margin: const EdgeInsets.all(16),
+          child: Stack(
+              children: [
 
-            ],
-          ),
-        ),
-      ),
+                Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          Obx(() => Text(_splashController.appName)),
+
+                          Text("Manage Your Expense")
+
+                        ]
+                    )
+                ),
+
+                Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Obx(() => Text(_splashController.appVersion) )
+                )
+
+              ]
+          )
+        )
+      )
     );
   }
 

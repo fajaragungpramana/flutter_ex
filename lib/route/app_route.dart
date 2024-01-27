@@ -1,0 +1,5 @@
+class AppRoute {
+  const AppRoute._();
+
+  static const splash = "/splash";
+}
