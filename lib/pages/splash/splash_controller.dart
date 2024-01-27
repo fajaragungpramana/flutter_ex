@@ -12,13 +12,21 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     _getPackageInfo();
+
+    super.onInit();
   }
 
-  Future<void> _getPackageInfo() async {
+  _getPackageInfo() async {
     final PackageInfo packageInfo = await PackageInfo.fromPlatform();
 
     _appName.value = packageInfo.appName;
     _appVersion.value = packageInfo.version;
+  }
+
+  setDelay(Function() run) async {
+    await Future.delayed(const Duration(seconds: 3), () {
+      run();
+    });
   }
 
 }

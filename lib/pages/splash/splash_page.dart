@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ex/pages/splash/splash_controller.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
+import 'package:flutter_ex/routes/app_route.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -12,6 +13,10 @@ class SplashPage extends GetView<SplashController> {
 
   @override
   Widget build(BuildContext context) {
+    _splashController.setDelay(() => {
+      Get.offAndToNamed(AppRoute.login)
+    });
+
     return Scaffold(
       body: SafeArea(
         child: Container(
