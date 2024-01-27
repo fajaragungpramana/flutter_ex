@@ -1,7 +1,7 @@
 name: flutter_ex
 description: "App for management money expenses."
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.0
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
@@ -9,10 +9,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
 
   cupertino_icons: ^1.0.2
-  provider: ^6.1.1
-  flutter_hooks: ^0.20.4
+  get: ^4.6.6
+  package_info_plus: ^5.0.1
 
 dev_dependencies:
   flutter_test:
@@ -21,4 +24,11 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: lib/resources/fonts/Poppins-Regular.ttf
+        - asset: lib/resources/fonts/Poppins-SemiBold.ttf
+          weight: 600
+  generate: true
   uses-material-design: true

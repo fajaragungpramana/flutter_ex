@@ -8,12 +8,13 @@ Language :
 
 Design :
 - Clean Architecture
+- Modularization
 - MVVM Pattern
 - Repository Pattern
 - Localization
 
-## Lincense
-Copyright 2023 Fajar Agung Pramana
+## License
+Copyright 2024 Fajar Agung Pramana
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
