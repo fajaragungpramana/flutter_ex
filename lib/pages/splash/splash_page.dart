@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/pages/splash/splash_controller.dart';
+import 'package:flutter_ex/resources/values/app_color.dart';
+import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -23,9 +25,20 @@ class SplashPage extends GetView<SplashController> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
-                          Obx(() => Text(_splashController.appName)),
+                          Obx(() => Text(
+                              _splashController.appName,
+                              style: AppStyle.textSemiBold(
+                                  fontSize: 40,
+                                  color: AppColor.green100
+                              )
+                          )),
 
-                          Text(AppLocalizations.of(context)!.manageYourExpense)
+                          Text(
+                              AppLocalizations.of(context)!.manageYourExpense,
+                              style: AppStyle.textRegular(
+                                color: AppColor.black50
+                              )
+                          )
 
                         ]
                     )
@@ -33,7 +46,10 @@ class SplashPage extends GetView<SplashController> {
 
                 Align(
                     alignment: Alignment.bottomCenter,
-                    child: Obx(() => Text(_splashController.appVersion) )
+                    child: Obx(() => Text(
+                        _splashController.appVersion,
+                      style: AppStyle.textRegular(color: AppColor.black50),
+                    ))
                 )
 
               ]

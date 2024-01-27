@@ -24,7 +24,6 @@ class _AppState extends State<App> {
         ));
 
     return GetMaterialApp(
-      title: 'EX',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
           useMaterial3: true),
