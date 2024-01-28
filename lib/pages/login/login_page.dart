@@ -103,7 +103,9 @@ class LoginPage extends GetView<LoginController> {
               SizedBox(
                 width: double.infinity,
                 child: Obx(() => ElevatedButton(
-                    onPressed: _loginController.isLoginEnable ? () {} : null,
+                    onPressed: _loginController.isLoginEnable ? () {
+                      Get.offAndToNamed(AppRoute.main);
+                    } : null,
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColor.green100,
                         shape: RoundedRectangleBorder(
