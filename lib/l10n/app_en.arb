@@ -2,5 +2,41 @@
   "manageYourExpense" : "Manage Your Expense",
   "@manageYourExpense" : {
     "description" : "App description"
+  },
+
+  "signIn" : "Sign In",
+  "@signIn" : {
+    "description" : "Sign in"
+  },
+
+  "signInToContinueWithYourAccount" : "Sign in to continue with your account.",
+  "@signInToContinueWithYourAccount" : {
+    "description" : "Sign in description"
+  },
+
+  "email" : "Email",
+  "@email" : {
+    "description" : "Email"
+  },
+
+  "password" : "Password",
+  "@password" : {
+    "description" : "Password"
+  },
+
+  "forgotPassword" : "Forgot Password",
+  "@forgotPassword" : {
+    "description" : "Forgot password"
+  },
+
+  "dontHaveAnAccount" : "Don't have an account?",
+  "@dontHaveAnAccount" : {
+    "description" : "Sign up asking"
+  },
+
+  "signUp" : "Sign Up",
+  "@signUp" : {
+    "description" : "Sign up"
   }
+
 }
