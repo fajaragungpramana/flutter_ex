@@ -38,7 +38,7 @@ class RegisterPage extends GetView<RegisterController> {
 
                 const SizedBox(height: 40),
 
-                TextField(
+                Obx(() => TextField(
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: AppColor.gray50),
@@ -47,13 +47,17 @@ class RegisterPage extends GetView<RegisterController> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        labelText: AppLocalizations.of(context)!.fullName
-                    )
-                ),
+                        labelText: AppLocalizations.of(context)!.fullName,
+                        errorText: _registerController.fullNameErrorMessage.isEmpty ? null : _registerController.fullNameErrorMessage
+                    ),
+                    onChanged: (text) {
+                      _registerController.setFullName(text);
+                    }
+                )),
 
                 const SizedBox(height: 8),
 
-                TextField(
+                Obx(() => TextField(
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: AppColor.gray50),
@@ -62,13 +66,17 @@ class RegisterPage extends GetView<RegisterController> {
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10)
                         ),
-                        labelText: AppLocalizations.of(context)!.email
-                    )
-                ),
+                        labelText: AppLocalizations.of(context)!.email,
+                        errorText: _registerController.emailErrorMessage.isEmpty ? null : _registerController.emailErrorMessage
+                    ),
+                    onChanged: (text) {
+                      _registerController.setEmail(text);
+                    }
+                )),
 
                 const SizedBox(height: 8),
 
-                TextField(
+                Obx(() => TextField(
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: AppColor.gray50),
@@ -79,21 +87,27 @@ class RegisterPage extends GetView<RegisterController> {
                         ),
                         labelText: AppLocalizations.of(context)!.password,
                         suffixIcon: IconButton(
-                          icon: const Icon(
-                              Icons.visibility_off,
-                              color: AppColor.gray50
-                          ),
-                          onPressed: () {}
-                        )
+                            icon: Icon(
+                                _registerController.isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                color: AppColor.gray50
+                            ),
+                            onPressed: () {
+                              _registerController.setPasswordVisibility();
+                            }
+                        ),
+                        errorText: _registerController.passwordErrorMessage.isEmpty ? null : _registerController.passwordErrorMessage
                     ),
-                    obscureText: true,
+                    obscureText: !_registerController.isPasswordVisible,
                     enableSuggestions: false,
-                    autocorrect: false
-                ),
+                    autocorrect: false,
+                    onChanged: (text) {
+                      _registerController.setPassword(text);
+                    }
+                )),
 
                 const SizedBox(height: 8),
 
-                TextField(
+                Obx(() => TextField(
                     decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
                             borderSide: const BorderSide(color: AppColor.gray50),
@@ -104,24 +118,30 @@ class RegisterPage extends GetView<RegisterController> {
                         ),
                         labelText: AppLocalizations.of(context)!.confirmPassword,
                         suffixIcon: IconButton(
-                            icon: const Icon(
-                                Icons.visibility_off,
+                            icon: Icon(
+                                _registerController.isConfirmPasswordVisible ? Icons.visibility : Icons.visibility_off,
                                 color: AppColor.gray50
                             ),
-                            onPressed: () {}
-                        )
+                            onPressed: () {
+                              _registerController.setConfirmPasswordVisibility();
+                            }
+                        ),
+                        errorText: _registerController.confirmPasswordErrorMessage.isEmpty ? null : _registerController.confirmPasswordErrorMessage
                     ),
-                    obscureText: true,
+                    obscureText: !_registerController.isConfirmPasswordVisible,
                     enableSuggestions: false,
-                    autocorrect: false
-                ),
+                    autocorrect: false,
+                    onChanged: (text) {
+                      _registerController.setConfirmPassword(text);
+                    }
+                )),
 
                 const Spacer(),
 
                 SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(
-                        onPressed: () {},
+                    child: Obx(() => ElevatedButton(
+                        onPressed: _registerController.isRegisterEnable ? () {} : null,
                         style: ElevatedButton.styleFrom(
                             backgroundColor: AppColor.green100,
                             shape: RoundedRectangleBorder(
@@ -135,7 +155,7 @@ class RegisterPage extends GetView<RegisterController> {
                                 color: Colors.white
                             )
                         )
-                    )
+                    ))
                 ),
 
                 Row(

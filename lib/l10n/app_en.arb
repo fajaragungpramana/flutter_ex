@@ -73,6 +73,21 @@
   "alreadyHaveAnAccount" : "Already have an account?",
   "@alreadyHaveAndAccount" : {
     "description" : "Sign in asking"
+  },
+
+  "invalidFullNameFormat" : "Full name min 4 character.",
+  "@invalidFullNameFormat" : {
+    "description" : "Invalid full name message"
+  },
+
+  "invalidPasswordFormat" : "Password min 8 character.",
+  "@invalidPasswordFormat" : {
+    "description" : "Invalid password message."
+  },
+
+  "invalidConfirmPasswordFormat" : "Password not same.",
+  "@invalidConfirmPasswordFormat" : {
+    "description" : "Invalid confirmation password"
   }
 
 }

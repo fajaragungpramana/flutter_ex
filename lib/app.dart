@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_ex/routes/app_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_ex/l10n/l10n.dart';
 

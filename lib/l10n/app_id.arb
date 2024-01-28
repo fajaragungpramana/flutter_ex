@@ -11,5 +11,8 @@
   "signUpWithYourEmailAccountAndJoinWithUs" : "Daftar dengan akun email kamu dan bergabunglah dengan kami.",
   "fullName" : "Nama lengkap",
   "confirmPassword" : "Konfirmasi katasandi",
-  "alreadyHaveAnAccount" : "Sudah memiliki akun?"
+  "alreadyHaveAnAccount" : "Sudah memiliki akun?",
+  "invalidFullNameFormat" : "Nama lengkap min 4 karakter.",
+  "invalidPasswordFormat" : "Katasandi min 8 karakter.",
+  "invalidConfirmPasswordFormat" : "Katasandi tidak sama."
 }
