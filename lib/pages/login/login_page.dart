@@ -34,23 +34,8 @@ class LoginPage extends GetView<LoginController> {
               ),
 
               const SizedBox(height: 40),
-              
-              TextField(
-                decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(color: AppColor.gray50),
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  labelText: AppLocalizations.of(context)!.email
-                )
-              ),
 
-              const SizedBox(height: 8),
-
-              TextField(
+              Obx(() => TextField(
                   decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
                           borderSide: const BorderSide(color: AppColor.gray50),
@@ -59,20 +44,55 @@ class LoginPage extends GetView<LoginController> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10)
                       ),
-                      labelText: AppLocalizations.of(context)!.password
-                  )
-              ),
+                      labelText: AppLocalizations.of(context)!.email,
+                      errorText: _loginController.emailErrorMessage.isEmpty ? null : _loginController.emailErrorMessage
+                  ),
+                  onChanged: (text) {
+                    _loginController.setEmail(text);
+                  }
+              )),
+
+              const SizedBox(height: 8),
+
+              Obx(() => TextField(
+                  decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(color: AppColor.gray50),
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)
+                      ),
+                      labelText: AppLocalizations.of(context)!.password,
+                      errorText: _loginController.passwordErrorMessage.isEmpty ? null : _loginController.passwordErrorMessage,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                            _loginController.isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                            color: AppColor.gray50
+                        ),
+                        onPressed: () {
+                          _loginController.setPasswordVisibility();
+                        },
+                      )
+                  ),
+                  obscureText: !_loginController.isPasswordVisible,
+                  enableSuggestions: false,
+                  autocorrect: false,
+                  onChanged: (text) {
+                    _loginController.setPassword(text);
+                  }
+              )),
 
               const SizedBox(height: 16),
 
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    AppLocalizations.of(context)!.forgotPassword,
-                    style: AppStyle.textSemiBold(fontSize: 16, color: AppColor.green100),
-                  )
+                    onPressed: () {},
+                    child: Text(
+                      AppLocalizations.of(context)!.forgotPassword,
+                      style: AppStyle.textSemiBold(fontSize: 16, color: AppColor.green100),
+                    )
                 )
               ),
 
@@ -80,8 +100,8 @@ class LoginPage extends GetView<LoginController> {
 
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                    onPressed: () {},
+                child: Obx(() => ElevatedButton(
+                    onPressed: _loginController.isLoginEnable ? () {} : null,
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColor.green100,
                         shape: RoundedRectangleBorder(
@@ -94,7 +114,7 @@ class LoginPage extends GetView<LoginController> {
                             fontSize: 16,
                             color: Colors.white
                         )
-                    )
+                    ))
                 )
               ),
 
@@ -125,10 +145,10 @@ class LoginPage extends GetView<LoginController> {
                 ]
               )
 
-            ],
-          ),
-        ),
-      ),
+            ]
+          )
+        )
+      )
     );
   }
 }

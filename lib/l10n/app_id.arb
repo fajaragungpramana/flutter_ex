@@ -3,6 +3,7 @@
   "signIn" : "Masuk",
   "signInToContinueWithYourAccount" : "Masuk untuk melanjutkan dengan akun kamu.",
   "email" : "Email",
+  "invalidEmailFormat" : "Format email salah.",
   "password" : "Katasandi",
   "forgotPassword" : "Lupa Katasandi",
   "dontHaveAnAccount" : "Belum Punya akun?"

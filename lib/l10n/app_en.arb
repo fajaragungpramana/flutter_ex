@@ -19,6 +19,11 @@
     "description" : "Email"
   },
 
+  "invalidEmailFormat" : "Invalid email format.",
+  "@invalidEmailFormat" :  {
+    "description" : "Invalid email message."
+  },
+
   "password" : "Password",
   "@password" : {
     "description" : "Password"
