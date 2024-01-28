@@ -14,5 +14,7 @@
   "alreadyHaveAnAccount" : "Sudah memiliki akun?",
   "invalidFullNameFormat" : "Nama lengkap min 4 karakter.",
   "invalidPasswordFormat" : "Katasandi min 8 karakter.",
-  "invalidConfirmPasswordFormat" : "Katasandi tidak sama."
+  "invalidConfirmPasswordFormat" : "Katasandi tidak sama.",
+  "home" : "Home",
+  "statistic" : "Statistic"
 }

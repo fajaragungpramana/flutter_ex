@@ -88,6 +88,21 @@
   "invalidConfirmPasswordFormat" : "Password not same.",
   "@invalidConfirmPasswordFormat" : {
     "description" : "Invalid confirmation password"
+  },
+
+  "home" : "Home",
+  "@home" : {
+    "description" : "Home"
+  },
+
+  "statistic" : "Statistic",
+  "@statistic" : {
+    "description" : "Statistic"
+  },
+
+  "profile" : "Profile",
+  "@profile" : {
+    "description" : "Profile"
   }
 
 }
