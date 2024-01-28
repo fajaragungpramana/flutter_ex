@@ -6,6 +6,9 @@ App for management money expenses in `Multiplatform`.
 Language :
 - Dart [Flutter Framework]
 
+State Management :
+- GetX
+
 Design :
 - Clean Architecture
 - Modularization
