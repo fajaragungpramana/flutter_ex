@@ -4,6 +4,17 @@
     "description" : "App description"
   },
 
+  "version" : "Version {version}",
+  "@version" : {
+    "description" : "App version description",
+    "placeholders" : {
+      "version" : {
+        "type" : "String",
+        "example" : "1.0"
+      }
+    }
+  },
+
   "signIn" : "Sign In",
   "@signIn" : {
     "description" : "Sign in"
@@ -42,6 +53,26 @@
   "signUp" : "Sign Up",
   "@signUp" : {
     "description" : "Sign up"
+  },
+
+  "signUpWithYourEmailAccountAndJoinWithUs" : "Sign up with your email account and join with us.",
+  "@signUpWithYourEmailAccountAndJoinWithUs" : {
+    "description" : "Sign up description"
+  },
+
+  "fullName" : "Full name",
+  "@fullName" : {
+    "description" : "Full name"
+  },
+
+  "confirmPassword" : "Confirm password",
+  "@confirmPassword" : {
+    "description" : "Confirm password"
+  },
+
+  "alreadyHaveAnAccount" : "Already have an account?",
+  "@alreadyHaveAndAccount" : {
+    "description" : "Sign in asking"
   }
 
 }
