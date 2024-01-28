@@ -52,7 +52,7 @@ class SplashPage extends GetView<SplashController> {
                 Align(
                     alignment: Alignment.bottomCenter,
                     child: Obx(() => Text(
-                        _splashController.appVersion,
+                        AppLocalizations.of(context)!.version(_splashController.appVersion),
                       style: AppStyle.textRegular(color: AppColor.black50),
                     ))
                 )
