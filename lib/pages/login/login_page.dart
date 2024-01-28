@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ex/pages/login/login_controller.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
+import 'package:flutter_ex/routes/app_route.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -13,6 +14,7 @@ class LoginPage extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           width: double.infinity,
@@ -72,7 +74,7 @@ class LoginPage extends GetView<LoginController> {
                         ),
                         onPressed: () {
                           _loginController.setPasswordVisibility();
-                        },
+                        }
                       )
                   ),
                   obscureText: !_loginController.isPasswordVisible,
@@ -118,8 +120,6 @@ class LoginPage extends GetView<LoginController> {
                 )
               ),
 
-              const SizedBox(height: 16),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -132,14 +132,17 @@ class LoginPage extends GetView<LoginController> {
                     )
                   ),
 
-                  const SizedBox(width: 4),
-
-                  Text(
-                    AppLocalizations.of(context)!.signUp,
-                    style: AppStyle.textSemiBold(
-                        fontSize: 12,
-                        color: AppColor.green100
-                    )
+                  TextButton(
+                      onPressed: () {
+                        Get.toNamed(AppRoute.register);
+                      },
+                      child: Text(
+                          AppLocalizations.of(context)!.signUp,
+                          style: AppStyle.textSemiBold(
+                              fontSize: 12,
+                              color: AppColor.green100
+                          )
+                      )
                   )
 
                 ]
