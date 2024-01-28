@@ -4,6 +4,17 @@
     "description" : "App description"
   },
 
+  "version" : "Version {version}",
+  "@version" : {
+    "description" : "App version description",
+    "placeholders" : {
+      "version" : {
+        "type" : "String",
+        "example" : "1.0"
+      }
+    }
+  },
+
   "signIn" : "Sign In",
   "@signIn" : {
     "description" : "Sign in"
@@ -42,6 +53,41 @@
   "signUp" : "Sign Up",
   "@signUp" : {
     "description" : "Sign up"
+  },
+
+  "signUpWithYourEmailAccountAndJoinWithUs" : "Sign up with your email account and join with us.",
+  "@signUpWithYourEmailAccountAndJoinWithUs" : {
+    "description" : "Sign up description"
+  },
+
+  "fullName" : "Full name",
+  "@fullName" : {
+    "description" : "Full name"
+  },
+
+  "confirmPassword" : "Confirm password",
+  "@confirmPassword" : {
+    "description" : "Confirm password"
+  },
+
+  "alreadyHaveAnAccount" : "Already have an account?",
+  "@alreadyHaveAndAccount" : {
+    "description" : "Sign in asking"
+  },
+
+  "invalidFullNameFormat" : "Full name min 4 character.",
+  "@invalidFullNameFormat" : {
+    "description" : "Invalid full name message"
+  },
+
+  "invalidPasswordFormat" : "Password min 8 character.",
+  "@invalidPasswordFormat" : {
+    "description" : "Invalid password message."
+  },
+
+  "invalidConfirmPasswordFormat" : "Password not same.",
+  "@invalidConfirmPasswordFormat" : {
+    "description" : "Invalid confirmation password"
   }
 
 }

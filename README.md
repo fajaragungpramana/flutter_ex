@@ -6,6 +6,9 @@ App for management money expenses in `Multiplatform`.
 Language :
 - Dart [Flutter Framework]
 
+State Management :
+- GetX
+
 Design :
 - Clean Architecture
 - Modularization
@@ -16,6 +19,7 @@ Design :
 ## Preview [Emulator Google Pixel 3a API 34]
 <img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Splash.png" width="393" height="852">
 <img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Login.png" width="393" height="852">
+<img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Register.png" width="393" height="852">
 
 ## License
 Copyright 2024 Fajar Agung Pramana

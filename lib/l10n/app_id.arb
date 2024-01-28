@@ -1,10 +1,18 @@
 {
   "manageYourExpense" : "Kelola Pengeluaran Anda",
+  "version" : "Versi {version}",
   "signIn" : "Masuk",
   "signInToContinueWithYourAccount" : "Masuk untuk melanjutkan dengan akun kamu.",
   "email" : "Email",
   "invalidEmailFormat" : "Format email salah.",
   "password" : "Katasandi",
   "forgotPassword" : "Lupa Katasandi",
-  "dontHaveAnAccount" : "Belum Punya akun?"
+  "dontHaveAnAccount" : "Belum Punya akun?",
+  "signUpWithYourEmailAccountAndJoinWithUs" : "Daftar dengan akun email kamu dan bergabunglah dengan kami.",
+  "fullName" : "Nama lengkap",
+  "confirmPassword" : "Konfirmasi katasandi",
+  "alreadyHaveAnAccount" : "Sudah memiliki akun?",
+  "invalidFullNameFormat" : "Nama lengkap min 4 karakter.",
+  "invalidPasswordFormat" : "Katasandi min 8 karakter.",
+  "invalidConfirmPasswordFormat" : "Katasandi tidak sama."
 }
