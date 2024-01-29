@@ -19,7 +19,10 @@ class RegisterPage extends GetView<RegisterController> {
   Widget build(BuildContext context) => ExCollapseScaffold(
       backEnable: Get.previousRoute.isNotEmpty,
       collapseEnable: false,
-      titleText: AppLocalizations.of(context)!.signUp,
+      title: Text(
+          AppLocalizations.of(context)!.signUp,
+          style: AppStyle.textSemiBold(),
+      ),
       body: [
 
         Text(

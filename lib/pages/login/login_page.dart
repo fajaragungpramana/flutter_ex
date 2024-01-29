@@ -20,7 +20,10 @@ class LoginPage extends GetView<LoginController> {
   Widget build(BuildContext context) => ExCollapseScaffold(
       backEnable: Get.previousRoute.isNotEmpty,
       collapseEnable: false,
-      titleText: AppLocalizations.of(context)!.signIn,
+      title: Text(
+          AppLocalizations.of(context)!.signIn,
+          style: AppStyle.textSemiBold(),
+      ),
       body: [
 
         Text(
@@ -67,7 +70,7 @@ class LoginPage extends GetView<LoginController> {
               labelText: AppLocalizations.of(context)!.signIn,
               enable: _loginController.isLoginEnable,
               onPressed: () {
-
+                Get.offAllNamed(AppRoute.main);
               }
           )),
 
