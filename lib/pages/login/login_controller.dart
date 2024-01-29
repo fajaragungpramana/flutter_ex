@@ -14,9 +14,6 @@ class LoginController extends GetxController {
   final RxString _emailErrorMessage = "".obs;
   String get emailErrorMessage => _emailErrorMessage.value;
 
-  final RxBool _isPasswordVisible = false.obs;
-  bool get isPasswordVisible => _isPasswordVisible.value;
-
   final RxString _passwordErrorMessage = "".obs;
   String get passwordErrorMessage => _passwordErrorMessage.value;
 
@@ -26,11 +23,7 @@ class LoginController extends GetxController {
 
     _email.value = email;
 
-    _isLoginEnable.value = isValidEmail && _password.value.isNotEmpty;
-  }
-
-  void setPasswordVisibility() async {
-    _isPasswordVisible.value = !_isPasswordVisible.value;
+    _onLoginEnable();
   }
 
   void setPassword(String password) async {
@@ -38,6 +31,12 @@ class LoginController extends GetxController {
 
     _password.value = password;
 
-    _isLoginEnable.value = EmailValidator.validate(_email.value) && _password.value.isNotEmpty;
+    _onLoginEnable();
   }
+
+  void _onLoginEnable() async {
+    _isLoginEnable.value = _email.isNotEmpty && _emailErrorMessage.isEmpty &&
+        _password.isNotEmpty && _passwordErrorMessage.isEmpty;
+  }
+
 }

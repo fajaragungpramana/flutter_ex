@@ -32,7 +32,7 @@ class RegisterController extends GetxController {
 
     _fullName.value = fullName;
 
-    _isLoginEnable();
+    _onRegisterEnable();
   }
 
   void setEmail(String email) async {
@@ -41,7 +41,7 @@ class RegisterController extends GetxController {
 
     _email.value = email;
 
-    _isLoginEnable();
+    _onRegisterEnable();
   }
 
   void setPassword(String password) async {
@@ -49,7 +49,7 @@ class RegisterController extends GetxController {
 
     _password.value = password;
 
-    _isLoginEnable();
+    _onRegisterEnable();
   }
 
   void setConfirmPassword(String confirmPassword) async {
@@ -57,10 +57,10 @@ class RegisterController extends GetxController {
 
     _confirmPassword.value = confirmPassword;
 
-    _isLoginEnable();
+    _onRegisterEnable();
   }
 
-  void _isLoginEnable() async {
+  void _onRegisterEnable() async {
     _isRegisterEnable.value =
         _fullName.isNotEmpty && _fullNameErrorMessage.value.isEmpty &&
             _email.isNotEmpty && _emailErrorMessage.value.isEmpty &&

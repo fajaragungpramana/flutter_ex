@@ -88,7 +88,7 @@ class RegisterPage extends GetView<RegisterController> {
                 ),
 
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () { Get.back(); },
                     child: Text(
                         AppLocalizations.of(context)!.signIn,
                         style: AppStyle.textSemiBold(
