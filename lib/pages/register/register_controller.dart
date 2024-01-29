@@ -18,14 +18,8 @@ class RegisterController extends GetxController {
   final RxString _emailErrorMessage = "".obs;
   String get emailErrorMessage => _emailErrorMessage.value;
 
-  final RxBool _isPasswordVisible = false.obs;
-  bool get isPasswordVisible => _isPasswordVisible.value;
-
   final RxString _passwordErrorMessage = "".obs;
   String get passwordErrorMessage => _passwordErrorMessage.value;
-
-  final RxBool _isConfirmPasswordVisible = false.obs;
-  bool get isConfirmPasswordVisible => _isConfirmPasswordVisible.value;
 
   final RxString _confirmPasswordErrorMessage = "".obs;
   String get confirmPasswordErrorMessage => _confirmPasswordErrorMessage.value;
@@ -50,20 +44,12 @@ class RegisterController extends GetxController {
     _isLoginEnable();
   }
 
-  void setPasswordVisibility() async {
-    _isPasswordVisible.value = !_isPasswordVisible.value;
-  }
-
   void setPassword(String password) async {
     _passwordErrorMessage.value = password.length >= 8 ? "" : _appLocalization.invalidPasswordFormat;
 
     _password.value = password;
 
     _isLoginEnable();
-  }
-
-  void setConfirmPasswordVisibility() async {
-    _isConfirmPasswordVisible.value = !_isConfirmPasswordVisible.value;
   }
 
   void setConfirmPassword(String confirmPassword) async {
@@ -75,7 +61,11 @@ class RegisterController extends GetxController {
   }
 
   void _isLoginEnable() async {
-    _isRegisterEnable.value = _fullNameErrorMessage.value.isEmpty && _emailErrorMessage.value.isEmpty && _passwordErrorMessage.value.isEmpty && _confirmPasswordErrorMessage.value.isEmpty;
+    _isRegisterEnable.value =
+        _fullName.isNotEmpty && _fullNameErrorMessage.value.isEmpty &&
+            _email.isNotEmpty && _emailErrorMessage.value.isEmpty &&
+            _password.isNotEmpty && _passwordErrorMessage.value.isEmpty &&
+            _confirmPassword.isNotEmpty && _confirmPasswordErrorMessage.value.isEmpty;
   }
 
 }
