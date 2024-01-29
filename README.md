@@ -20,6 +20,7 @@ Design :
 <img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Splash.png" width="393" height="852">
 <img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Login.png" width="393" height="852">
 <img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Register.png" width="393" height="852">
+<img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Home.png" width="393" height="852">
 
 ## License
 Copyright 2024 Fajar Agung Pramana

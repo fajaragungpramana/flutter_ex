@@ -26,7 +26,8 @@ class _AppState extends State<App> {
     return GetMaterialApp(
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-          useMaterial3: true),
+          useMaterial3: true
+      ),
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,

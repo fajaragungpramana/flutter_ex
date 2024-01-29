@@ -18,14 +18,8 @@ class RegisterController extends GetxController {
   final RxString _emailErrorMessage = "".obs;
   String get emailErrorMessage => _emailErrorMessage.value;
 
-  final RxBool _isPasswordVisible = false.obs;
-  bool get isPasswordVisible => _isPasswordVisible.value;
-
   final RxString _passwordErrorMessage = "".obs;
   String get passwordErrorMessage => _passwordErrorMessage.value;
-
-  final RxBool _isConfirmPasswordVisible = false.obs;
-  bool get isConfirmPasswordVisible => _isConfirmPasswordVisible.value;
 
   final RxString _confirmPasswordErrorMessage = "".obs;
   String get confirmPasswordErrorMessage => _confirmPasswordErrorMessage.value;
@@ -38,7 +32,7 @@ class RegisterController extends GetxController {
 
     _fullName.value = fullName;
 
-    _isLoginEnable();
+    _onRegisterEnable();
   }
 
   void setEmail(String email) async {
@@ -47,11 +41,7 @@ class RegisterController extends GetxController {
 
     _email.value = email;
 
-    _isLoginEnable();
-  }
-
-  void setPasswordVisibility() async {
-    _isPasswordVisible.value = !_isPasswordVisible.value;
+    _onRegisterEnable();
   }
 
   void setPassword(String password) async {
@@ -59,11 +49,7 @@ class RegisterController extends GetxController {
 
     _password.value = password;
 
-    _isLoginEnable();
-  }
-
-  void setConfirmPasswordVisibility() async {
-    _isConfirmPasswordVisible.value = !_isConfirmPasswordVisible.value;
+    _onRegisterEnable();
   }
 
   void setConfirmPassword(String confirmPassword) async {
@@ -71,11 +57,15 @@ class RegisterController extends GetxController {
 
     _confirmPassword.value = confirmPassword;
 
-    _isLoginEnable();
+    _onRegisterEnable();
   }
 
-  void _isLoginEnable() async {
-    _isRegisterEnable.value = _fullNameErrorMessage.value.isEmpty && _emailErrorMessage.value.isEmpty && _passwordErrorMessage.value.isEmpty && _confirmPasswordErrorMessage.value.isEmpty;
+  void _onRegisterEnable() async {
+    _isRegisterEnable.value =
+        _fullName.isNotEmpty && _fullNameErrorMessage.value.isEmpty &&
+            _email.isNotEmpty && _emailErrorMessage.value.isEmpty &&
+            _password.isNotEmpty && _passwordErrorMessage.value.isEmpty &&
+            _confirmPassword.isNotEmpty && _confirmPasswordErrorMessage.value.isEmpty;
   }
 
 }
