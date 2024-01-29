@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../resources/values/app_style.dart';
 import 'ex_flexible_space_bar.dart';
 
 class ExCollapseScaffold extends StatelessWidget {
   final bool backEnable;
   final bool collapseEnable;
-  final String titleText;
+  final Widget title;
   final List<Widget> body;
   final Widget? footer;
+  final Widget? bottomNavigationBar;
 
-  const ExCollapseScaffold({super.key, this. backEnable = false, this.collapseEnable = true, required this.titleText, required this.body, this.footer});
+  const ExCollapseScaffold({super.key, this. backEnable = false, this.collapseEnable = true, required this.title, required this.body, this.footer, this.bottomNavigationBar});
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -26,10 +26,7 @@ class ExCollapseScaffold extends StatelessWidget {
                   begin: const EdgeInsets.all(16),
                   end: EdgeInsets.only(left: backEnable ? collapseEnable ? 56 : 16 : 16, top: 16, right: 16, bottom: 16)
               ),
-              title: Text(
-                  titleText,
-                  style: AppStyle.textSemiBold()
-              ),
+              title: title,
               expandedTitleScale: collapseEnable ? 1.5 : 1,
             )
           )
@@ -56,7 +53,8 @@ class ExCollapseScaffold extends StatelessWidget {
           )
         )
       )
-    )
+    ),
+    bottomNavigationBar: bottomNavigationBar,
   );
 
 }
