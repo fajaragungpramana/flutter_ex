@@ -11,6 +11,8 @@
 migrate_working_dir/
 
 /lib/gen
+*.freezed.dart
+*.g.dart
 
 # IntelliJ related
 *.iml
