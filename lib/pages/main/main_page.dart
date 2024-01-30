@@ -3,12 +3,13 @@ import 'package:flutter_ex/pages/home/home_page.dart';
 import 'package:flutter_ex/pages/main/main_controller.dart';
 import 'package:flutter_ex/pages/profile/profile_page.dart';
 import 'package:flutter_ex/pages/statistic/statistic_page.dart';
-import 'package:flutter_ex/resources/drawables/app_drawable.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../gen/assets.gen.dart';
 
 class MainPage extends GetView<MainController> {
   MainPage({Key? key}) : super(key: key);
@@ -54,15 +55,15 @@ class MainPage extends GetView<MainController> {
         items: [
 
           BottomNavigationBarItem(
-              icon: Image.asset(_mainController.bnvSelectedIndex == 0 ? AppDrawable.icHomeGreen : AppDrawable.icHomeGray),
+              icon: _mainController.bnvSelectedIndex == 0 ? Assets.lib.resources.drawables.icHomeGreen.image() : Assets.lib.resources.drawables.icHomeGray.image(),
               label: AppLocalizations.of(context)!.home
           ),
           BottomNavigationBarItem(
-              icon: Image.asset(_mainController.bnvSelectedIndex == 1 ? AppDrawable.icStatisticGreen : AppDrawable.icStatisticGray),
+              icon: _mainController.bnvSelectedIndex == 1 ? Assets.lib.resources.drawables.icStatisticGreen.image() : Assets.lib.resources.drawables.icStatisticGray.image(),
               label: AppLocalizations.of(context)!.statistic
           ),
           BottomNavigationBarItem(
-              icon: Image.asset(_mainController.bnvSelectedIndex == 2 ? AppDrawable.icProfileGreen : AppDrawable.icProfileGray),
+              icon: _mainController.bnvSelectedIndex == 2 ? Assets.lib.resources.drawables.icProfileGreen.image() : Assets.lib.resources.drawables.icProfileGray.image(),
               label: AppLocalizations.of(context)!.profile
           )
 
