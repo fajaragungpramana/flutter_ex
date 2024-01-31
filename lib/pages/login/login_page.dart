@@ -70,7 +70,7 @@ class LoginPage extends GetView<LoginController> {
               labelText: AppLocalizations.of(context)!.signIn,
               enable: _loginController.isLoginEnable,
               onPressed: () {
-                Get.offAllNamed(AppRoute.main);
+                _loginController.onLogin();
               }
           )),
 
