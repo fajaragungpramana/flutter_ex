@@ -1,15 +1,16 @@
 import 'package:flutter_ex/core/app/app_response.dart';
+import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
 import 'package:flutter_ex/core/remote/auth/auth_repository.dart';
-import 'package:flutter_ex/core/remote/auth/auth_service.dart';
 import 'package:flutter_ex/core/remote/auth/request/login_request.dart';
 import 'package:flutter_ex/core/remote/auth/response/login_response.dart';
 
-class AuthRepositoryImpl implements AuthRepository {
-  final AuthService _authService;
+class AuthInteractor implements AuthUseCase {
+  final AuthRepository _authRepository;
 
-  AuthRepositoryImpl(this._authService);
+  AuthInteractor(this._authRepository);
 
-  @override
+  @override // TODO: Mapping response with domain response
   Future<AppResponse<LoginResponse>> login(LoginRequest loginRequest) =>
-      _authService.login(loginRequest);
+      _authRepository.login(loginRequest);
+
 }
