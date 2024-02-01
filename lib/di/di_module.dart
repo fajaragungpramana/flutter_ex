@@ -1,4 +1,4 @@
-import 'package:flutter_ex/core/remote/app/app_remote_service.dart';
+import 'package:flutter_ex/core/data/remote/app/app_remote_service.dart';
 import 'package:get/get.dart';
 
 class DiModule {

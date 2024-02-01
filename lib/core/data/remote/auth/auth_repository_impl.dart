@@ -1,8 +1,8 @@
 import 'package:flutter_ex/core/app/app_response.dart';
-import 'package:flutter_ex/core/remote/auth/auth_repository.dart';
-import 'package:flutter_ex/core/remote/auth/auth_service.dart';
-import 'package:flutter_ex/core/remote/auth/request/login_request.dart';
-import 'package:flutter_ex/core/remote/auth/response/login_response.dart';
+import 'package:flutter_ex/core/data/remote/auth/auth_repository.dart';
+import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
+import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
+import 'package:flutter_ex/core/data/remote/auth/response/login_response.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthService _authService;

@@ -1,5 +1,5 @@
 import 'package:flutter_ex/core/app/app_response.dart';
-import 'package:flutter_ex/core/remote/app/app_remote_url.dart';
+import 'package:flutter_ex/core/data/remote/app/app_remote_url.dart';
 import 'package:get/get_connect/connect.dart';
 
 class AppRemoteService extends GetConnect {

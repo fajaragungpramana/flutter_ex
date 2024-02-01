@@ -1,7 +1,7 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
-import 'package:flutter_ex/core/remote/auth/request/login_request.dart';
+import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
 import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/views/ex_hud_progress.dart';
 import 'package:get/get.dart';
@@ -45,7 +45,7 @@ class LoginController extends GetxController {
         _password.isNotEmpty && _passwordErrorMessage.isEmpty;
   }
 
-  Future<void> onLogin() async {
+  void onLogin() async {
     Get.dialog(const ExHudProgress());
 
     var result = await _authUseCase.login(LoginRequest(email: _email.value, password: _password.value));
