@@ -13,4 +13,7 @@ class AuthInteractor implements AuthUseCase {
   Future<AppResponse<LoginResponse>> login(LoginRequest loginRequest) =>
       _authRepository.login(loginRequest);
 
+  @override
+  bool get isLogin => _authRepository.isLogin;
+
 }

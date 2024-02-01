@@ -1,15 +1,16 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
+import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
 import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/views/ex_hud_progress.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginController extends GetxController {
+  final AuthUseCase _authUseCase;
 
-  final _authUseCase = Get.find<AuthUseCase>();
+  LoginController(this._authUseCase);
 
   final RxBool _isLoginEnable = false.obs;
   bool get isLoginEnable => _isLoginEnable.value;

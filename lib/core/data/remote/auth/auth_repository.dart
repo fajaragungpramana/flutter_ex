@@ -6,4 +6,6 @@ abstract class AuthRepository {
 
   Future<AppResponse<LoginResponse>> login(LoginRequest loginRequest);
 
+  bool get isLogin;
+
 }

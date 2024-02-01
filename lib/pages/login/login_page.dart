@@ -5,11 +5,10 @@ import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
+import 'package:flutter_ex/widgets/views/ex_text_field.dart';
+import 'package:flutter_ex/widgets/views/ex_text_field_secure.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../widgets/views/ex_text_field.dart';
-import '../../widgets/views/ex_text_field_secure.dart';
 
 class LoginPage extends GetView<LoginController> {
   LoginPage({Key? key}) : super(key: key);
