@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/pages/home/home_page.dart';
 import 'package:flutter_ex/pages/main/main_controller.dart';
 import 'package:flutter_ex/pages/profile/profile_page.dart';
@@ -8,8 +9,6 @@ import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../gen/assets.gen.dart';
 
 class MainPage extends GetView<MainController> {
   MainPage({Key? key}) : super(key: key);
