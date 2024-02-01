@@ -6,7 +6,6 @@ import 'package:flutter_ex/pages/profile/profile_page.dart';
 import 'package:flutter_ex/pages/statistic/statistic_page.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
-import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -24,23 +23,22 @@ class MainPage extends GetView<MainController> {
   }
 
   @override
-  Widget build(BuildContext context) => ExCollapseScaffold(
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      centerTitle: true,
       title: Obx(() => Text(
         _listTitle(context)[_mainController.bnvSelectedIndex],
         style: AppStyle.textSemiBold(),
-      )),
-      body: [
-
-        Obx(() => IndexedStack(
-          index: _mainController.bnvSelectedIndex,
-            children: const [
-              HomePage(),
-              StatisticPage(),
-              ProfilePage()
-            ]
-        ))
-
-      ],
+      ))
+    ),
+    body: Obx(() => IndexedStack(
+        index: _mainController.bnvSelectedIndex,
+        children: const [
+          HomePage(),
+          StatisticPage(),
+          ProfilePage()
+        ]
+    )),
     bottomNavigationBar: Obx(() => BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         selectedFontSize: 12,

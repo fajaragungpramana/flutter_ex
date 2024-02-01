@@ -1,20 +1,22 @@
 import 'package:flutter_ex/core/app/app_response.dart';
+import 'package:flutter_ex/core/data/local/hive_manager.dart';
 import 'package:flutter_ex/core/data/remote/app/app_remote_url.dart';
 import 'package:get/get_connect/connect.dart';
 
 class AppRemoteService extends GetConnect {
+  final HiveManager _hiveManager;
 
-  @override
-  void onInit() {
+  AppRemoteService(this._hiveManager) {
     httpClient.baseUrl = AppRemoteUrl.baseUrl;
     httpClient.timeout = const Duration(seconds: 10);
 
     httpClient.addAuthenticator<Object?>((request) {
-      request.headers["Authorization"] = "Bearer ";
+      if (_hiveManager.accessToken != null) {
+        request.headers["Authorization"] = "Bearer ${_hiveManager.accessToken}";
+      }
+
       return request;
     });
-
-    super.onInit();
   }
 
   Future<AppResponse<dynamic>> postRequest(String url, dynamic body) async {

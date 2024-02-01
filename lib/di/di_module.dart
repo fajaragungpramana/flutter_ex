@@ -6,8 +6,8 @@ class DiModule {
   const DiModule._();
 
   static void onInit() async {
-    Get.lazyPut(() => AppRemoteService());
     Get.lazyPut(() => HiveManager());
+    Get.lazyPut(() => AppRemoteService(Get.find()));
   }
 
 }

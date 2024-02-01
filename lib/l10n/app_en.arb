@@ -108,6 +108,11 @@
   "loading" : "Loading...",
   "@loading" : {
     "description" : "Loading message"
+  },
+
+  "signOut" : "Sign Out",
+  "@signOut" : {
+    "description" : "Sign Out"
   }
 
 }

@@ -17,5 +17,6 @@
   "invalidConfirmPasswordFormat" : "Katasandi tidak sama.",
   "home" : "Home",
   "statistic" : "Statistic",
-  "loading" : "Mohon tunggu..."
+  "loading" : "Mohon tunggu...",
+  "signOut" : "Keluar"
 }
