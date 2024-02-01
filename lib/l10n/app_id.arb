@@ -16,5 +16,6 @@
   "invalidPasswordFormat" : "Katasandi min 8 karakter.",
   "invalidConfirmPasswordFormat" : "Katasandi tidak sama.",
   "home" : "Home",
-  "statistic" : "Statistic"
+  "statistic" : "Statistic",
+  "loading" : "Mohon tunggu..."
 }

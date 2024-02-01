@@ -2,6 +2,8 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
 import 'package:flutter_ex/core/remote/auth/request/login_request.dart';
+import 'package:flutter_ex/routes/app_route.dart';
+import 'package:flutter_ex/widgets/views/ex_hud_progress.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -44,11 +46,23 @@ class LoginController extends GetxController {
   }
 
   Future<void> onLogin() async {
+    Get.dialog(const ExHudProgress());
+
     var result = await _authUseCase.login(LoginRequest(email: _email.value, password: _password.value));
+
+    Get.back();
     result.when(
         success: (data) {
+          Get.offAllNamed(AppRoute.main);
         },
         failure: (message) {
+          Get.showSnackbar(
+            GetSnackBar(
+              message: message,
+              duration: const Duration(seconds: 2),
+              backgroundColor: Colors.red,
+            )
+          );
         },
         error: (e) {
         });

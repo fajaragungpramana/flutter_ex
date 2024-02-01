@@ -103,6 +103,11 @@
   "profile" : "Profile",
   "@profile" : {
     "description" : "Profile"
+  },
+
+  "loading" : "Loading...",
+  "@loading" : {
+    "description" : "Loading message"
   }
 
 }
