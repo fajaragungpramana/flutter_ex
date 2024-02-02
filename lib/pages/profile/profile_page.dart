@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfilePage extends GetView<ProfileController> {
-  const ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) => Container(
@@ -17,10 +17,10 @@ class ProfilePage extends GetView<ProfileController> {
         const Spacer(),
 
         ExButton(
-          labelText: AppLocalizations.of(context)!.signOut,
-          labelColor: AppColor.red100,
-          backgroundColor: AppColor.red50,
-          onPressed: () {},
+            labelText: AppLocalizations.of(context)!.signOut,
+            labelColor: AppColor.red100,
+            backgroundColor: AppColor.red50,
+            onPressed: () { controller.onLogout(); }
         )
 
       ]

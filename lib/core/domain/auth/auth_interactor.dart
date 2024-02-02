@@ -16,4 +16,7 @@ class AuthInteractor implements AuthUseCase {
   @override
   bool get isLogin => _authRepository.isLogin;
 
+  @override
+  void clear() => _authRepository.clear();
+
 }

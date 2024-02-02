@@ -8,4 +8,6 @@ abstract class AuthUseCase {
 
   bool get isLogin;
 
+  void clear();
+
 }

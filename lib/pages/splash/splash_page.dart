@@ -6,9 +6,7 @@ import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashPage extends GetView<SplashController> {
-  SplashPage({Key? key}) : super(key: key);
-
-  final _splashController = Get.find<SplashController>();
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +24,7 @@ class SplashPage extends GetView<SplashController> {
                         children: [
 
                           Obx(() => Text(
-                              _splashController.appName,
+                              controller.appName,
                               style: AppStyle.textSemiBold(
                                   fontSize: 40,
                                   color: AppColor.green100
@@ -47,7 +45,7 @@ class SplashPage extends GetView<SplashController> {
                 Align(
                     alignment: Alignment.bottomCenter,
                     child: Obx(() => Text(
-                        AppLocalizations.of(context)!.version(_splashController.appVersion),
+                        AppLocalizations.of(context)!.version(controller.appVersion),
                       style: AppStyle.textRegular(color: AppColor.black50),
                     ))
                 )

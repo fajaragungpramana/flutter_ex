@@ -1,14 +1,14 @@
 import 'package:flutter_ex/core/app/app_response.dart';
-import 'package:flutter_ex/core/data/local/hive_manager.dart';
+import 'package:flutter_ex/core/data/local/constant/local_constant.dart';
+import 'package:flutter_ex/core/data/local/hive_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_repository.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
 import 'package:flutter_ex/core/data/remote/auth/response/login_response.dart';
-import 'package:flutter_ex/extension/string_extension.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthService _authService;
-  final HiveManager _hiveManager;
+  final HiveService _hiveManager;
 
   AuthRepositoryImpl(this._authService, this._hiveManager);
 
@@ -19,8 +19,8 @@ class AuthRepositoryImpl implements AuthRepository {
         success: (data) {
           if (data == null) return;
 
-          _hiveManager.setAccessToken = data.accessToken.orEmpty;
-          _hiveManager.setRefreshToken = data.refreshToken.orEmpty;
+          _hiveManager.set(LocalConstant.accessToken, data.accessToken);
+          _hiveManager.set(LocalConstant.refreshToken, data.refreshToken);
         },
         failure: (message) {},
         error: (e) {}
@@ -30,6 +30,9 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  bool get isLogin => _hiveManager.accessToken != null;
+  bool get isLogin => _hiveManager.get(LocalConstant.refreshToken) != null;
+
+  @override
+  void clear() => _hiveManager.clear();
 
 }

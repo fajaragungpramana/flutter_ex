@@ -8,4 +8,6 @@ abstract class AuthRepository {
 
   bool get isLogin;
 
+  void clear();
+
 }

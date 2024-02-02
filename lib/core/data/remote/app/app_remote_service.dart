@@ -1,18 +1,20 @@
 import 'package:flutter_ex/core/app/app_response.dart';
-import 'package:flutter_ex/core/data/local/hive_manager.dart';
+import 'package:flutter_ex/core/data/local/constant/local_constant.dart';
+import 'package:flutter_ex/core/data/local/hive_service.dart';
 import 'package:flutter_ex/core/data/remote/app/app_remote_url.dart';
 import 'package:get/get_connect/connect.dart';
 
 class AppRemoteService extends GetConnect {
-  final HiveManager _hiveManager;
+  final HiveService _hiveService;
 
-  AppRemoteService(this._hiveManager) {
+  AppRemoteService(this._hiveService) {
     httpClient.baseUrl = AppRemoteUrl.baseUrl;
     httpClient.timeout = const Duration(seconds: 10);
 
     httpClient.addAuthenticator<Object?>((request) {
-      if (_hiveManager.accessToken != null) {
-        request.headers["Authorization"] = "Bearer ${_hiveManager.accessToken}";
+      final accessToken = _hiveService.get(LocalConstant.accessToken);
+      if (accessToken != null) {
+        request.headers["Authorization"] = "Bearer $accessToken";
       }
 
       return request;

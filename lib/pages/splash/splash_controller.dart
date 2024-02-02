@@ -5,7 +5,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashController extends GetxController {
   final AuthUseCase _authUseCase;
-
   SplashController(this._authUseCase);
 
   final RxString _appName = "".obs;
@@ -31,7 +30,7 @@ class SplashController extends GetxController {
 
   _setDelay(int seconds) async {
     await Future.delayed(Duration(seconds: seconds), () {
-      _authUseCase.isLogin ? Get.offAndToNamed(AppRoute.main) : Get.offAndToNamed(AppRoute.login);
+      Get.offAndToNamed(_authUseCase.isLogin ? AppRoute.main : AppRoute.login);
     });
   }
 
