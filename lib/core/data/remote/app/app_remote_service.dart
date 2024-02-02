@@ -41,4 +41,24 @@ class AppRemoteService extends GetConnect {
     }
   }
 
+  Future<AppResponse<dynamic>> getRequest(String url, dynamic query) async {
+    try {
+      var response = await get(
+          url,
+          contentType: 'application/json',
+          query: query
+      );
+
+      if (response.isOk) {
+        var data = response.body['data'];
+        return AppResponse.success(data: data);
+      } else {
+        var message = response.body['message'];
+        return AppResponse.failure(message: message);
+      }
+    } catch (e) {
+      return AppResponse.error(exception: e);
+    }
+  }
+
 }
