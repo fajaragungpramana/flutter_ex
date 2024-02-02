@@ -8,6 +8,7 @@ class AppRemoteUrl {
   static const _authentication = "/authentication";
 
   static const login = "$_v1$_authentication/login";
+  static const register = "$_v1$_authentication/register";
 
 
 }

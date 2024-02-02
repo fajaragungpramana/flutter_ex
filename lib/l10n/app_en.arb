@@ -113,6 +113,16 @@
   "signOut" : "Sign Out",
   "@signOut" : {
     "description" : "Sign Out"
+  },
+
+  "signUpSuccessfully" : "Sign up Successfully",
+  "@registerSuccessfully" : {
+    "description" : "Sign up Successfully"
+  },
+
+  "signUpSuccessfullyMessage" : "You can sign in with your account",
+  "@registerSuccessfullyMessage" : {
+    "description" : "Sign up successfully message"
   }
 
 }
