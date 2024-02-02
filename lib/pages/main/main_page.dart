@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/pages/home/home_page.dart';
 import 'package:flutter_ex/pages/main/main_controller.dart';
 import 'package:flutter_ex/pages/profile/profile_page.dart';
 import 'package:flutter_ex/pages/statistic/statistic_page.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
-import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../gen/assets.gen.dart';
-
 class MainPage extends GetView<MainController> {
-  MainPage({Key? key}) : super(key: key);
-
-  final _mainController = Get.find<MainController>();
+  const MainPage({super.key});
 
   List<String> _listTitle(BuildContext context) {
     return [
@@ -25,23 +21,22 @@ class MainPage extends GetView<MainController> {
   }
 
   @override
-  Widget build(BuildContext context) => ExCollapseScaffold(
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(
+      centerTitle: true,
       title: Obx(() => Text(
-        _listTitle(context)[_mainController.bnvSelectedIndex],
+        _listTitle(context)[controller.bnvSelectedIndex],
         style: AppStyle.textSemiBold(),
-      )),
-      body: [
-
-        Obx(() => IndexedStack(
-          index: _mainController.bnvSelectedIndex,
-            children: const [
-              HomePage(),
-              StatisticPage(),
-              ProfilePage()
-            ]
-        ))
-
-      ],
+      ))
+    ),
+    body: Obx(() => IndexedStack(
+        index: controller.bnvSelectedIndex,
+        children: const [
+          HomePage(),
+          StatisticPage(),
+          ProfilePage()
+        ]
+    )),
     bottomNavigationBar: Obx(() => BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
         selectedFontSize: 12,
@@ -50,20 +45,20 @@ class MainPage extends GetView<MainController> {
             fontSize: 10,
             color: AppColor.green100
         ),
-        currentIndex: _mainController.bnvSelectedIndex,
-        onTap: (index) { _mainController.setBnvSelectedIndex(index); },
+        currentIndex: controller.bnvSelectedIndex,
+        onTap: (index) { controller.setBnvSelectedIndex(index); },
         items: [
 
           BottomNavigationBarItem(
-              icon: _mainController.bnvSelectedIndex == 0 ? Assets.lib.resources.drawables.icHomeGreen.image() : Assets.lib.resources.drawables.icHomeGray.image(),
+              icon: controller.bnvSelectedIndex == 0 ? Assets.lib.resources.drawables.icHomeGreen.image() : Assets.lib.resources.drawables.icHomeGray.image(),
               label: AppLocalizations.of(context)!.home
           ),
           BottomNavigationBarItem(
-              icon: _mainController.bnvSelectedIndex == 1 ? Assets.lib.resources.drawables.icStatisticGreen.image() : Assets.lib.resources.drawables.icStatisticGray.image(),
+              icon: controller.bnvSelectedIndex == 1 ? Assets.lib.resources.drawables.icStatisticGreen.image() : Assets.lib.resources.drawables.icStatisticGray.image(),
               label: AppLocalizations.of(context)!.statistic
           ),
           BottomNavigationBarItem(
-              icon: _mainController.bnvSelectedIndex == 2 ? Assets.lib.resources.drawables.icProfileGreen.image() : Assets.lib.resources.drawables.icProfileGray.image(),
+              icon: controller.bnvSelectedIndex == 2 ? Assets.lib.resources.drawables.icProfileGreen.image() : Assets.lib.resources.drawables.icProfileGray.image(),
               label: AppLocalizations.of(context)!.profile
           )
 

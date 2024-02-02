@@ -11,10 +11,20 @@ State Management :
 
 Design :
 - Clean Architecture
-- Modularization
 - MVVM Pattern
 - Repository Pattern
 - Localization
+
+# Getting Started
+To get started with this project, you will need to have the following installed on your local machine:
+- Minimum Dart Version 3.2.6
+- Minimum Flutter SDK Version 3.16.9
+
+To build and run the project, follow these steps:
+- Clone the repository: git clone `https://github.com/fajaragungpramana/flutter_ex`
+- Navigate to the project directory: cd flutter_ex
+- Build the project: `flutter pub get` and `dart run build_runner build --delete-conflicting-outputs`
+- Run the project: `flutter run lib/main.dart`
 
 ## Preview [Emulator Google Pixel 3a API 34]
 <img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Splash.png" width="393" height="852">

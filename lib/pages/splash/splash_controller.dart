@@ -1,7 +1,11 @@
+import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
+import 'package:flutter_ex/routes/app_route.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashController extends GetxController {
+  final AuthUseCase _authUseCase;
+  SplashController(this._authUseCase);
 
   final RxString _appName = "".obs;
   String get appName => _appName.value;
@@ -12,6 +16,7 @@ class SplashController extends GetxController {
   @override
   void onInit() {
     _getPackageInfo();
+    _setDelay(3);
 
     super.onInit();
   }
@@ -23,10 +28,16 @@ class SplashController extends GetxController {
     _appVersion.value = packageInfo.version;
   }
 
-  setDelay(Function() run) async {
-    await Future.delayed(const Duration(seconds: 3), () {
-      run();
+  _setDelay(int seconds) async {
+    await Future.delayed(Duration(seconds: seconds), () {
+      Get.offAndToNamed(_authUseCase.isLogin ? AppRoute.main : AppRoute.login);
     });
+  }
+
+  @override
+  void dispose() {
+    Get.deleteAll();
+    super.dispose();
   }
 
 }

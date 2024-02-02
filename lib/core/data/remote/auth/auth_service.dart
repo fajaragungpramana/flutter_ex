@@ -1,8 +1,8 @@
 import 'package:flutter_ex/core/app/app_response.dart';
-import 'package:flutter_ex/core/remote/app/app_remote_service.dart';
-import 'package:flutter_ex/core/remote/app/app_remote_url.dart';
-import 'package:flutter_ex/core/remote/auth/request/login_request.dart';
-import 'package:flutter_ex/core/remote/auth/response/login_response.dart';
+import 'package:flutter_ex/core/data/remote/app/app_remote_service.dart';
+import 'package:flutter_ex/core/data/remote/app/app_remote_url.dart';
+import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
+import 'package:flutter_ex/core/data/remote/auth/response/login_response.dart';
 
 class AuthService {
   final AppRemoteService _appRemoteService;

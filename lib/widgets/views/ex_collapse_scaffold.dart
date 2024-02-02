@@ -21,6 +21,8 @@ class ExCollapseScaffold extends StatelessWidget {
             expandedHeight: 100.0,
             collapsedHeight: collapseEnable ? 56 : 100.0,
             pinned: true,
+            backgroundColor: Colors.white,
+            surfaceTintColor: Colors.white,
             flexibleSpace: ExFlexibleSpaceBar(
               titlePadding: EdgeInsetsTween(
                   begin: const EdgeInsets.all(16),
