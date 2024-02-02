@@ -1,9 +1,17 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
+import 'package:flutter_ex/core/data/remote/auth/request/register_request.dart';
+import 'package:flutter_ex/resources/values/app_color.dart';
+import 'package:flutter_ex/widgets/views/ex_hud_progress.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterController extends GetxController {
+  final AuthService _authService;
+
+  RegisterController(this._authService);
 
   final _appLocalization = AppLocalizations.of(Get.context as BuildContext)!;
 
@@ -66,6 +74,46 @@ class RegisterController extends GetxController {
             _email.isNotEmpty && _emailErrorMessage.value.isEmpty &&
             _password.isNotEmpty && _passwordErrorMessage.value.isEmpty &&
             _confirmPassword.isNotEmpty && _confirmPasswordErrorMessage.value.isEmpty;
+  }
+
+  void onRegister() async {
+    Get.dialog(const ExHudProgress());
+
+    var result = await _authService.register(RegisterRequest(
+        fullName: _fullName.value,
+        email: _email.value,
+        password: _password.value
+    ));
+
+    Get.back();
+    result.when(
+        success: (data) {
+          Get.back();
+
+          Get.snackbar(
+              _appLocalization.signUpSuccessfully,
+              _appLocalization.signUpSuccessfullyMessage,
+              colorText: Colors.white,
+              backgroundColor: AppColor.green100
+          );
+        },
+        failure: (message) {
+          Get.showSnackbar(
+              GetSnackBar(
+                message: message,
+                duration: const Duration(seconds: 2),
+                backgroundColor: Colors.red,
+              )
+          );
+        }, error: (e) {}
+    );
+
+  }
+
+  @override
+  void dispose() {
+    Get.deleteAll();
+    super.dispose();
   }
 
 }
