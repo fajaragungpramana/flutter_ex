@@ -65,8 +65,8 @@ class LoginController extends GetxController {
             )
           );
         },
-        error: (e) {
-        });
+        error: (e) {}
+    );
   }
 
   @override

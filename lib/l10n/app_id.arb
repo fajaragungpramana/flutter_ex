@@ -18,5 +18,7 @@
   "home" : "Home",
   "statistic" : "Statistic",
   "loading" : "Mohon tunggu...",
-  "signOut" : "Keluar"
+  "signOut" : "Keluar",
+  "registerSuccessfully" : "Pendaftaran Berhasil",
+  "registerSuccessfullyMessage" : "Kamu bisa masuk menggunakan akun kamu"
 }

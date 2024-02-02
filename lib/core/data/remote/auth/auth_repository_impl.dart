@@ -4,6 +4,7 @@ import 'package:flutter_ex/core/data/local/hive_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_repository.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
+import 'package:flutter_ex/core/data/remote/auth/request/register_request.dart';
 import 'package:flutter_ex/core/data/remote/auth/response/login_response.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -34,5 +35,9 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   void clear() => _hiveManager.clear();
+
+  @override
+  Future<AppResponse<bool>> register(RegisterRequest registerRequest) async =>
+      _authService.register(registerRequest);
 
 }

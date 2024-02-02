@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/pages/register/register_controller.dart';
+import 'package:flutter_ex/resources/values/app_color.dart';
+import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
 import 'package:flutter_ex/widgets/views/ex_text_field.dart';
@@ -7,13 +9,8 @@ import 'package:flutter_ex/widgets/views/ex_text_field_secure.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../resources/values/app_color.dart';
-import '../../resources/values/app_style.dart';
-
 class RegisterPage extends GetView<RegisterController> {
-  RegisterPage({Key? key}) : super(key: key);
-
-  final _registerController = Get.find<RegisterController>();
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) => ExCollapseScaffold(
@@ -34,36 +31,36 @@ class RegisterPage extends GetView<RegisterController> {
 
         Obx(() => ExTextField(
             labelText: AppLocalizations.of(context)!.fullName,
-            errorText: _registerController.fullNameErrorMessage,
+            errorText: controller.fullNameErrorMessage,
             onChanged: (text) {
-              _registerController.setFullName(text);
+              controller.setFullName(text);
             })),
 
         const SizedBox(height: 16),
 
         Obx(() => ExTextField(
             labelText: AppLocalizations.of(context)!.email,
-            errorText: _registerController.emailErrorMessage,
+            errorText: controller.emailErrorMessage,
             onChanged: (text) {
-              _registerController.setEmail(text);
+              controller.setEmail(text);
             })),
 
         const SizedBox(height: 16),
 
         Obx(() => ExTextFieldSecure(
             labelText: AppLocalizations.of(context)!.password,
-            errorText: _registerController.passwordErrorMessage,
+            errorText: controller.passwordErrorMessage,
             onChanged: (text) {
-              _registerController.setPassword(text);
+              controller.setPassword(text);
             })),
 
         const SizedBox(height: 16),
 
         Obx(() => ExTextFieldSecure(
             labelText: AppLocalizations.of(context)!.confirmPassword,
-            errorText: _registerController.confirmPasswordErrorMessage,
+            errorText: controller.confirmPasswordErrorMessage,
             onChanged: (text) {
-              _registerController.setConfirmPassword(text);
+              controller.setConfirmPassword(text);
             })),
 
         const SizedBox(height: 40)
@@ -74,8 +71,8 @@ class RegisterPage extends GetView<RegisterController> {
 
           Obx(() => ExButton(
               labelText: AppLocalizations.of(context)!.signIn,
-              enable: _registerController.isRegisterEnable,
-              onPressed: () { }
+              enable: controller.isRegisterEnable,
+              onPressed: () { controller.onRegister(); }
           )),
 
           Row(

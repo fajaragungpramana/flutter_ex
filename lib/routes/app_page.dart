@@ -18,22 +18,22 @@ class AppPage {
   static final listRoute = [
     GetPage(
         name: AppRoute.splash,
-        page: () => SplashPage(),
+        page: () => const SplashPage(),
         binding: SplashBinding(),
         transition: Transition.rightToLeftWithFade),
     GetPage(
         name: AppRoute.login,
-        page: () => LoginPage(),
+        page: () => const LoginPage(),
         binding: LoginBinding(),
         transition: Transition.rightToLeftWithFade),
     GetPage(
         name: AppRoute.register,
-        page: () => RegisterPage(),
+        page: () => const RegisterPage(),
         binding: RegisterBinding(),
         transition: Transition.rightToLeftWithFade),
     GetPage(
         name: AppRoute.main,
-        page: () => MainPage(),
+        page: () => const MainPage(),
         binding: MainBinding(),
         transition: Transition.rightToLeftWithFade)
   ];
