@@ -5,16 +5,13 @@ import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
+import 'package:flutter_ex/widgets/views/ex_text_field.dart';
+import 'package:flutter_ex/widgets/views/ex_text_field_secure.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../widgets/views/ex_text_field.dart';
-import '../../widgets/views/ex_text_field_secure.dart';
-
 class LoginPage extends GetView<LoginController> {
-  LoginPage({Key? key}) : super(key: key);
-
-  final _loginController = Get.find<LoginController>();
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) => ExCollapseScaffold(
@@ -35,19 +32,17 @@ class LoginPage extends GetView<LoginController> {
 
         Obx(() => ExTextField(
             labelText: AppLocalizations.of(context)!.email,
-            errorText: _loginController.emailErrorMessage,
-            onChanged: (text) {
-              _loginController.setEmail(text);
-            })),
+            errorText: controller.emailErrorMessage,
+            onChanged: (text) => controller.setEmail(text)
+        )),
 
         const SizedBox(height: 16),
 
         Obx(() => ExTextFieldSecure(
             labelText: AppLocalizations.of(context)!.password,
-            errorText: _loginController.passwordErrorMessage,
-            onChanged: (text) {
-              _loginController.setPassword(text);
-            })),
+            errorText: controller.passwordErrorMessage,
+            onChanged: (text) => controller.setPassword(text)
+        )),
 
         Align(
             alignment: Alignment.centerRight,
@@ -68,10 +63,8 @@ class LoginPage extends GetView<LoginController> {
 
           Obx(() => ExButton(
               labelText: AppLocalizations.of(context)!.signIn,
-              enable: _loginController.isLoginEnable,
-              onPressed: () {
-                _loginController.onLogin();
-              }
+              enable: controller.isLoginEnable,
+              onPressed: () => controller.onLogin()
           )),
 
           Row(
