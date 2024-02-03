@@ -30,38 +30,34 @@ class RegisterPage extends GetView<RegisterController> {
         const SizedBox(height: 40),
 
         Obx(() => ExTextField(
+            controller: controller.fullNameController,
             labelText: AppLocalizations.of(context)!.fullName,
-            errorText: controller.fullNameErrorMessage,
-            onChanged: (text) {
-              controller.setFullName(text);
-            })),
+            errorText: controller.fullNameErrorMessage
+        )),
 
         const SizedBox(height: 16),
 
         Obx(() => ExTextField(
+            controller: controller.emailController,
             labelText: AppLocalizations.of(context)!.email,
-            errorText: controller.emailErrorMessage,
-            onChanged: (text) {
-              controller.setEmail(text);
-            })),
+            errorText: controller.emailErrorMessage
+        )),
 
         const SizedBox(height: 16),
 
         Obx(() => ExTextFieldSecure(
+            controller: controller.passwordController,
             labelText: AppLocalizations.of(context)!.password,
-            errorText: controller.passwordErrorMessage,
-            onChanged: (text) {
-              controller.setPassword(text);
-            })),
+            errorText: controller.passwordErrorMessage
+        )),
 
         const SizedBox(height: 16),
 
         Obx(() => ExTextFieldSecure(
+            controller: controller.passwordConfirmController,
             labelText: AppLocalizations.of(context)!.confirmPassword,
-            errorText: controller.confirmPasswordErrorMessage,
-            onChanged: (text) {
-              controller.setConfirmPassword(text);
-            })),
+            errorText: controller.confirmPasswordErrorMessage
+        )),
 
         const SizedBox(height: 40)
 

@@ -10,19 +10,11 @@ class ProfileController extends GetxController {
 
   ProfileController(this._authUseCase, this._userUseCase);
 
-  @override
-  void onInit() {
-    _me();
-
-    super.onInit();
-  }
-
-  void _me() async {
+  void me() async {
 
     var result = await _userUseCase.me();
     result.when(
         success: (data) {
-
         },
         failure: (message) {
           Get.showSnackbar(

@@ -9,21 +9,27 @@ class ProfilePage extends GetView<ProfileController> {
   const ProfilePage({super.key});
 
   @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.all(16),
-    child: Column(
-      children: [
+  Widget build(BuildContext context) {
+    controller.me();
 
-        const Spacer(),
+    return Container(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+            children: [
 
-        ExButton(
-            labelText: AppLocalizations.of(context)!.signOut,
-            labelColor: AppColor.red100,
-            backgroundColor: AppColor.red50,
-            onPressed: () { controller.onLogout(); }
+              const Spacer(),
+
+              ExButton(
+                  labelText: AppLocalizations.of(context)!.signOut,
+                  labelColor: AppColor.red100,
+                  backgroundColor: AppColor.red50,
+                  onPressed: () {
+                    controller.onLogout();
+                  }
+              )
+
+            ]
         )
-
-      ]
-    )
-  );
+    );
+  }
 }

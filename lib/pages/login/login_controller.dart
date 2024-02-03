@@ -12,44 +12,45 @@ class LoginController extends GetxController {
 
   LoginController(this._authUseCase);
 
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   final RxBool _isLoginEnable = false.obs;
   bool get isLoginEnable => _isLoginEnable.value;
-
-  final RxString _email = "".obs;
-  final RxString _password = "".obs;
 
   final RxString _emailErrorMessage = "".obs;
   String get emailErrorMessage => _emailErrorMessage.value;
 
-  final RxString _passwordErrorMessage = "".obs;
-  String get passwordErrorMessage => _passwordErrorMessage.value;
+  @override
+  void onInit() {
+    emailController.addListener(_setEmail);
+    passwordController.addListener(_setPassword);
 
-  void setEmail(String email) async {
-    var isValidEmail = EmailValidator.validate(email);
+    super.onInit();
+  }
+
+  void _setEmail() async {
+    var isValidEmail = EmailValidator.validate(emailController.text);
     _emailErrorMessage.value = isValidEmail ? "" : AppLocalizations.of(Get.context as BuildContext)!.invalidEmailFormat;
 
-    _email.value = email;
-
     _onLoginEnable();
   }
 
-  void setPassword(String password) async {
-    _passwordErrorMessage.value = "";
-
-    _password.value = password;
-
-    _onLoginEnable();
-  }
+  void _setPassword() async => _onLoginEnable();
 
   void _onLoginEnable() async {
-    _isLoginEnable.value = _email.isNotEmpty && _emailErrorMessage.isEmpty &&
-        _password.isNotEmpty && _passwordErrorMessage.isEmpty;
+    var email = emailController.text;
+    var password = passwordController.text;
+
+    _isLoginEnable.value = email.isNotEmpty && _emailErrorMessage.isEmpty && password.isNotEmpty;
   }
 
   void onLogin() async {
     Get.dialog(const ExHudProgress());
 
-    var result = await _authUseCase.login(LoginRequest(email: _email.value, password: _password.value));
+    var email = emailController.text;
+    var password = passwordController.text;
+    var result = await _authUseCase.login(LoginRequest(email: email, password: password));
 
     Get.back();
     result.when(
@@ -70,9 +71,11 @@ class LoginController extends GetxController {
   }
 
   @override
-  void dispose() {
-    Get.deleteAll();
-    super.dispose();
+  void onClose() {
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.onClose();
   }
 
 }
