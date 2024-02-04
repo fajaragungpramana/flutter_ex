@@ -1,5 +1,4 @@
 import 'package:email_validator/email_validator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/register_request.dart';
@@ -13,12 +12,12 @@ class RegisterController extends GetxController {
 
   RegisterController(this._authService);
 
-  final _appLocalization = AppLocalizations.of(Get.context as BuildContext)!;
+  final fullNameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordConfirmController = TextEditingController();
 
-  final RxString _fullName = "".obs;
-  final RxString _email = "".obs;
-  final RxString _password = "".obs;
-  final RxString _confirmPassword = "".obs;
+  final _appLocalization = AppLocalizations.of(Get.context as BuildContext)!;
 
   final RxString _fullNameErrorMessage = "".obs;
   String get fullNameErrorMessage => _fullNameErrorMessage.value;
@@ -35,54 +34,55 @@ class RegisterController extends GetxController {
   final RxBool _isRegisterEnable = false.obs;
   bool get isRegisterEnable => _isRegisterEnable.value;
 
-  void setFullName(String fullName) async {
-    _fullNameErrorMessage.value = fullName.length >= 4 ? "" : _appLocalization.invalidFullNameFormat;
+  @override
+  void onInit() {
+    fullNameController.addListener(_setFullName);
+    emailController.addListener(_setEmail);
+    passwordController.addListener(_setPassword);
+    passwordConfirmController.addListener(_setPasswordConfirm);
 
-    _fullName.value = fullName;
+    super.onInit();
+  }
 
+  void _setFullName() async {
+    _fullNameErrorMessage.value = fullNameController.text.length >= 4 ? "" : _appLocalization.invalidFullNameFormat;
     _onRegisterEnable();
   }
 
-  void setEmail(String email) async {
-    final isValidEmail = EmailValidator.validate(email);
+  void _setEmail() async {
+    final isValidEmail = EmailValidator.validate(emailController.text);
     _emailErrorMessage.value = isValidEmail ? "" : _appLocalization.invalidEmailFormat;
 
-    _email.value = email;
+    _onRegisterEnable();
+  }
+
+  void _setPassword() async {
+    _passwordErrorMessage.value = passwordController.text.length >= 8 ? "" : _appLocalization.invalidPasswordFormat;
 
     _onRegisterEnable();
   }
 
-  void setPassword(String password) async {
-    _passwordErrorMessage.value = password.length >= 8 ? "" : _appLocalization.invalidPasswordFormat;
-
-    _password.value = password;
-
-    _onRegisterEnable();
-  }
-
-  void setConfirmPassword(String confirmPassword) async {
-    _confirmPasswordErrorMessage.value = _password.value == confirmPassword ? "" : _appLocalization.invalidConfirmPasswordFormat;
-
-    _confirmPassword.value = confirmPassword;
+  void _setPasswordConfirm() async {
+    _confirmPasswordErrorMessage.value = passwordController.text == passwordConfirmController.text ? "" : _appLocalization.invalidConfirmPasswordFormat;
 
     _onRegisterEnable();
   }
 
   void _onRegisterEnable() async {
     _isRegisterEnable.value =
-        _fullName.isNotEmpty && _fullNameErrorMessage.value.isEmpty &&
-            _email.isNotEmpty && _emailErrorMessage.value.isEmpty &&
-            _password.isNotEmpty && _passwordErrorMessage.value.isEmpty &&
-            _confirmPassword.isNotEmpty && _confirmPasswordErrorMessage.value.isEmpty;
+        fullNameController.text.isNotEmpty && _fullNameErrorMessage.value.isEmpty &&
+            emailController.text.isNotEmpty && _emailErrorMessage.value.isEmpty &&
+            passwordController.text.isNotEmpty && _passwordErrorMessage.value.isEmpty &&
+            passwordConfirmController.text.isNotEmpty && _confirmPasswordErrorMessage.value.isEmpty;
   }
 
   void onRegister() async {
     Get.dialog(const ExHudProgress());
 
     var result = await _authService.register(RegisterRequest(
-        fullName: _fullName.value,
-        email: _email.value,
-        password: _password.value
+        fullName: fullNameController.text,
+        email: emailController.text,
+        password: passwordConfirmController.text
     ));
 
     Get.back();
@@ -111,9 +111,13 @@ class RegisterController extends GetxController {
   }
 
   @override
-  void dispose() {
-    Get.deleteAll();
-    super.dispose();
+  void onClose() {
+    fullNameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    passwordConfirmController.dispose();
+
+    super.onClose();
   }
 
 }

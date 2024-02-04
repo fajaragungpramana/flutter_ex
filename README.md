@@ -6,8 +6,18 @@ App for management money expenses in `Multiplatform`.
 Language :
 - Dart [Flutter Framework]
 
+Dependencies Injection :
+- GetX [Binding]
+
 State Management :
-- GetX
+- GetX [GetController]
+
+Network Service :
+- GetX [GetConnect]
+- Freezed
+
+Local Storage : 
+- Hive
 
 Design :
 - Clean Architecture

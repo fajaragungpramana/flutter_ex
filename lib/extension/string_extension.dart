@@ -1,5 +1,5 @@
 extension StringExtension on String? {
 
-  String get orEmpty => this != null ? "" : this!;
+  String get orEmpty => this ?? "";
 
 }

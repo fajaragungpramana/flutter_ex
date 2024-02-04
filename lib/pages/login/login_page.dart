@@ -31,18 +31,17 @@ class LoginPage extends GetView<LoginController> {
         const SizedBox(height: 40),
 
         Obx(() => ExTextField(
+            controller: controller.emailController,
             labelText: AppLocalizations.of(context)!.email,
-            errorText: controller.emailErrorMessage,
-            onChanged: (text) => controller.setEmail(text)
+            errorText: controller.emailErrorMessage
         )),
 
         const SizedBox(height: 16),
 
-        Obx(() => ExTextFieldSecure(
-            labelText: AppLocalizations.of(context)!.password,
-            errorText: controller.passwordErrorMessage,
-            onChanged: (text) => controller.setPassword(text)
-        )),
+        ExTextFieldSecure(
+            controller: controller.passwordController,
+            labelText: AppLocalizations.of(context)!.password
+        ),
 
         Align(
             alignment: Alignment.centerRight,

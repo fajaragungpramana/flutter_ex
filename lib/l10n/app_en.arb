@@ -123,6 +123,21 @@
   "signUpSuccessfullyMessage" : "You can sign in with your account",
   "@registerSuccessfullyMessage" : {
     "description" : "Sign up successfully message"
+  },
+
+  "cancel" : "Cancel",
+  "@cancel" : {
+    "description" : "Cancel"
+  },
+
+  "areYouSureToSignOut" : "Are you sure to sign out?",
+  "@areYouSureToSignOut" : {
+    "description" : "Sign out title"
+  },
+
+  "areYouSureToSignOutMessage" : "You must sign in again.",
+  "@areYouSureToSignOutMessage" : {
+    "description" : "Sign out message"
   }
 
 }

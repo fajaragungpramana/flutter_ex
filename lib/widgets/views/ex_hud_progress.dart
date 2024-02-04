@@ -7,36 +7,38 @@ class ExHudProgress extends StatelessWidget {
   const ExHudProgress({super.key});
 
   @override
-  Widget build(BuildContext context) =>
-      Center(
-        child:
-        Wrap(
-          children: [
-            Container(
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
+  Widget build(BuildContext context) => Scaffold(
+      backgroundColor: Colors.black26,
+      body: Center(
+          child:
+          Wrap(
+              children: [
+                Container(
+                    decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      children: [
 
-                  const CircularProgressIndicator(
-                    color: AppColor.green100
-                  ),
+                        const CircularProgressIndicator(
+                            color: AppColor.green100
+                        ),
 
-                  const SizedBox(height: 8),
+                        const SizedBox(height: 8),
 
-                  Text(
-                    AppLocalizations.of(context)!.loading,
-                    style: AppStyle.textSemiBold(fontSize: 14),
-                  )
+                        Text(
+                          AppLocalizations.of(context)!.loading,
+                          style: AppStyle.textSemiBold(fontSize: 14),
+                        )
 
-                ],
-              )
-            )
-          ]
-        )
-      );
+                      ],
+                    )
+                )
+              ]
+          )
+      )
+  );
 
 }
