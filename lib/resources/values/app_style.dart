@@ -15,4 +15,19 @@ class AppStyle {
           fontSize: fontSize,
           fontWeight: FontWeight.w600,
           color: color);
+
+  static RoundedRectangleBorder roundedRectangleCorner({
+    double topLeft = 0,
+    double topRight = 0,
+    double bottomLeft = 0,
+    double bottomRight = 0
+  }) => RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(topLeft),
+          topRight: Radius.circular(topRight),
+          bottomLeft: Radius.circular(bottomLeft),
+          bottomRight: Radius.circular(bottomRight),
+      )
+  );
+
 }

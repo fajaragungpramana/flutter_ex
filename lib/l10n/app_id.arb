@@ -15,10 +15,14 @@
   "invalidFullNameFormat" : "Nama lengkap min 4 karakter.",
   "invalidPasswordFormat" : "Katasandi min 8 karakter.",
   "invalidConfirmPasswordFormat" : "Katasandi tidak sama.",
-  "home" : "Home",
-  "statistic" : "Statistic",
+  "home" : "Beranda",
+  "statistic" : "Statistik",
+  "profile" : "Profil",
   "loading" : "Mohon tunggu...",
   "signOut" : "Keluar",
   "registerSuccessfully" : "Pendaftaran Berhasil",
-  "registerSuccessfullyMessage" : "Kamu bisa masuk menggunakan akun kamu"
+  "registerSuccessfullyMessage" : "Kamu bisa masuk menggunakan akun kamu",
+  "cancel" : "Batal",
+  "areYouSureToSignOut" : "Kamu yakin ingin keluar?",
+  "areYouSureToSignOutMessage" : "Kamu harus masuk ulang untuk kembali."
 }
