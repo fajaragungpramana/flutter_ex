@@ -7,13 +7,13 @@ Language :
 - Dart [Flutter Framework]
 
 Dependencies Injection :
-- GetX
+- GetX [Binding]
 
 State Management :
-- GetX
+- GetX [GetController]
 
 Network Service :
-- GetX
+- GetX [GetConnect]
 - Freezed
 
 Local Storage : 
