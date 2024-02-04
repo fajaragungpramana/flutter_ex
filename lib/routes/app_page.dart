@@ -1,5 +1,6 @@
 import 'package:flutter_ex/pages/login/login_binding.dart';
 import 'package:flutter_ex/pages/login/login_page.dart';
+import 'package:flutter_ex/pages/main/main_binding.dart';
 import 'package:flutter_ex/pages/main/main_page.dart';
 import 'package:flutter_ex/pages/register/register_binding.dart';
 import 'package:flutter_ex/pages/register/register_page.dart';
@@ -7,8 +8,6 @@ import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/pages/splash/splash_binding.dart';
 import 'package:flutter_ex/pages/splash/splash_page.dart';
 import 'package:get/get.dart';
-
-import '../pages/main/main_binding.dart';
 
 class AppPage {
   const AppPage._();
@@ -19,22 +18,18 @@ class AppPage {
     GetPage(
         name: AppRoute.splash,
         page: () => const SplashPage(),
-        binding: SplashBinding(),
-        transition: Transition.rightToLeftWithFade),
+        binding: SplashBinding()),
     GetPage(
         name: AppRoute.login,
         page: () => const LoginPage(),
-        binding: LoginBinding(),
-        transition: Transition.rightToLeftWithFade),
+        binding: LoginBinding()),
     GetPage(
         name: AppRoute.register,
         page: () => const RegisterPage(),
-        binding: RegisterBinding(),
-        transition: Transition.rightToLeftWithFade),
+        binding: RegisterBinding()),
     GetPage(
         name: AppRoute.main,
         page: () => const MainPage(),
-        binding: MainBinding(),
-        transition: Transition.rightToLeftWithFade)
+        binding: MainBinding())
   ];
 }

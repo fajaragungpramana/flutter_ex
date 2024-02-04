@@ -21,9 +21,11 @@ class ExButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SizedBox(
       width: double.infinity,
+      height: 52,
       child: ElevatedButton(
           onPressed: enable ? onPressed : null,
           style: ElevatedButton.styleFrom(
+              elevation: 0,
               backgroundColor: backgroundColor,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12)
