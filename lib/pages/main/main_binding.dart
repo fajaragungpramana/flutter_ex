@@ -9,7 +9,7 @@ class MainBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => MainController());
-    Get.lazyPut(() => HomeController());
+    Get.lazyPut(() => HomeController(Get.find()));
     Get.lazyPut(() => StatisticController());
     Get.lazyPut(() => ProfileController(Get.find(), Get.find()));
   }
