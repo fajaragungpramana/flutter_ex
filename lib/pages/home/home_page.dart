@@ -77,11 +77,14 @@ class HomePage extends GetView<HomeController> {
 
                   const Spacer(),
 
-                  TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        AppLocalizations.of(context)!.addWallet,
-                        style: AppStyle.textSemiBold(color: AppColor.green100, fontSize: 14),
+                  Visibility(
+                      visible: true,
+                      child: TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            AppLocalizations.of(context)!.addWallet,
+                            style: AppStyle.textSemiBold(color: AppColor.green100, fontSize: 14),
+                          )
                       )
                   )
 
