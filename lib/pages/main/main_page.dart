@@ -22,13 +22,7 @@ class MainPage extends GetView<MainController> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      centerTitle: true,
-      title: Obx(() => Text(
-        _listTitle(context)[controller.bnvSelectedIndex],
-        style: AppStyle.textSemiBold(),
-      ))
-    ),
+    extendBodyBehindAppBar: true,
     body: Obx(() => IndexedStack(
         index: controller.bnvSelectedIndex,
         children: const [
