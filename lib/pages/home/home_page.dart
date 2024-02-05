@@ -5,6 +5,7 @@ import 'package:flutter_ex/pages/home/home_controller.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -12,6 +13,7 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColor.gray10,
       appBar: AppBar(
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,10 +46,50 @@ class HomePage extends GetView<HomeController> {
 
         ]
       ),
-      body: Column(
-        children: [
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: ListView(
+            children: [
 
-        ]
+              const SizedBox(height: 16),
+
+              Row(
+                children: [
+
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+
+                      Text(
+                          AppLocalizations.of(context)!.totalBalance,
+                          style: AppStyle.textRegular(color: AppColor.black50)
+                      ),
+
+                      const SizedBox(height: 2),
+
+                      Text(
+                        AppLocalizations.of(context)!.rp0,
+                        style: AppStyle.textSemiBold(fontSize: 20),
+                      )
+
+                    ]
+                  ),
+
+                  const Spacer(),
+
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        AppLocalizations.of(context)!.addWallet,
+                        style: AppStyle.textSemiBold(color: AppColor.green100, fontSize: 14),
+                      )
+                  )
+
+                ]
+              )
+
+            ]
+        )
       )
     );
   }

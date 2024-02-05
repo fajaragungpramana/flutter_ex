@@ -138,6 +138,21 @@
   "areYouSureToSignOutMessage" : "You must sign in again.",
   "@areYouSureToSignOutMessage" : {
     "description" : "Sign out message"
+  },
+
+  "totalBalance" : "Total Balance",
+  "@totalBalance" : {
+    "description" : "Total balance"
+  },
+
+  "rp0" : "Rp0",
+  "@rp0" : {
+    "description" : "Default balance"
+  },
+
+  "addWallet" : "Add Wallet",
+  "@addWallet" : {
+    "description" : "Add wallet"
   }
 
 }
