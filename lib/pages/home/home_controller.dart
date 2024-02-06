@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/user/response/user_response.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
@@ -17,10 +19,14 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
-    _me();
-    _listWallet();
+    onRequest();
 
     super.onInit();
+  }
+
+  void onRequest() async {
+    _me();
+    _listWallet();
   }
 
   void _me() async {

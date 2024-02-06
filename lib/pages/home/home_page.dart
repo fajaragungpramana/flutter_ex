@@ -50,8 +50,13 @@ class HomePage extends GetView<HomeController> {
       body: Container(
         color: AppColor.gray10,
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: ListView(
-            children: [
+        child: RefreshIndicator(
+          onRefresh: () async { controller.onRequest(); },
+          child: ListView(
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()
+              ),
+              children: [
 
                 const SizedBox(height: 16),
 
@@ -145,6 +150,9 @@ class HomePage extends GetView<HomeController> {
                     height: 190,
                     child: Obx(() => ListView.builder(
                         scrollDirection: Axis.horizontal,
+                        physics: const BouncingScrollPhysics(
+                            parent: AlwaysScrollableScrollPhysics()
+                        ),
                         itemCount: controller.listWalletResponse.length,
                         itemBuilder: (context, index) =>
                             WalletItem(walletResponse: controller.listWalletResponse[index])
@@ -152,8 +160,9 @@ class HomePage extends GetView<HomeController> {
                 )
 
               ]
-            )
+          )
         )
-      );
+      )
+    );
   }
 }
