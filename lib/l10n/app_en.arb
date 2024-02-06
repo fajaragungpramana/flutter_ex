@@ -168,6 +168,16 @@
   "createOne" : "Create One",
   "@createOne" : {
     "description" : "Create one"
+  },
+
+  "name" : "Name",
+  "@name" : {
+    "description" : "Name"
+  },
+
+  "balance" : "Balance",
+  "@balance" : {
+    "description" : "Balance"
   }
 
 }
