@@ -7,6 +7,7 @@ import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/items/wallet_item.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({Key? key}) : super(key: key);
@@ -16,25 +17,28 @@ class HomePage extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.gray10,
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+        title: Obx(() => Skeletonizer(
+            enabled: controller.userLoading,
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
 
-            Obx(() => Text(
-              controller.userResponse.fullName.orEmpty,
-              style: AppStyle.textSemiBold(fontSize: 20)
-            )),
+                  Text(
+                      controller.userResponse.fullName.orEmpty,
+                      style: AppStyle.textSemiBold(fontSize: 20)
+                  ),
 
-            Obx(() => Text(
-              controller.userResponse.email.orEmpty,
-              style: AppStyle.textRegular(
-                  color: AppColor.black50,
-                  fontSize: 14
-              )
-            ))
+                  Text(
+                      controller.userResponse.email.orEmpty,
+                      style: AppStyle.textRegular(
+                          color: AppColor.black50,
+                          fontSize: 14
+                      )
+                  )
 
-          ]
-        ),
+                ]
+            )
+        )),
         actions: [
 
           Padding(

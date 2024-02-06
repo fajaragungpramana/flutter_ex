@@ -11,6 +11,9 @@ class HomeController extends GetxController {
 
   HomeController(this._userUseCase);
 
+  final _userLoading = true.obs;
+  bool get userLoading => _userLoading.value;
+
   final Rx<UserResponse> _userResponse = const UserResponse().obs;
   UserResponse get userResponse => _userResponse.value;
 
@@ -30,11 +33,13 @@ class HomeController extends GetxController {
   }
 
   void _me() async {
+    _userResponse.value = UserResponse.skeleton();
 
     var result = await _userUseCase.me();
     result.when(
         success: (data) {
           if (data != null) {
+            _userLoading.value = false;
             _userResponse.value = data;
           }
         },
@@ -47,10 +52,9 @@ class HomeController extends GetxController {
               )
           );
         },
-        error: (e) {
-
-        }
+        error: (e) {}
     );
+
   }
 
   void _listWallet() async {
