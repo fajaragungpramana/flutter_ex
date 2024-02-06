@@ -17,6 +17,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
         backgroundColor: AppColor.gray10,
         title: Obx(() => Skeletonizer(
             enabled: controller.userLoading,
@@ -163,7 +164,7 @@ class HomePage extends GetView<HomeController> {
                         ),
                         itemCount: controller.listWalletResponse.length,
                         itemBuilder: (context, index) => Skeletonizer(
-                            enabled: true,
+                            enabled: controller.walletLoading,
                             child: WalletItem(walletResponse: controller.listWalletResponse[index])
                         )
                     ))

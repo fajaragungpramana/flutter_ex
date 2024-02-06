@@ -38,6 +38,7 @@ class HomeController extends GetxController {
   }
 
   void _me() async {
+    _userLoading.value = true;
     _userResponse.value = UserResponse.skeleton();
 
     var result = await _userUseCase.me();
@@ -63,6 +64,8 @@ class HomeController extends GetxController {
   }
 
   void _listWallet() async {
+    _walletLoading.value = true;
+
     _listWalletResponse.clear();
     _listWalletResponse.addAll(WalletResponse.skeleton());
 
