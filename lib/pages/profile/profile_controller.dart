@@ -52,4 +52,12 @@ class ProfileController extends GetxController {
     Get.offAndToNamed(AppRoute.login);
   }
 
+  @override
+  void onClose() {
+    fullNameController.dispose();
+    emailController.dispose();
+
+    super.onClose();
+  }
+
 }

@@ -138,6 +138,66 @@
   "areYouSureToSignOutMessage" : "You must sign in again.",
   "@areYouSureToSignOutMessage" : {
     "description" : "Sign out message"
+  },
+
+  "totalBalance" : "Total Balance",
+  "@totalBalance" : {
+    "description" : "Total balance"
+  },
+
+  "rp0" : "Rp0",
+  "@rp0" : {
+    "description" : "Default balance"
+  },
+
+  "addWallet" : "Add Wallet",
+  "@addWallet" : {
+    "description" : "Add wallet"
+  },
+
+  "ops" : "Oops!",
+  "@oops" : {
+    "description" : "Oops"
+  },
+
+  "notHaveWallets" : "You don't have wallets here...",
+  "@notHaveWallets" : {
+    "description" : "Not have wallet description."
+  },
+
+  "createOne" : "Create One",
+  "@createOne" : {
+    "description" : "Create one"
+  },
+
+  "name" : "Name",
+  "@name" : {
+    "description" : "Name"
+  },
+
+  "balance" : "Balance",
+  "@balance" : {
+    "description" : "Balance"
+  },
+
+  "cash" : "Cash",
+  "@cash" : {
+    "description" : "Cash"
+  },
+
+  "bankAccount" : "Bank Account",
+  "@bankAccount" : {
+    "description" : "Bank account."
+  },
+
+  "eWallet" : "E-Wallet",
+  "@eWallet" : {
+    "description" : "E-wallet"
+  },
+
+  "eMoney" : "E-Money",
+  "@eMoney" : {
+    "description" : "E-money"
   }
 
 }

@@ -1,7 +1,7 @@
 class AppRemoteUrl {
   const AppRemoteUrl._();
 
-  static const baseUrl = "http://192.168.8.240:8080/api";
+  static const baseUrl = "http://10.0.2.2:8080/api";
 
   static const _v1 = "/v1";
 
@@ -11,5 +11,6 @@ class AppRemoteUrl {
   static const login = "$_v1$_authentication/login";
   static const register = "$_v1$_authentication/register";
   static const me = "$_v1$_user/me";
+  static const wallet = "$_v1$_user/wallet";
 
 }

@@ -24,5 +24,17 @@
   "registerSuccessfullyMessage" : "Kamu bisa masuk menggunakan akun kamu",
   "cancel" : "Batal",
   "areYouSureToSignOut" : "Kamu yakin ingin keluar?",
-  "areYouSureToSignOutMessage" : "Kamu harus masuk ulang untuk kembali."
+  "areYouSureToSignOutMessage" : "Kamu harus masuk ulang untuk kembali.",
+  "totalBalance" : "Total Saldo",
+  "rp0" : "Rp0",
+  "addWallet" : "Tambah Dompet",
+  "ops" : "Oops!",
+  "notHaveWallets" : "Kamu belum punya dompet disini...",
+  "createOne" : "Buat Satu",
+  "name" : "Nama",
+  "balance" : "Saldo",
+  "cash" : "Tunai",
+  "bankAccount" : "Rekening Bank",
+  "eWallet" : "Dompet Digital",
+  "eMoney" : "Uang Digital"
 }
