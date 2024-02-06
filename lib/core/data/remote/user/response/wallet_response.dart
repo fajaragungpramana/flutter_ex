@@ -12,4 +12,18 @@ class WalletResponse with _$WalletResponse {
   }) = _WalletResponse;
 
   factory WalletResponse.fromJson(Map<String, dynamic> json) => _$WalletResponseFromJson(json);
+
+  static List<WalletResponse> skeleton() {
+    final List<WalletResponse> listDummy = [];
+
+    for (int i = 0; i < 3; i++) {
+      listDummy.add(const WalletResponse(
+        name: "********",
+        type: "*****",
+        balance: 0
+      ));
+    }
+
+    return listDummy;
+  }
 }

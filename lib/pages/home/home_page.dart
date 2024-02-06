@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/pages/home/home_controller.dart';
@@ -78,10 +79,13 @@ class HomePage extends GetView<HomeController> {
 
                             const SizedBox(height: 2),
 
-                            Text(
-                              AppLocalizations.of(context)!.rp0,
-                              style: AppStyle.textSemiBold(fontSize: 20),
-                            )
+                            Obx(() => Skeletonizer(
+                                enabled: controller.walletLoading,
+                                child: Text(
+                                  controller.totalBalance.currencyFormat,
+                                  style: AppStyle.textSemiBold(fontSize: 20),
+                                )
+                            ))
 
                           ]
                       ),
@@ -158,8 +162,10 @@ class HomePage extends GetView<HomeController> {
                             parent: AlwaysScrollableScrollPhysics()
                         ),
                         itemCount: controller.listWalletResponse.length,
-                        itemBuilder: (context, index) =>
-                            WalletItem(walletResponse: controller.listWalletResponse[index])
+                        itemBuilder: (context, index) => Skeletonizer(
+                            enabled: true,
+                            child: WalletItem(walletResponse: controller.listWalletResponse[index])
+                        )
                     ))
                 )
 

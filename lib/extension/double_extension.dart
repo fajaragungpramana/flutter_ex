@@ -11,4 +11,6 @@ extension DoubleExtension on double? {
     return numberFormat.format(this);
   }
 
+  double get orZero => this ?? 0.0;
+
 }
