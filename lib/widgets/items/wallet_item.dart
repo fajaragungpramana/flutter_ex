@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
+import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -28,6 +29,10 @@ class WalletItem extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+
+                  Assets.lib.resources.drawables.icCashGreen.image(),
+
+                  const SizedBox(height: 8),
 
                   Row(
                       children: [
