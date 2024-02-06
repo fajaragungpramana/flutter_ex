@@ -27,5 +27,8 @@
   "areYouSureToSignOutMessage" : "Kamu harus masuk ulang untuk kembali.",
   "totalBalance" : "Total Saldo",
   "rp0" : "Rp0",
-  "addWallet" : "Tambah Dompet"
+  "addWallet" : "Tambah Dompet",
+  "ops" : "Oops!",
+  "notHaveWallets" : "You don't have wallets here...",
+  "createOne" : "Create One"
 }

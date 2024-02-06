@@ -153,6 +153,21 @@
   "addWallet" : "Add Wallet",
   "@addWallet" : {
     "description" : "Add wallet"
+  },
+
+  "ops" : "Oops!",
+  "@oops" : {
+    "description" : "Oops"
+  },
+
+  "notHaveWallets" : "You don't have wallets here...",
+  "@notHaveWallets" : {
+    "description" : "Not have wallet description."
+  },
+
+  "createOne" : "Create One",
+  "@createOne" : {
+    "description" : "Create one"
   }
 
 }

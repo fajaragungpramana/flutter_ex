@@ -90,7 +90,55 @@ class HomePage extends GetView<HomeController> {
                   ))
 
                 ]
-              )
+              ),
+
+              const SizedBox(height: 16),
+
+              Obx(() => Visibility(
+                  visible: controller.listWalletResponse.isEmpty,
+                  child: Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                          color: AppColor.green10,
+                          borderRadius: BorderRadius.circular(16)
+                      ),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+
+                            Assets.lib.resources.drawables.icWalletGreen.image(),
+
+                            const SizedBox(height: 16),
+
+                            Text(
+                                AppLocalizations.of(context)!.ops,
+                                style: AppStyle.textSemiBold()
+                            ),
+
+                            const SizedBox(height: 8),
+
+                            Text(
+                                AppLocalizations.of(context)!.notHaveWallets,
+                                style: AppStyle.textRegular(color: AppColor.black50)
+                            ),
+
+                            const SizedBox(height: 16),
+
+                            TextButton(
+                                onPressed: () => {},
+                                child: Text(
+                                    AppLocalizations.of(context)!.createOne,
+                                    style: AppStyle.textSemiBold(
+                                        fontSize: 16,
+                                        color: AppColor.green100
+                                    )
+                                )
+                            )
+
+                          ]
+                      )
+                  )
+              ))
 
             ]
         )
