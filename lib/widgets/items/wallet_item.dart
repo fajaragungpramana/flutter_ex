@@ -49,7 +49,7 @@ class WalletItem extends StatelessWidget {
                         const SizedBox(width: 8),
 
                         Text(
-                          walletResponse.type.orEmpty,
+                          _mapType(context).orEmpty,
                           style: AppStyle.textRegular(color: AppColor.green100),
                         )
 
@@ -90,5 +90,21 @@ class WalletItem extends StatelessWidget {
 
       ]
   );
+
+  String _mapType(BuildContext context) {
+    switch (walletResponse.type) {
+      case "CASH":
+        return AppLocalizations.of(context)!.cash;
+      case "BANK_ACCOUNT":
+        return AppLocalizations.of(context)!.bankAccount;
+      case "E_WALLET":
+        return AppLocalizations.of(context)!.eWallet;
+      case "E_MONEY":
+        return AppLocalizations.of(context)!.eMoney;
+
+      default:
+        return "";
+    }
+  }
 
 }

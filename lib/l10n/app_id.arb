@@ -32,5 +32,9 @@
   "notHaveWallets" : "Kamu belum punya dompet disini...",
   "createOne" : "Buat Satu",
   "name" : "Nama",
-  "balance" : "Saldo"
+  "balance" : "Saldo",
+  "cash" : "Tunai",
+  "bankAccount" : "Rekening Bank",
+  "eWallet" : "Dompet Digital",
+  "eMoney" : "Uang Digital"
 }

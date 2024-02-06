@@ -178,6 +178,26 @@
   "balance" : "Balance",
   "@balance" : {
     "description" : "Balance"
+  },
+
+  "cash" : "Cash",
+  "@cash" : {
+    "description" : "Cash"
+  },
+
+  "bankAccount" : "Bank Account",
+  "@bankAccount" : {
+    "description" : "Bank account."
+  },
+
+  "eWallet" : "E-Wallet",
+  "@eWallet" : {
+    "description" : "E-wallet"
+  },
+
+  "eMoney" : "E-Money",
+  "@eMoney" : {
+    "description" : "E-money"
   }
 
 }
