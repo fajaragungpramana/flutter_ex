@@ -13,8 +13,8 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.gray10,
       appBar: AppBar(
+        backgroundColor: AppColor.gray10,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -47,6 +47,7 @@ class HomePage extends GetView<HomeController> {
         ]
       ),
       body: Container(
+        color: AppColor.gray10,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: ListView(
             children: [
@@ -77,8 +78,8 @@ class HomePage extends GetView<HomeController> {
 
                   const Spacer(),
 
-                  Visibility(
-                      visible: true,
+                  Obx(() => Visibility(
+                      visible: controller.listWalletResponse.isNotEmpty,
                       child: TextButton(
                           onPressed: () {},
                           child: Text(
@@ -86,7 +87,7 @@ class HomePage extends GetView<HomeController> {
                             style: AppStyle.textSemiBold(color: AppColor.green100, fontSize: 14),
                           )
                       )
-                  )
+                  ))
 
                 ]
               )

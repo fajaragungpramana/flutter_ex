@@ -11,5 +11,6 @@ class AppRemoteUrl {
   static const login = "$_v1$_authentication/login";
   static const register = "$_v1$_authentication/register";
   static const me = "$_v1$_user/me";
+  static const wallet = "$_v1$_user/wallet";
 
 }
