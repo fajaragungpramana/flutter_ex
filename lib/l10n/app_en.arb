@@ -208,6 +208,11 @@
   "next" : "Next",
   "@next" : {
     "description" : "Next"
+  },
+
+  "chooseType" : "Choose Type",
+  "@chooseType" : {
+    "description" : "Choose type"
   }
 
 }

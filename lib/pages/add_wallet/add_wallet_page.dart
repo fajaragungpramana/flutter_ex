@@ -16,7 +16,7 @@ class AddWalletPage extends GetView<AddWalletController> {
       centerTitle: true,
       title: Text(
         AppLocalizations.of(context)!.addWallet,
-        style: AppStyle.textSemiBold(),
+        style: AppStyle.textSemiBold()
       )
     ),
     body: Container(
@@ -32,11 +32,14 @@ class AddWalletPage extends GetView<AddWalletController> {
 
             const SizedBox(height: 16),
 
-            ExTextField(
-                controller: controller.typeController,
-                labelText: AppLocalizations.of(context)!.type,
-                enabled: false,
-                suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image()
+            GestureDetector(
+              onTap: () => { controller.listType() },
+              child: ExTextField(
+                  controller: controller.typeController,
+                  labelText: AppLocalizations.of(context)!.type,
+                  enabled: false,
+                  suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image()
+              )
             ),
 
             const Spacer(),

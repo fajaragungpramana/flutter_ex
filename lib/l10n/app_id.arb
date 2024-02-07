@@ -38,5 +38,6 @@
   "eWallet" : "Dompet Digital",
   "eMoney" : "Uang Digital",
   "type" : "Tipe",
-  "next" : "Lanjutkan"
+  "next" : "Lanjutkan",
+  "chooseType" : "Pilih Tipe"
 }

@@ -5,7 +5,7 @@ class AddWalletBinding extends Bindings {
 
   @override
   void dependencies() {
-    Get.lazyPut(() => AddWalletController());
+    Get.lazyPut(() => AddWalletController(Get.find()));
   }
 
 }
