@@ -7,14 +7,16 @@ class ExTextField extends StatelessWidget {
   final String labelText;
   final String errorText;
   final String? label;
+  final bool enabled;
   final Widget? suffixIcon;
 
-  const ExTextField({super.key, required this.controller, required this.labelText, this.errorText = "", this.label, this.suffixIcon});
+  const ExTextField({super.key, required this.controller, required this.labelText, this.errorText = "", this.label, this.enabled = true, this.suffixIcon});
 
   @override
   Widget build(BuildContext context) =>
       TextField(
           controller: controller,
+          enabled: enabled,
           decoration: InputDecoration(
               suffixIcon: suffixIcon,
               enabledBorder: OutlineInputBorder(

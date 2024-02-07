@@ -35,6 +35,7 @@ class AddWalletPage extends GetView<AddWalletController> {
             ExTextField(
                 controller: controller.typeController,
                 labelText: AppLocalizations.of(context)!.type,
+                enabled: false,
                 suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image()
             ),
 
