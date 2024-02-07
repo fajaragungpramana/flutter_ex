@@ -36,5 +36,7 @@
   "cash" : "Tunai",
   "bankAccount" : "Rekening Bank",
   "eWallet" : "Dompet Digital",
-  "eMoney" : "Uang Digital"
+  "eMoney" : "Uang Digital",
+  "type" : "Tipe",
+  "next" : "Lanjutkan"
 }

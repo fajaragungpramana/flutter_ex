@@ -5,17 +5,17 @@ import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/pages/home/home_controller.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
+import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/items/wallet_item.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class HomePage extends GetView<HomeController> {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) => Scaffold(
       appBar: AppBar(
         surfaceTintColor: Colors.white,
         backgroundColor: AppColor.gray10,
@@ -94,9 +94,9 @@ class HomePage extends GetView<HomeController> {
                       const Spacer(),
 
                       Obx(() => Visibility(
-                          visible: controller.listWalletResponse.isNotEmpty,
+                          visible: !controller.walletLoading && controller.listWalletResponse.isNotEmpty,
                           child: TextButton(
-                              onPressed: () {},
+                              onPressed: () => { Get.toNamed(AppRoute.addWallet) },
                               child: Text(
                                 AppLocalizations.of(context)!.addWallet,
                                 style: AppStyle.textSemiBold(color: AppColor.green100, fontSize: 14),
@@ -140,7 +140,7 @@ class HomePage extends GetView<HomeController> {
                               const SizedBox(height: 16),
 
                               TextButton(
-                                  onPressed: () => {},
+                                  onPressed: () => { Get.toNamed(AppRoute.addWallet) },
                                   child: Text(
                                       AppLocalizations.of(context)!.createOne,
                                       style: AppStyle.textSemiBold(
@@ -156,13 +156,12 @@ class HomePage extends GetView<HomeController> {
                 )),
 
                 SizedBox(
-                    height: 190,
+                    height: 240,
                     child: Obx(() => ListView.builder(
+                        shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
-                        physics: const BouncingScrollPhysics(
-                            parent: AlwaysScrollableScrollPhysics()
-                        ),
                         itemCount: controller.listWalletResponse.length,
+                        physics: const BouncingScrollPhysics(),
                         itemBuilder: (context, index) => Skeletonizer(
                             enabled: controller.walletLoading,
                             child: WalletItem(walletResponse: controller.listWalletResponse[index])
@@ -175,5 +174,5 @@ class HomePage extends GetView<HomeController> {
         )
       )
     );
-  }
+
 }
