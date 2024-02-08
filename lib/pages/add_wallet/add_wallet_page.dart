@@ -45,7 +45,7 @@ class AddWalletPage extends GetView<AddWalletController> {
             Obx(() => ExButton(
                 enable: controller.isAddWalletEnable,
                 labelText: AppLocalizations.of(context)!.next,
-                onPressed: () => {}
+                onPressed: () => { controller.setWallet() }
             ))
 
           ]

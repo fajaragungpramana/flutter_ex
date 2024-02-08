@@ -91,14 +91,14 @@ class AddWalletController extends GetxController {
     Get.back();
     response.when(
         success: (data) {
+          Get.back();
+
           Get.snackbar(
             _appLocalization.addWalletSuccessfully,
             _appLocalization.addWalletSuccessfullyMessage,
             colorText: Colors.white,
             backgroundColor: AppColor.green100
           );
-
-          Get.back();
         },
         failure: (message) {
           Get.showSnackbar(

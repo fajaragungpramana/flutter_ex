@@ -27,7 +27,7 @@ class ExTextField extends StatelessWidget {
       TextField(
           controller: controller,
           readOnly: readOnly,
-          onTap: () => { onTap!() },
+          onTap: () => { if (onTap != null) { onTap!() } },
           decoration: InputDecoration(
               suffixIcon: suffixIcon,
               enabledBorder: OutlineInputBorder(
