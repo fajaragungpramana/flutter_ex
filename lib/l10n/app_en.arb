@@ -213,6 +213,16 @@
   "chooseType" : "Choose Type",
   "@chooseType" : {
     "description" : "Choose type"
+  },
+
+  "addWalletSuccessfully" : "Create Wallet Successfully",
+  "@addWalletSuccessfully" : {
+    "description" : "Create wallet successfully"
+  },
+
+  "addWalletSuccessfullyMessage" : "You can TopUp your wallet now.",
+  "@addWalletSuccessfullyMessage" : {
+    "description" : "Create wallet successfully message"
   }
 
 }
