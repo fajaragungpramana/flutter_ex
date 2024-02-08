@@ -36,11 +36,8 @@ To build and run the project, follow these steps:
 - Build the project: `flutter pub get` and `dart run build_runner build --delete-conflicting-outputs`
 - Run the project: `flutter run lib/main.dart`
 
-## Preview [Emulator Google Pixel 3a API 34]
-<img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Splash.png" width="393" height="852">
-<img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Login.png" width="393" height="852">
-<img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Register.png" width="393" height="852">
-<img src="https://github.com/fajaragungpramana/assets/blob/master/FlutterEX/Flutter_EX_Home.png" width="393" height="852">
+## Preview
+- Android (Xiaomi Redmi 9) : [Here](https://drive.google.com/drive/folders/10mT41UlLdfncdVZy85KIeVtDkZXUJP2g?usp=drive_link)
 
 ## License
 Copyright 2024 Fajar Agung Pramana
