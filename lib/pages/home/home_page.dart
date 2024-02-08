@@ -53,125 +53,129 @@ class HomePage extends GetView<HomeController> {
 
         ]
       ),
-      body: Container(
-        color: AppColor.gray10,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: RefreshIndicator(
+      body: RefreshIndicator(
           onRefresh: () async { controller.onRequest(); },
-          child: ListView(
+          child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(
                   parent: AlwaysScrollableScrollPhysics()
               ),
-              children: [
-
-                const SizedBox(height: 16),
-
-                Row(
+              child: Container(
+                color: AppColor.gray10,
+                height: MediaQuery.of(context).size.height,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                      const SizedBox(height: 16),
+
+                      Row(
                           children: [
 
-                            Text(
-                                AppLocalizations.of(context)!.totalBalance,
-                                style: AppStyle.textRegular(color: AppColor.black50)
+                            Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+
+                                  Text(
+                                      AppLocalizations.of(context)!.totalBalance,
+                                      style: AppStyle.textRegular(color: AppColor.black50)
+                                  ),
+
+                                  const SizedBox(height: 2),
+
+                                  Obx(() => Skeletonizer(
+                                      enabled: controller.walletLoading,
+                                      child: Text(
+                                        controller.totalBalance.currencyFormat,
+                                        style: AppStyle.textSemiBold(fontSize: 20),
+                                      )
+                                  ))
+
+                                ]
                             ),
 
-                            const SizedBox(height: 2),
+                            const Spacer(),
 
-                            Obx(() => Skeletonizer(
-                                enabled: controller.walletLoading,
-                                child: Text(
-                                  controller.totalBalance.currencyFormat,
-                                  style: AppStyle.textSemiBold(fontSize: 20),
+                            Obx(() => Visibility(
+                                visible: !controller.walletLoading && controller.listWalletResponse.isNotEmpty,
+                                child: GestureDetector(
+                                    onTap: () => { Get.toNamed(AppRoute.addWallet) },
+                                    child: Text(
+                                      AppLocalizations.of(context)!.addWallet,
+                                      style: AppStyle.textSemiBold(color: AppColor.green100, fontSize: 14),
+                                    )
                                 )
                             ))
 
                           ]
                       ),
 
-                      const Spacer(),
+                      const SizedBox(height: 16),
 
                       Obx(() => Visibility(
-                          visible: !controller.walletLoading && controller.listWalletResponse.isNotEmpty,
-                          child: TextButton(
-                              onPressed: () => { Get.toNamed(AppRoute.addWallet) },
-                              child: Text(
-                                AppLocalizations.of(context)!.addWallet,
-                                style: AppStyle.textSemiBold(color: AppColor.green100, fontSize: 14),
+                          visible: controller.listWalletResponse.isEmpty,
+                          child: Container(
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                  color: AppColor.green10,
+                                  borderRadius: BorderRadius.circular(16)
+                              ),
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+
+                                    Assets.lib.resources.drawables.icWalletGreen.image(),
+
+                                    const SizedBox(height: 16),
+
+                                    Text(
+                                        AppLocalizations.of(context)!.ops,
+                                        style: AppStyle.textSemiBold()
+                                    ),
+
+                                    const SizedBox(height: 8),
+
+                                    Text(
+                                        AppLocalizations.of(context)!.notHaveWallets,
+                                        style: AppStyle.textRegular(color: AppColor.black50)
+                                    ),
+
+                                    const SizedBox(height: 16),
+
+                                    TextButton(
+                                        onPressed: () => { Get.toNamed(AppRoute.addWallet) },
+                                        child: Text(
+                                            AppLocalizations.of(context)!.createOne,
+                                            style: AppStyle.textSemiBold(
+                                                fontSize: 16,
+                                                color: AppColor.green100
+                                            )
+                                        )
+                                    )
+
+                                  ]
                               )
                           )
-                      ))
+                      )),
+
+                      SizedBox(
+                          height: 240,
+                          child: Obx(() => ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.listWalletResponse.length,
+                              physics: const BouncingScrollPhysics(),
+                              itemBuilder: (context, index) => Skeletonizer(
+                                  enabled: controller.walletLoading,
+                                  child: WalletItem(walletResponse: controller.listWalletResponse[index])
+                              )
+                          ))
+                      )
 
                     ]
-                ),
-
-                const SizedBox(height: 16),
-
-                Obx(() => Visibility(
-                    visible: controller.listWalletResponse.isEmpty,
-                    child: Container(
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                            color: AppColor.green10,
-                            borderRadius: BorderRadius.circular(16)
-                        ),
-                        child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-
-                              Assets.lib.resources.drawables.icWalletGreen.image(),
-
-                              const SizedBox(height: 16),
-
-                              Text(
-                                  AppLocalizations.of(context)!.ops,
-                                  style: AppStyle.textSemiBold()
-                              ),
-
-                              const SizedBox(height: 8),
-
-                              Text(
-                                  AppLocalizations.of(context)!.notHaveWallets,
-                                  style: AppStyle.textRegular(color: AppColor.black50)
-                              ),
-
-                              const SizedBox(height: 16),
-
-                              TextButton(
-                                  onPressed: () => { Get.toNamed(AppRoute.addWallet) },
-                                  child: Text(
-                                      AppLocalizations.of(context)!.createOne,
-                                      style: AppStyle.textSemiBold(
-                                          fontSize: 16,
-                                          color: AppColor.green100
-                                      )
-                                  )
-                              )
-
-                            ]
-                        )
-                    )
-                )),
-
-                SizedBox(
-                    height: 240,
-                    child: Obx(() => ListView.builder(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: controller.listWalletResponse.length,
-                        physics: const BouncingScrollPhysics(),
-                        itemBuilder: (context, index) => Skeletonizer(
-                            enabled: controller.walletLoading,
-                            child: WalletItem(walletResponse: controller.listWalletResponse[index])
-                        )
-                    ))
                 )
-
-              ]
+              )
           )
-        )
       )
     );
 
