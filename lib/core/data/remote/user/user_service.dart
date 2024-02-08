@@ -30,7 +30,7 @@ class UserService {
 
   Future<AppResponse<List<WalletResponse>>> listWallet() async {
     var response = await _appRemoteService.getRequest(
-        AppRemoteUrl.wallet,
+        AppRemoteUrl.userWallet,
         null
     );
     return response.when(

@@ -198,6 +198,21 @@
   "eMoney" : "E-Money",
   "@eMoney" : {
     "description" : "E-money"
+  },
+
+  "type" : "Type",
+  "@type" : {
+    "description" : "Type"
+  },
+
+  "next" : "Next",
+  "@next" : {
+    "description" : "Next"
+  },
+
+  "chooseType" : "Choose Type",
+  "@chooseType" : {
+    "description" : "Choose type"
   }
 
 }
