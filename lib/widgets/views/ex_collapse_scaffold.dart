@@ -12,7 +12,7 @@ class ExCollapseScaffold extends StatelessWidget {
 
   const ExCollapseScaffold({
     super.key,
-    this. backEnable = false,
+    required this. backEnable,
     this.collapseEnable = true,
     required this.title,
     required this.children,
