@@ -1,3 +1,5 @@
+import 'package:flutter_ex/pages/add_wallet/add_wallet_binding.dart';
+import 'package:flutter_ex/pages/add_wallet/add_wallet_page.dart';
 import 'package:flutter_ex/pages/login/login_binding.dart';
 import 'package:flutter_ex/pages/login/login_page.dart';
 import 'package:flutter_ex/pages/main/main_binding.dart';
@@ -30,6 +32,10 @@ class AppPage {
     GetPage(
         name: AppRoute.main,
         page: () => const MainPage(),
-        binding: MainBinding())
+        binding: MainBinding()),
+    GetPage(
+        name: AppRoute.addWallet,
+        page: () => const AddWalletPage(),
+        binding: AddWalletBinding())
   ];
 }

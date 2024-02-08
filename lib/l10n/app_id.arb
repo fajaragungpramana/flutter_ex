@@ -36,5 +36,13 @@
   "cash" : "Tunai",
   "bankAccount" : "Rekening Bank",
   "eWallet" : "Dompet Digital",
-  "eMoney" : "Uang Digital"
+  "eMoney" : "Uang Digital",
+  "type" : "Tipe",
+  "next" : "Lanjutkan",
+  "chooseType" : "Pilih Tipe",
+  "addWalletSuccessfully" : "Dompet Berhasil Dibuat",
+  "addWalletSuccessfullyMessage" : "Sekarang kamu bisa Isi Ulang dompetnya.",
+  "@addWalletSuccessfullyMessage" : {
+    "description" : "Create wallet successfully message"
+  }
 }

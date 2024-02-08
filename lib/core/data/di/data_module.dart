@@ -3,6 +3,9 @@ import 'package:flutter_ex/core/data/remote/app/app_remote_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_repository.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_repository_impl.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
+import 'package:flutter_ex/core/data/remote/type/type_repository.dart';
+import 'package:flutter_ex/core/data/remote/type/type_repository_impl.dart';
+import 'package:flutter_ex/core/data/remote/type/type_service.dart';
 import 'package:flutter_ex/core/data/remote/user/user_repository.dart';
 import 'package:flutter_ex/core/data/remote/user/user_repository_impl.dart';
 import 'package:flutter_ex/core/data/remote/user/user_service.dart';
@@ -20,6 +23,9 @@ class DataModule {
 
     Get.put(UserService(Get.find()), permanent: true);
     Get.put<UserRepository>(UserRepositoryImpl(Get.find()), permanent: true);
+
+    Get.put(TypeService(Get.find()), permanent: true);
+    Get.put<TypeRepository>(TypeRepositoryImpl(Get.find()), permanent: true);
   }
 
 }
