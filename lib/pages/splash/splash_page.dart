@@ -13,42 +13,34 @@ class SplashPage extends GetView<SplashController> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.all(16),
-          child: Stack(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          child: Column(
               children: [
 
-                Align(
-                    alignment: Alignment.center,
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
+                const Spacer(),
 
-                          Obx(() => Text(
-                              controller.appName,
-                              style: AppStyle.textSemiBold(
-                                  fontSize: 40,
-                                  color: AppColor.green100
-                              )
-                          )),
+                Obx(() => Text(
+                    controller.appName,
+                    style: AppStyle.textSemiBold(
+                        fontSize: 40,
+                        color: AppColor.green100
+                    )
+                )),
 
-                          Text(
-                              AppLocalizations.of(context)!.manageYourExpense,
-                              style: AppStyle.textRegular(
-                                color: AppColor.black50
-                              )
-                          )
-
-                        ]
+                Text(
+                    AppLocalizations.of(context)!.manageYourExpense,
+                    style: AppStyle.textRegular(
+                        color: AppColor.black50
                     )
                 ),
 
-                Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Obx(() => Text(
-                        AppLocalizations.of(context)!.version(controller.appVersion),
-                      style: AppStyle.textRegular(color: AppColor.black50),
-                    ))
-                )
+                const Spacer(),
+
+                Obx(() => Text(
+                  AppLocalizations.of(context)!.version(controller.appVersion),
+                  style: AppStyle.textRegular(color: AppColor.black50),
+                ))
 
               ]
           )
