@@ -1,3 +1,4 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/user/request/wallet_request.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
@@ -5,6 +6,7 @@ import 'package:flutter_ex/core/domain/type/type_use_case.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
+import 'package:flutter_ex/pages/home/home_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/bottom_sheets/type_bottom_sheet.dart';
@@ -13,10 +15,11 @@ import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddWalletController extends GetxController {
+  final EventBus _eventBus;
   final TypeUseCase _typeUseCase;
   final UserUseCase _userUseCase;
 
-  AddWalletController(this._typeUseCase, this._userUseCase);
+  AddWalletController(this._eventBus, this._typeUseCase, this._userUseCase);
 
   final nameController = TextEditingController();
   final typeController = TextEditingController();
@@ -53,10 +56,10 @@ class AddWalletController extends GetxController {
                 TypeBottomSheet(
                     listType: data,
                     onItemPressed: (typeResponse) {
+                      Get.back();
+
                       _typeId = typeResponse.id.orZero;
                       typeController.text = WalletResponse.mapType(Get.context as BuildContext, typeResponse.name.orEmpty);
-
-                      Get.back();
                     }
                 ),
                 shape: AppStyle.roundedRectangleCorner(
@@ -99,6 +102,8 @@ class AddWalletController extends GetxController {
             colorText: Colors.white,
             backgroundColor: AppColor.green100
           );
+
+          _eventBus.fire(HomeEvent.refresh);
         },
         failure: (message) {
           Get.showSnackbar(

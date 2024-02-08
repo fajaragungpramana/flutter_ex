@@ -1,0 +1,3 @@
+enum HomeEvent {
+  refresh
+}

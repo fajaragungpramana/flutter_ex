@@ -19,20 +19,20 @@ class RegisterController extends GetxController {
 
   final _appLocalization = AppLocalizations.of(Get.context as BuildContext)!;
 
-  final RxString _fullNameErrorMessage = "".obs;
-  String get fullNameErrorMessage => _fullNameErrorMessage.value;
+  final _fullNameErrorMessage = "".obs;
+  get fullNameErrorMessage => _fullNameErrorMessage.value;
 
-  final RxString _emailErrorMessage = "".obs;
-  String get emailErrorMessage => _emailErrorMessage.value;
+  final _emailErrorMessage = "".obs;
+  get emailErrorMessage => _emailErrorMessage.value;
 
-  final RxString _passwordErrorMessage = "".obs;
-  String get passwordErrorMessage => _passwordErrorMessage.value;
+  final _passwordErrorMessage = "".obs;
+  get passwordErrorMessage => _passwordErrorMessage.value;
 
-  final RxString _confirmPasswordErrorMessage = "".obs;
-  String get confirmPasswordErrorMessage => _confirmPasswordErrorMessage.value;
+  final _confirmPasswordErrorMessage = "".obs;
+  get confirmPasswordErrorMessage => _confirmPasswordErrorMessage.value;
 
-  final RxBool _isRegisterEnable = false.obs;
-  bool get isRegisterEnable => _isRegisterEnable.value;
+  final _isRegisterEnable = false.obs;
+  get isRegisterEnable => _isRegisterEnable.value;
 
   @override
   void onInit() {
