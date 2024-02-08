@@ -4,6 +4,7 @@ import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
+import 'package:flutter_ex/widgets/views/ex_horizontal_text_button.dart';
 import 'package:flutter_ex/widgets/views/ex_text_field.dart';
 import 'package:flutter_ex/widgets/views/ex_text_field_secure.dart';
 import 'package:get/get.dart';
@@ -20,7 +21,26 @@ class RegisterPage extends GetView<RegisterController> {
           AppLocalizations.of(context)!.signUp,
           style: AppStyle.textSemiBold(),
       ),
-      body: [
+      footer: Column(
+        children: [
+
+          Obx(() => ExButton(
+              labelText: AppLocalizations.of(context)!.signIn,
+              enable: controller.isRegisterEnable,
+              onPressed: () { controller.onRegister(); }
+          )),
+
+          const SizedBox(height: 16),
+
+          ExHorizontalTextButton(
+              labelText: AppLocalizations.of(context)!.alreadyHaveAnAccount,
+              buttonText: AppLocalizations.of(context)!.signIn,
+              onTap: () => Get.back()
+          )
+
+        ]
+      ),
+      children: [
 
         Text(
             AppLocalizations.of(context)!.signInToContinueWithYourAccount,
@@ -61,44 +81,7 @@ class RegisterPage extends GetView<RegisterController> {
 
         const SizedBox(height: 40)
 
-      ],
-      footer: Column(
-        children: [
-
-          Obx(() => ExButton(
-              labelText: AppLocalizations.of(context)!.signIn,
-              enable: controller.isRegisterEnable,
-              onPressed: () { controller.onRegister(); }
-          )),
-
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-
-                Text(
-                    AppLocalizations.of(context)!.alreadyHaveAnAccount,
-                    style: AppStyle.textRegular(
-                        fontSize: 12,
-                        color: AppColor.black50
-                    )
-                ),
-
-                TextButton(
-                    onPressed: () { Get.back(); },
-                    child: Text(
-                        AppLocalizations.of(context)!.signIn,
-                        style: AppStyle.textSemiBold(
-                            fontSize: 12,
-                            color: AppColor.green100
-                        )
-                    )
-                )
-
-              ]
-          )
-
-        ]
-      )
+      ]
   );
 
 }

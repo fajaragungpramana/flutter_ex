@@ -5,13 +5,14 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashController extends GetxController {
   final AuthUseCase _authUseCase;
+
   SplashController(this._authUseCase);
 
-  final RxString _appName = "".obs;
-  String get appName => _appName.value;
+  final _appName = "".obs;
+  get appName => _appName.value;
 
-  final RxString _appVersion = "".obs;
-  String get appVersion => _appVersion.value;
+  final _appVersion = "".obs;
+  get appVersion => _appVersion.value;
 
   @override
   void onInit() {
