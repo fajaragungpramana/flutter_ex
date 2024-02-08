@@ -7,16 +7,27 @@ class ExTextField extends StatelessWidget {
   final String labelText;
   final String errorText;
   final String? label;
-  final bool enabled;
+  final bool readOnly;
   final Widget? suffixIcon;
+  final Function()? onTap;
 
-  const ExTextField({super.key, required this.controller, required this.labelText, this.errorText = "", this.label, this.enabled = true, this.suffixIcon});
+  const ExTextField({
+    super.key,
+    required this.controller,
+    required this.labelText,
+    this.errorText = "",
+    this.label,
+    this.readOnly = false,
+    this.suffixIcon,
+    this.onTap
+  });
 
   @override
   Widget build(BuildContext context) =>
       TextField(
           controller: controller,
-          enabled: enabled,
+          readOnly: readOnly,
+          onTap: () => { onTap!() },
           decoration: InputDecoration(
               suffixIcon: suffixIcon,
               enabledBorder: OutlineInputBorder(
