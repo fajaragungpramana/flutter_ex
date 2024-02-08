@@ -12,7 +12,7 @@ class AuthInteractor implements AuthUseCase {
 
   @override // TODO: Mapping response with domain response
   Future<AppResponse<LoginResponse>> login(LoginRequest loginRequest) async =>
-      _authRepository.login(loginRequest);
+      await _authRepository.login(loginRequest);
 
   @override
   bool get isLogin => _authRepository.isLogin;
@@ -22,6 +22,6 @@ class AuthInteractor implements AuthUseCase {
 
   @override // TODO: Mapping response with domain response
   Future<AppResponse<bool>> register(RegisterRequest registerRequest) async =>
-      _authRepository.register(registerRequest);
+      await _authRepository.register(registerRequest);
 
 }

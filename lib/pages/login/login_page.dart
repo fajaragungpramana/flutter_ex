@@ -5,6 +5,7 @@ import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
+import 'package:flutter_ex/widgets/views/ex_horizontal_text_button.dart';
 import 'package:flutter_ex/widgets/views/ex_text_field.dart';
 import 'package:flutter_ex/widgets/views/ex_text_field_secure.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,26 @@ class LoginPage extends GetView<LoginController> {
           AppLocalizations.of(context)!.signIn,
           style: AppStyle.textSemiBold(),
       ),
-      body: [
+      footer: Column(
+        children: [
+
+          Obx(() => ExButton(
+              labelText: AppLocalizations.of(context)!.signIn,
+              enable: controller.isLoginEnable,
+              onPressed: () => controller.onLogin()
+          )),
+
+          const SizedBox(height: 16),
+
+          ExHorizontalTextButton(
+              labelText: AppLocalizations.of(context)!.dontHaveAnAccount,
+              buttonText: AppLocalizations.of(context)!.signUp,
+              onTap: () => Get.toNamed(AppRoute.register)
+          )
+
+        ]
+      ),
+      children: [
 
         Text(
             AppLocalizations.of(context)!.signInToContinueWithYourAccount,
@@ -43,57 +63,22 @@ class LoginPage extends GetView<LoginController> {
             labelText: AppLocalizations.of(context)!.password
         ),
 
+        const SizedBox(height: 16),
+
         Align(
             alignment: Alignment.centerRight,
-            child: TextButton(
-                onPressed: () {},
+            child: GestureDetector(
+                onTap: () {},
                 child: Text(
                   AppLocalizations.of(context)!.forgotPassword,
-                  style: AppStyle.textSemiBold(fontSize: 16, color: AppColor.green100),
+                  style: AppStyle.textSemiBold(fontSize: 14, color: AppColor.green100),
                 )
             )
         ),
 
         const SizedBox(height: 40)
 
-      ],
-      footer: Column(
-        children: [
-
-          Obx(() => ExButton(
-              labelText: AppLocalizations.of(context)!.signIn,
-              enable: controller.isLoginEnable,
-              onPressed: () => controller.onLogin()
-          )),
-
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-
-                Text(
-                    AppLocalizations.of(context)!.dontHaveAnAccount,
-                    style: AppStyle.textRegular(
-                        fontSize: 12,
-                        color: AppColor.black50
-                    )
-                ),
-
-                TextButton(
-                    onPressed: () { Get.toNamed(AppRoute.register); },
-                    child: Text(
-                        AppLocalizations.of(context)!.signUp,
-                        style: AppStyle.textSemiBold(
-                            fontSize: 12,
-                            color: AppColor.green100
-                        )
-                    )
-                )
-
-              ]
-          )
-
-        ]
-      )
+      ]
   );
 
 }

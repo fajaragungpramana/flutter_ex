@@ -11,6 +11,7 @@ Dependencies Injection :
 
 State Management :
 - GetX [GetController]
+- EventBus
 
 Network Service :
 - GetX [GetConnect]

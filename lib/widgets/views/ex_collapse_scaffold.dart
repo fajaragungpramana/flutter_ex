@@ -6,11 +6,19 @@ class ExCollapseScaffold extends StatelessWidget {
   final bool backEnable;
   final bool collapseEnable;
   final Widget title;
-  final List<Widget> body;
+  final List<Widget> children;
   final Widget? footer;
   final Widget? bottomNavigationBar;
 
-  const ExCollapseScaffold({super.key, this. backEnable = false, this.collapseEnable = true, required this.title, required this.body, this.footer, this.bottomNavigationBar});
+  const ExCollapseScaffold({
+    super.key,
+    required this. backEnable,
+    this.collapseEnable = true,
+    required this.title,
+    required this.children,
+    this.footer,
+    this.bottomNavigationBar
+  });
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -44,7 +52,7 @@ class ExCollapseScaffold extends StatelessWidget {
                   child: SingleChildScrollView(
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: body
+                          children: children
                       )
                   )
               ),

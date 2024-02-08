@@ -15,11 +15,11 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  final RxBool _isLoginEnable = false.obs;
-  bool get isLoginEnable => _isLoginEnable.value;
+  final _isLoginEnable = false.obs;
+  get isLoginEnable => _isLoginEnable.value;
 
-  final RxString _emailErrorMessage = "".obs;
-  String get emailErrorMessage => _emailErrorMessage.value;
+  final _emailErrorMessage = "".obs;
+  get emailErrorMessage => _emailErrorMessage.value;
 
   @override
   void onInit() {
