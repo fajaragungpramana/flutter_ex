@@ -32,14 +32,12 @@ class AddWalletPage extends GetView<AddWalletController> {
 
             const SizedBox(height: 16),
 
-            GestureDetector(
-              onTap: () => { controller.listType() },
-              child: ExTextField(
-                  controller: controller.typeController,
-                  labelText: AppLocalizations.of(context)!.type,
-                  enabled: false,
-                  suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image()
-              )
+            ExTextField(
+                controller: controller.typeController,
+                labelText: AppLocalizations.of(context)!.type,
+                readOnly: true,
+                suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image(),
+                onTap: () => { controller.listType() }
             ),
 
             const Spacer(),
