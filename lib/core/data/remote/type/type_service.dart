@@ -9,7 +9,7 @@ class TypeService {
   const TypeService(this._appRemoteService);
 
   Future<AppResponse<List<TypeResponse>>> listType() async {
-    var response = await _appRemoteService.getRequest(
+    final response = await _appRemoteService.getRequest(
         AppRemoteUrl.typeWallet, null
     );
 

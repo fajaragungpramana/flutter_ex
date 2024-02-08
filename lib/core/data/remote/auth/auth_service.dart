@@ -11,7 +11,7 @@ class AuthService {
   AuthService(this._appRemoteService);
 
   Future<AppResponse<LoginResponse>> login(LoginRequest loginRequest) async {
-    var response = await _appRemoteService.postRequest(
+    final response = await _appRemoteService.postRequest(
         AppRemoteUrl.login, loginRequest.toJson()
     );
     return response.when(
@@ -30,7 +30,7 @@ class AuthService {
   }
 
   Future<AppResponse<bool>> register(RegisterRequest registerRequest) async {
-    var response = await _appRemoteService.postRequest(
+    final response = await _appRemoteService.postRequest(
       AppRemoteUrl.register, registerRequest.toJson()
     );
     return response.when(
