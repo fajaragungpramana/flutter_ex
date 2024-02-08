@@ -5,4 +5,5 @@ class AppRoute {
   static const login = "/login";
   static const register = "/register";
   static const main = "/main";
+  static const addWallet = "/add_wallet";
 }

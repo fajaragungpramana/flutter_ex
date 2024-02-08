@@ -45,13 +45,7 @@ class ProfilePage extends GetView<ProfileController> {
                                   crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
 
-                                    SizedBox(
-                                        width: 80,
-                                        height: 8,
-                                        child: Assets.lib.resources.drawables.icSlider.image(
-                                            fit: BoxFit.contain
-                                        )
-                                    ),
+                                  Assets.lib.resources.drawables.icSlider.image(),
 
                                     const SizedBox(height: 24),
 

@@ -1,6 +1,7 @@
 import 'package:flutter_ex/core/app/app_response.dart';
 import 'package:flutter_ex/core/data/remote/app/app_remote_service.dart';
 import 'package:flutter_ex/core/data/remote/app/app_remote_url.dart';
+import 'package:flutter_ex/core/data/remote/user/request/wallet_request.dart';
 import 'package:flutter_ex/core/data/remote/user/response/user_response.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
 
@@ -10,7 +11,7 @@ class UserService {
   UserService(this._appRemoteService);
 
   Future<AppResponse<UserResponse>> me() async {
-    var response = await _appRemoteService.getRequest(
+    final response = await _appRemoteService.getRequest(
         AppRemoteUrl.me,
         null
     );
@@ -29,8 +30,8 @@ class UserService {
   }
 
   Future<AppResponse<List<WalletResponse>>> listWallet() async {
-    var response = await _appRemoteService.getRequest(
-        AppRemoteUrl.wallet,
+    final response = await _appRemoteService.getRequest(
+        AppRemoteUrl.userWallet,
         null
     );
     return response.when(
@@ -39,6 +40,25 @@ class UserService {
           return AppResponse.success(
               data: jsonList?.map((map) => WalletResponse.fromJson(map)).toList()
           );
+        },
+        failure: (message) {
+          return AppResponse.failure(message: message);
+        },
+        error: (e) {
+          return AppResponse.error(exception: e);
+        }
+    );
+  }
+
+  Future<AppResponse<WalletResponse>> setWallet(WalletRequest walletRequest) async {
+    final response = await _appRemoteService.postRequest(
+      AppRemoteUrl.userWallet,
+      walletRequest.toJson()
+    );
+
+    return response.when(
+        success: (json) {
+          return AppResponse.success(data: json);
         },
         failure: (message) {
           return AppResponse.failure(message: message);

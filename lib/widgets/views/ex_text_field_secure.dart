@@ -25,6 +25,10 @@ class _ExTextFieldSecureState extends State<ExTextFieldSecure> {
               borderSide: const BorderSide(color: AppColor.gray50),
               borderRadius: BorderRadius.circular(10)
           ),
+          focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(color: AppColor.green100),
+              borderRadius: BorderRadius.circular(10)
+          ),
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10)
           ),
