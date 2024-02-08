@@ -1,14 +1,17 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/user/response/user_response.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
+import 'package:flutter_ex/pages/home/home_event.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
+  final EventBus _eventBus;
   final UserUseCase _userUseCase;
 
-  HomeController(this._userUseCase);
+  HomeController(this._eventBus, this._userUseCase);
 
   final _userLoading = true.obs;
   bool get userLoading => _userLoading.value;
@@ -27,6 +30,8 @@ class HomeController extends GetxController {
 
   @override
   void onInit() {
+    _registerEvent();
+
     onRequest();
 
     super.onInit();
@@ -35,6 +40,14 @@ class HomeController extends GetxController {
   void onRequest() async {
     _me();
     _listWallet();
+  }
+
+  void _registerEvent() async {
+    _eventBus.on<HomeEvent>().listen((event) {
+      if (event == HomeEvent.refresh) {
+        onRequest();
+      }
+    });
   }
 
   void _me() async {
