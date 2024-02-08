@@ -41,13 +41,9 @@ class ProfilePage extends GetView<ProfileController> {
 
                       Get.bottomSheet(
                           ExBottomSheet(
-                              widget: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-
-                                  Assets.lib.resources.drawables.icSlider.image(),
-
-                                    const SizedBox(height: 24),
 
                                     Text(
                                       AppLocalizations.of(context)!.areYouSureToSignOut,
