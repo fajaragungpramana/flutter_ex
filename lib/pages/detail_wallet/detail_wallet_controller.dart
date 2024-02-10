@@ -25,16 +25,17 @@ class DetailWalletController extends GetxController {
 
   @override
   void onInit() async {
-    _eventBus.on<DetailWalletEvent>().listen((event) {
-      if (event == DetailWalletEvent.refresh) {
-        pagingController.refresh();
-      }
-    });
-
     final id = Get.arguments["id"];
     _getWallet(id);
     pagingController.addPageRequestListener((pageKey) {
       _listTransaction(id, pageKey);
+    });
+
+    _eventBus.on<DetailWalletEvent>().listen((event) {
+      if (event == DetailWalletEvent.refresh) {
+        _getWallet(id);
+        pagingController.refresh();
+      }
     });
 
     super.onInit();

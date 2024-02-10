@@ -7,6 +7,7 @@ import 'package:flutter_ex/core/domain/transaction/transaction_use_case.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/pages/detail_wallet/detail_wallet_event.dart';
+import 'package:flutter_ex/pages/home/home_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/bottom_sheets/category_bottom_sheet.dart';
@@ -33,6 +34,16 @@ class AddTransactionController extends GetxController {
 
   var _categoryId = 0.0;
 
+  @override
+  void onInit() {
+    nameController.addListener(_isAddTransaction);
+    descriptionController.addListener(_isAddTransaction);
+    amountController.addListener(_isAddTransaction);
+    categoryController.addListener(_isAddTransaction);
+
+    super.onInit();
+  }
+
   void listCategory() async {
     Get.dialog(const ExHudProgress());
     final response = await _categoryUseCase.listCategory();
@@ -52,7 +63,8 @@ class AddTransactionController extends GetxController {
                     }
                 ),
                 shape: AppStyle.roundedRectangleCorner(topLeft: 16, topRight: 16),
-                backgroundColor: Colors.white
+                backgroundColor: Colors.white,
+                isScrollControlled: true
             );
           }
         },
@@ -74,9 +86,9 @@ class AddTransactionController extends GetxController {
         TransactionRequest(
           name: nameController.text,
           description: descriptionController.text,
-          amount: 0,
+          amount: double.parse(amountController.text),
           categoryId: _categoryId,
-          walletId: 1
+          walletId: Get.arguments["id"]
         )
     );
 
@@ -92,6 +104,7 @@ class AddTransactionController extends GetxController {
           );
 
           _eventBus.fire(DetailWalletEvent.refresh);
+          _eventBus.fire(HomeEvent.refresh);
         },
         failure: (message) {
           Get.showSnackbar(
@@ -104,6 +117,12 @@ class AddTransactionController extends GetxController {
         },
         error: (e) {}
     );
+  }
+
+  void _isAddTransaction() async {
+    _isAddTransactionEnable.value =
+        nameController.text.isNotEmpty && descriptionController.text.isNotEmpty &&
+            amountController.text.isNotEmpty && categoryController.text.isNotEmpty;
   }
 
   @override

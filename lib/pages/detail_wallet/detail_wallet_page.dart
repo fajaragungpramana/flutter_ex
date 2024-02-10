@@ -116,7 +116,11 @@ class DetailWalletPage extends GetView<DetailWalletController> {
 
             ExButton(
                 labelText: AppLocalizations.of(context)!.addTransaction,
-                onPressed: () => { Get.toNamed(AppRoute.addTransaction) }
+                onPressed: () => {
+                  Get.toNamed(AppRoute.addTransaction, arguments: {
+                    "id" : Get.arguments["id"]
+                  })
+                }
             )
 
           ]
