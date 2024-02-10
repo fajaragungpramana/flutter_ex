@@ -6,4 +6,5 @@ class AppRoute {
   static const register = "/register";
   static const main = "/main";
   static const addWallet = "/add_wallet";
+  static const detailWallet = "/detail_wallet";
 }
