@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ex/core/data/remote/transaction/response/transaction_response.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
+import 'package:flutter_ex/core/domain/transaction/transaction_use_case.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
 import 'package:get/get.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class DetailWalletController extends GetxController {
   final UserUseCase _userUseCase;
+  final TransactionUseCase _transactionUseCase;
 
-  DetailWalletController(this._userUseCase);
+  DetailWalletController(this._userUseCase, this._transactionUseCase);
+
+  final _pageSize = 15;
+  final PagingController<int, TransactionResponse> pagingController = PagingController(firstPageKey: 1);
 
   final _walletLoading = true.obs;
   get walletLoading => _walletLoading.value;
@@ -19,6 +26,9 @@ class DetailWalletController extends GetxController {
     final id = Get.arguments["id"];
     if (id != null) {
       _getWallet(id);
+      pagingController.addPageRequestListener((pageKey) {
+        _listTransaction(id, pageKey);
+      });
     }
 
     super.onInit();
@@ -48,6 +58,36 @@ class DetailWalletController extends GetxController {
         },
         error: (e) {}
     );
+  }
+
+  void _listTransaction(double? id, int page) async {
+    try {
+      final response = await _transactionUseCase.listTransaction(id, page);
+      response.when(
+          success: (data) {
+            if (data != null) {
+              final isLastPage = data.length < _pageSize;
+              if (isLastPage) {
+                pagingController.appendLastPage(data);
+              } else {
+                final nextPage = page + data.length;
+                pagingController.appendPage(data, nextPage);
+              }
+            }
+          },
+          failure: (message) {},
+          error: (e) {}
+      );
+    } catch (e) {
+      pagingController.error = e;
+    }
+  }
+
+  @override
+  void onClose() {
+    pagingController.dispose();
+
+    super.onClose();
   }
 
 }
