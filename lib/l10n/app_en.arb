@@ -230,9 +230,24 @@
     "description" : "History transactions."
   },
 
-  "createTransaction" : "Create Transaction",
-  "@createTransaction" : {
-    "description" : "Create transaction."
+  "addTransaction" : "Add Transaction",
+  "@addTransaction" : {
+    "description" : "Add transaction."
+  },
+
+  "description" : "Description",
+  "@description" : {
+    "description" : "Description"
+  },
+
+  "amount" : "Amount",
+  "@amount" : {
+    "description" : "Amount"
+  },
+
+  "category" : "Category",
+  "@category" : {
+    "description" : "Category"
   }
 
 }

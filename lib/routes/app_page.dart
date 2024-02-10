@@ -1,3 +1,5 @@
+import 'package:flutter_ex/pages/add_transaction/add_transaction_binding.dart';
+import 'package:flutter_ex/pages/add_transaction/add_transaction_page.dart';
 import 'package:flutter_ex/pages/add_wallet/add_wallet_binding.dart';
 import 'package:flutter_ex/pages/add_wallet/add_wallet_page.dart';
 import 'package:flutter_ex/pages/detail_wallet/detail_wallet_binding.dart';
@@ -42,6 +44,10 @@ class AppPage {
     GetPage(
         name: AppRoute.detailWallet,
         page: () => const DetailWalletPage(),
-        binding: DetailWalletBinding())
+        binding: DetailWalletBinding()),
+    GetPage(
+        name: AppRoute.addTransaction,
+        page: () => const AddTransactionPage(),
+        binding: AddTransactionBinding())
   ];
 }

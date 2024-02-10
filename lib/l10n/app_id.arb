@@ -43,5 +43,8 @@
   "addWalletSuccessfully" : "Dompet Berhasil Dibuat",
   "addWalletSuccessfullyMessage" : "Sekarang kamu bisa Isi Ulang dompetnya.",
   "historyTransaction" : "Riwayat Transaksi",
-  "createTransaction" : "Buat Transaksi"
+  "addTransaction" : "Tambah Transaksi",
+  "description" : "Description",
+  "amount" : "Amount",
+  "category" : "Category"
 }

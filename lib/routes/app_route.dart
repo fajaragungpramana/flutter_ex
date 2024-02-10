@@ -7,4 +7,5 @@ class AppRoute {
   static const main = "/main";
   static const addWallet = "/add_wallet";
   static const detailWallet = "/detail_wallet";
+  static const addTransaction = "/add_transaction";
 }

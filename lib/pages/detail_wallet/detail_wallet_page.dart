@@ -5,6 +5,7 @@ import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/pages/detail_wallet/detail_wallet_controller.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
+import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/items/transaction_item.dart';
 import 'package:flutter_ex/widgets/views/ex_app_bar_sliver_persistent_header_delegate.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
@@ -114,8 +115,8 @@ class DetailWalletPage extends GetView<DetailWalletController> {
             const SizedBox(height: 8),
 
             ExButton(
-                labelText: AppLocalizations.of(context)!.createTransaction,
-                onPressed: () => {}
+                labelText: AppLocalizations.of(context)!.addTransaction,
+                onPressed: () => { Get.toNamed(AppRoute.addTransaction) }
             )
 
           ]
