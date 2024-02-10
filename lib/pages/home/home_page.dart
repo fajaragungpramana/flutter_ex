@@ -167,7 +167,19 @@ class HomePage extends GetView<HomeController> {
                               physics: const BouncingScrollPhysics(),
                               itemBuilder: (context, index) => Skeletonizer(
                                   enabled: controller.walletLoading,
-                                  child: WalletItem(walletResponse: controller.listWalletResponse[index])
+                                  child: WalletItem(
+                                      walletResponse: controller.listWalletResponse[index],
+                                      onTapItem: (walletResponse) => {
+                                        if (walletResponse.id != null) {
+                                          Get.toNamed(
+                                              AppRoute.detailWallet,
+                                              arguments: {
+                                                "id": walletResponse.id
+                                              }
+                                          )
+                                        }
+                                      }
+                                  )
                               )
                           ))
                       )

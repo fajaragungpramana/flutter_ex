@@ -80,7 +80,7 @@ class HomeController extends GetxController {
     _walletLoading.value = true;
 
     _listWalletResponse.clear();
-    _listWalletResponse.addAll(WalletResponse.skeleton());
+    _listWalletResponse.addAll(WalletResponse.listSkeleton());
 
     var result = await _userUseCase.listWallet();
     result.when(
