@@ -13,4 +13,9 @@ extension DoubleExtension on double? {
 
   double get orZero => this ?? 0.0;
 
+  String get dateFormat {
+    final date = DateTime.fromMillisecondsSinceEpoch(orZero.toInt());
+    return DateFormat("dd MMM yyyy . hh:mm").format(date);
+  }
+
 }

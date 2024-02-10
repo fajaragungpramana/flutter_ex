@@ -3,6 +3,12 @@ import 'package:flutter_ex/core/data/remote/app/app_remote_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_repository.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_repository_impl.dart';
 import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
+import 'package:flutter_ex/core/data/remote/category/category_repository.dart';
+import 'package:flutter_ex/core/data/remote/category/category_repository_impl.dart';
+import 'package:flutter_ex/core/data/remote/category/category_service.dart';
+import 'package:flutter_ex/core/data/remote/transaction/transaction_repository.dart';
+import 'package:flutter_ex/core/data/remote/transaction/transaction_repository_impl.dart';
+import 'package:flutter_ex/core/data/remote/transaction/transaction_service.dart';
 import 'package:flutter_ex/core/data/remote/type/type_repository.dart';
 import 'package:flutter_ex/core/data/remote/type/type_repository_impl.dart';
 import 'package:flutter_ex/core/data/remote/type/type_service.dart';
@@ -26,6 +32,12 @@ class DataModule {
 
     Get.put(TypeService(Get.find()), permanent: true);
     Get.put<TypeRepository>(TypeRepositoryImpl(Get.find()), permanent: true);
+
+    Get.put(TransactionService(Get.find()), permanent: true);
+    Get.put<TransactionRepository>(TransactionRepositoryImpl(Get.find()), permanent: true);
+
+    Get.put(CategoryService(Get.find()), permanent: true);
+    Get.put<CategoryRepository>(CategoryRepositoryImpl(Get.find()), permanent: true);
   }
 
 }

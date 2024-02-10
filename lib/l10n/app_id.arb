@@ -42,7 +42,25 @@
   "chooseType" : "Pilih Tipe",
   "addWalletSuccessfully" : "Dompet Berhasil Dibuat",
   "addWalletSuccessfullyMessage" : "Sekarang kamu bisa Isi Ulang dompetnya.",
-  "@addWalletSuccessfullyMessage" : {
-    "description" : "Create wallet successfully message"
-  }
+  "historyTransaction" : "Riwayat Transaksi",
+  "addTransaction" : "Tambah Transaksi",
+  "description" : "Deskripsi",
+  "amount" : "Jumlah",
+  "category" : "Kategori",
+  "addTransactionSuccessfully" : "Tambah Transaksi Berhasil",
+  "addTransactionSuccessfullyMessage" : "Sekarang kamu bisa lihat di list transaksi.",
+  "house" : "Rumah",
+  "transportation" : "Transportasi",
+  "food" : "Makan",
+  "drink" : "Minum",
+  "utility" : "Kegunaan",
+  "insurance" : "Asuransi",
+  "medicalAndHealthCare" : "Pelayanan Medis dan Kesehatan",
+  "savingAndInvesting" : "Menabung dan Investasi",
+  "dept" : "Hutang",
+  "personalSpending" : "Pengeluaran Pribadi",
+  "recreationAndEntertainment" : "Rekreasi dan Hiburan",
+  "miscellaneous" : "Aneka Ragam",
+  "topUp" : "Isi Ulang",
+  "chooseCategory" : "Pilih Kategori"
 }

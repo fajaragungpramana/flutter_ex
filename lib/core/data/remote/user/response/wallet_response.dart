@@ -8,6 +8,7 @@ part 'wallet_response.g.dart';
 @freezed
 class WalletResponse with _$WalletResponse {
   const factory WalletResponse({
+    double? id,
     String? name,
     String? type,
     double? balance
@@ -15,7 +16,12 @@ class WalletResponse with _$WalletResponse {
 
   factory WalletResponse.fromJson(Map<String, dynamic> json) => _$WalletResponseFromJson(json);
 
-  static List<WalletResponse> skeleton() {
+  static WalletResponse skeleton() => const WalletResponse(
+    name: "***********",
+    balance: 0
+  );
+
+  static List<WalletResponse> listSkeleton() {
     final List<WalletResponse> listDummy = [];
 
     for (int i = 0; i < 3; i++) {

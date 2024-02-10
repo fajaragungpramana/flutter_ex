@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 
@@ -8,6 +9,8 @@ class ExTextField extends StatelessWidget {
   final String errorText;
   final String? label;
   final bool readOnly;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatter;
   final Widget? suffixIcon;
   final Function()? onTap;
 
@@ -18,6 +21,8 @@ class ExTextField extends StatelessWidget {
     this.errorText = "",
     this.label,
     this.readOnly = false,
+    this.keyboardType,
+    this.inputFormatter,
     this.suffixIcon,
     this.onTap
   });
@@ -27,6 +32,8 @@ class ExTextField extends StatelessWidget {
       TextField(
           controller: controller,
           readOnly: readOnly,
+          keyboardType: keyboardType,
+          inputFormatters: inputFormatter,
           onTap: () => { if (onTap != null) { onTap!() } },
           decoration: InputDecoration(
               suffixIcon: suffixIcon,

@@ -14,6 +14,7 @@ class AddWalletPage extends GetView<AddWalletController> {
   @override
   Widget build(BuildContext context) => ExCollapseScaffold(
       backEnable: Get.previousRoute.isNotEmpty,
+      collapseEnable: false,
       title: Text(
           AppLocalizations.of(context)!.addWallet,
           style: AppStyle.textSemiBold()

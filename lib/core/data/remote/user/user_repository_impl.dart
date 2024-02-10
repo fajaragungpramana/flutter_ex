@@ -22,4 +22,8 @@ class UserRepositoryImpl implements UserRepository {
   Future<AppResponse<WalletResponse>> setWallet(WalletRequest walletRequest) async =>
       await _userService.setWallet(walletRequest);
 
+  @override
+  Future<AppResponse<WalletResponse>> getWallet(double? id) async =>
+      await _userService.getWallet(id);
+
 }

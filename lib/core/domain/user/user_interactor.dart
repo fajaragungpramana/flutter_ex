@@ -22,4 +22,8 @@ class UserInteractor implements UserUseCase {
   Future<AppResponse<WalletResponse>> setWallet(WalletRequest walletRequest) async =>
       await _userRepository.setWallet(walletRequest);
 
+  @override
+  Future<AppResponse<WalletResponse>> getWallet(double? id) async =>
+      await _userRepository.getWallet(id);
+
 }
