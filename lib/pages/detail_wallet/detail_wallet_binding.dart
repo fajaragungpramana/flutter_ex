@@ -5,7 +5,7 @@ class DetailWalletBinding extends Bindings {
 
   @override
   void dependencies() {
-    Get.lazyPut(() => DetailWalletController(Get.find(), Get.find()));
+    Get.lazyPut(() => DetailWalletController(Get.find(), Get.find(), Get.find()));
   }
 
 }

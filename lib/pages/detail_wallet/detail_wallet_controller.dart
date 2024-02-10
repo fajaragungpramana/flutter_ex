@@ -1,16 +1,19 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/transaction/response/transaction_response.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
 import 'package:flutter_ex/core/domain/transaction/transaction_use_case.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
+import 'package:flutter_ex/pages/detail_wallet/detail_wallet_event.dart';
 import 'package:get/get.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class DetailWalletController extends GetxController {
+  final EventBus _eventBus;
   final UserUseCase _userUseCase;
   final TransactionUseCase _transactionUseCase;
 
-  DetailWalletController(this._userUseCase, this._transactionUseCase);
+  DetailWalletController(this._eventBus, this._userUseCase, this._transactionUseCase);
 
   final PagingController<int, TransactionResponse> pagingController = PagingController(firstPageKey: 1);
 
@@ -22,13 +25,17 @@ class DetailWalletController extends GetxController {
 
   @override
   void onInit() async {
+    _eventBus.on<DetailWalletEvent>().listen((event) {
+      if (event == DetailWalletEvent.refresh) {
+        pagingController.refresh();
+      }
+    });
+
     final id = Get.arguments["id"];
-    if (id != null) {
-      _getWallet(id);
-      pagingController.addPageRequestListener((pageKey) {
-        _listTransaction(id, pageKey);
-      });
-    }
+    _getWallet(id);
+    pagingController.addPageRequestListener((pageKey) {
+      _listTransaction(id, pageKey);
+    });
 
     super.onInit();
   }
