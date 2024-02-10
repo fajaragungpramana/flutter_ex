@@ -23,7 +23,7 @@ class AddTransactionPage extends GetView<AddTransactionController> {
       footer: Obx(() => ExButton(
           enable: controller.isAddTransactionEnable,
           labelText: AppLocalizations.of(context)!.next,
-          onPressed: () => {}
+          onPressed: () => { controller.setTransaction() }
       )),
       children: [
 
@@ -63,7 +63,7 @@ class AddTransactionPage extends GetView<AddTransactionController> {
                     labelText: AppLocalizations.of(context)!.category,
                     readOnly: true,
                     suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image(),
-                    onTap: () => {  }
+                    onTap: () => { controller.listCategory() }
                 )
             )
 

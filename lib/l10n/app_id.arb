@@ -48,5 +48,19 @@
   "amount" : "Jumlah",
   "category" : "Kategori",
   "addTransactionSuccessfully" : "Tambah Transaksi Berhasil",
-  "addTransactionSuccessfullyMessage" : "Sekarang kamu bisa lihat di list transaksi."
+  "addTransactionSuccessfullyMessage" : "Sekarang kamu bisa lihat di list transaksi.",
+  "house" : "Rumah",
+  "transportation" : "Transportasi",
+  "food" : "Makan",
+  "drink" : "Minum",
+  "utility" : "Kegunaan",
+  "insurance" : "Asuransi",
+  "medicalAndHealthCare" : "Pelayanan Medis dan Kesehatan",
+  "savingAndInvesting" : "Menabung dan Investasi",
+  "dept" : "Hutang",
+  "personalSpending" : "Pengeluaran Pribadi",
+  "recreationAndEntertainment" : "Rekreasi dan Hiburan",
+  "miscellaneous" : "Aneka Ragam",
+  "topUp" : "Isi Ulang",
+  "chooseCategory" : "Pilih Kategori"
 }

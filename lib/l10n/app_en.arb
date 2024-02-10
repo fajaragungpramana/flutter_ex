@@ -258,6 +258,75 @@
   "addTransactionSuccessfullyMessage" : "Now you can see the transaction in list.",
   "@addTransactionSuccessfullyMessage" : {
     "description" : "Add transaction successfully message."
-  }
+  },
 
+  "house" : "House",
+  "@house" : {
+    "description" : "House"
+  },
+
+  "transportation" : "Transportation",
+  "@transportation" : {
+    "description" : "Transportation"
+  },
+
+  "food" : "Food",
+  "@food" : {
+    "description" : "Food"
+  },
+
+  "drink" : "Drink",
+  "@drink" : {
+    "description" : "Drink"
+  },
+
+  "utility" : "Utility",
+  "@utility" : {
+    "description" : "Utility"
+  },
+
+  "insurance" : "Insurance",
+  "@insurance" : {
+    "description" : "Insurance"
+  },
+
+  "medicalAndHealthCare" : "Medical and Health Care",
+  "@medicalAndHealthCate" : {
+    "description" : "Medical and Health Care"
+  },
+
+  "savingAndInvesting" : "Saving and Investing",
+  "@savingAndInvesting" : {
+    "description" : "Saving and Investing"
+  },
+
+  "dept" : "Dept",
+  "@dept" : {
+    "description" : "Dept"
+  },
+
+  "personalSpending" : "Personal Spending",
+  "@personalSpending" : {
+    "description" : "Personal Spending"
+  },
+
+  "recreationAndEntertainment" : "Recreation and Entertainment",
+  "@recreationAndEntertainment" : {
+    "description" : "Recreation and Entertainment"
+  },
+
+  "miscellaneous" : "Miscellaneous",
+  "@miscellaneous" : {
+    "description" : "Miscellaneous"
+  },
+
+  "topUp" : "Top Up",
+  "@topUp" : {
+    "description" : "Top Up"
+  },
+
+  "chooseCategory" : "Choose Category",
+  "@chooseCategory" : {
+    "description" : "Choose category."
+  }
 }

@@ -5,7 +5,7 @@ class AddTransactionBinding extends Bindings {
 
   @override
   void dependencies() {
-    Get.lazyPut(() => AddTransactionController(Get.find(), Get.find()));
+    Get.lazyPut(() => AddTransactionController(Get.find(), Get.find(), Get.find()));
   }
 
 }
