@@ -42,7 +42,5 @@
   "chooseType" : "Pilih Tipe",
   "addWalletSuccessfully" : "Dompet Berhasil Dibuat",
   "addWalletSuccessfullyMessage" : "Sekarang kamu bisa Isi Ulang dompetnya.",
-  "@addWalletSuccessfullyMessage" : {
-    "description" : "Create wallet successfully message"
-  }
+  "historyTransaction" : "Riwayat Transaksi"
 }

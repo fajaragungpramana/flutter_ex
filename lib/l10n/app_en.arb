@@ -223,6 +223,11 @@
   "addWalletSuccessfullyMessage" : "You can TopUp your wallet now.",
   "@addWalletSuccessfullyMessage" : {
     "description" : "Create wallet successfully message"
+  },
+
+  "historyTransaction" : "History Transactions",
+  "@historyTransaction" : {
+    "description" : "History transactions."
   }
 
 }
