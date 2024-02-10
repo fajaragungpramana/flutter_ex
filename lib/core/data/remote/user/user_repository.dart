@@ -11,4 +11,6 @@ abstract class UserRepository {
 
   Future<AppResponse<WalletResponse>> setWallet(WalletRequest walletRequest);
 
+  Future<AppResponse<WalletResponse>> getWallet(double? id);
+
 }
