@@ -77,7 +77,7 @@ class DetailWalletController extends GetxController {
               if (isLastPage) {
                 pagingController.appendLastPage(data);
               } else {
-                final nextPage = page + data.length;
+                final nextPage = page + 1;
                 pagingController.appendPage(data, nextPage);
               }
             }
