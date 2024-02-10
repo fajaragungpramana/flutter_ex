@@ -12,7 +12,6 @@ class DetailWalletController extends GetxController {
 
   DetailWalletController(this._userUseCase, this._transactionUseCase);
 
-  final _pageSize = 15;
   final PagingController<int, TransactionResponse> pagingController = PagingController(firstPageKey: 1);
 
   final _walletLoading = true.obs;
@@ -66,7 +65,7 @@ class DetailWalletController extends GetxController {
       response.when(
           success: (data) {
             if (data != null) {
-              final isLastPage = data.length < _pageSize;
+              final isLastPage = data.length < 15;
               if (isLastPage) {
                 pagingController.appendLastPage(data);
               } else {

@@ -5,6 +5,7 @@ import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/pages/detail_wallet/detail_wallet_controller.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
+import 'package:flutter_ex/widgets/items/transaction_item.dart';
 import 'package:flutter_ex/widgets/views/ex_app_bar_sliver_persistent_header_delegate.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
@@ -96,7 +97,10 @@ class DetailWalletPage extends GetView<DetailWalletController> {
         child: PagedListView<int, TransactionResponse>(
           pagingController: controller.pagingController,
           builderDelegate: PagedChildBuilderDelegate<TransactionResponse>(
-            itemBuilder: (context, item, index) => Text(item.name.orEmpty)
+            itemBuilder: (context, item, index) => TransactionItem(
+                transactionResponse: item,
+                onTapItem: (transactionResponse) {  }
+            )
           )
         )
       )
