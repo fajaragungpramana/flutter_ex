@@ -248,6 +248,16 @@
   "category" : "Category",
   "@category" : {
     "description" : "Category"
+  },
+
+  "addTransactionSuccessfully" : "Add Transaction Successfully",
+  "@addTransactionSuccessfully" : {
+    "description" : "Add transaction successfully."
+  },
+
+  "addTransactionSuccessfullyMessage" : "Now you can see the transaction in list.",
+  "@addTransactionSuccessfullyMessage" : {
+    "description" : "Add transaction successfully message."
   }
 
 }

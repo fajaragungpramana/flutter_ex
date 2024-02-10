@@ -44,7 +44,9 @@
   "addWalletSuccessfullyMessage" : "Sekarang kamu bisa Isi Ulang dompetnya.",
   "historyTransaction" : "Riwayat Transaksi",
   "addTransaction" : "Tambah Transaksi",
-  "description" : "Description",
-  "amount" : "Amount",
-  "category" : "Category"
+  "description" : "Deskripsi",
+  "amount" : "Jumlah",
+  "category" : "Kategori",
+  "addTransactionSuccessfully" : "Tambah Transaksi Berhasil",
+  "addTransactionSuccessfullyMessage" : "Sekarang kamu bisa lihat di list transaksi."
 }
