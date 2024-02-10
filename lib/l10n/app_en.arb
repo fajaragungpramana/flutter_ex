@@ -228,6 +228,11 @@
   "historyTransaction" : "History Transactions",
   "@historyTransaction" : {
     "description" : "History transactions."
+  },
+
+  "createTransaction" : "Create Transaction",
+  "@createTransaction" : {
+    "description" : "Create transaction."
   }
 
 }

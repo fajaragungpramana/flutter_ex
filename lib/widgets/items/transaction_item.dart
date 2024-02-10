@@ -20,11 +20,11 @@ class TransactionItem extends StatelessWidget {
   Widget build(BuildContext context) => GestureDetector(
     onTap: () => { onTapItem(transactionResponse) },
     child: Container(
-        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        padding: const EdgeInsets.only(bottom: 16),
         child: Row(
             children: [
 
-              transactionResponse.category == "TOP_UP" ?
+              transactionResponse.type == "DEBIT" ?
               Assets.lib.resources.drawables.icTransactionDebit.image() : Assets.lib.resources.drawables.icTransactionCredit.image(),
 
               const SizedBox(width: 16),
@@ -44,7 +44,7 @@ class TransactionItem extends StatelessWidget {
 
                         Text(
                             transactionResponse.description.orEmpty,
-                            style: AppStyle.textRegular(color: AppColor.black50),
+                            style: AppStyle.textRegular(fontSize: 12, color: AppColor.black50),
                             overflow: TextOverflow.ellipsis
                         )
 

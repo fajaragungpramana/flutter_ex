@@ -7,6 +7,7 @@ import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/items/transaction_item.dart';
 import 'package:flutter_ex/widgets/views/ex_app_bar_sliver_persistent_header_delegate.dart';
+import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -94,14 +95,30 @@ class DetailWalletPage extends GetView<DetailWalletController> {
       ],
       body: Container(
         color: Colors.white,
-        child: PagedListView<int, TransactionResponse>(
-          pagingController: controller.pagingController,
-          builderDelegate: PagedChildBuilderDelegate<TransactionResponse>(
-            itemBuilder: (context, item, index) => TransactionItem(
-                transactionResponse: item,
-                onTapItem: (transactionResponse) {  }
+        padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+        child: Column(
+          children: [
+
+            Expanded(
+                child: PagedListView<int, TransactionResponse>(
+                    pagingController: controller.pagingController,
+                    builderDelegate: PagedChildBuilderDelegate<TransactionResponse>(
+                        itemBuilder: (context, item, index) => TransactionItem(
+                            transactionResponse: item,
+                            onTapItem: (transactionResponse) {  }
+                        )
+                    )
+                )
+            ),
+
+            const SizedBox(height: 8),
+
+            ExButton(
+                labelText: AppLocalizations.of(context)!.createTransaction,
+                onPressed: () => {}
             )
-          )
+
+          ]
         )
       )
     )
