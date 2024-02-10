@@ -16,5 +16,6 @@ class AppRemoteUrl {
   static const userWallet = "$_v1$_user/wallet";
   static const typeWallet = "$_v1$_type/wallet";
   static const transactionWallet = "$_v1$_transaction/wallet";
+  static const transactionCreate = "$_v1$_transaction/create";
 
 }
