@@ -16,7 +16,7 @@ class AuthService {
     );
     return response.when(
         success: (json) {
-          var data = LoginResponse.fromJson(json);
+          final data = LoginResponse.fromJson(json);
           return AppResponse.success(data: data);
         },
         failure: (message) {

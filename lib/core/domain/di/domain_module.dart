@@ -1,5 +1,7 @@
 import 'package:flutter_ex/core/domain/auth/auth_interactor.dart';
 import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
+import 'package:flutter_ex/core/domain/transaction/transaction_interactor.dart';
+import 'package:flutter_ex/core/domain/transaction/transaction_use_case.dart';
 import 'package:flutter_ex/core/domain/type/type_interactor.dart';
 import 'package:flutter_ex/core/domain/type/type_use_case.dart';
 import 'package:flutter_ex/core/domain/user/user_interactor.dart';
@@ -13,5 +15,6 @@ class DomainModule {
     Get.put<AuthUseCase>(AuthInteractor(Get.find()), permanent: true);
     Get.put<UserUseCase>(UserInteractor(Get.find()), permanent: true);
     Get.put<TypeUseCase>(TypeInteractor(Get.find()), permanent: true);
+    Get.put<TransactionUseCase>(TransactionInteractor(Get.find()), permanent: true);
   }
 }

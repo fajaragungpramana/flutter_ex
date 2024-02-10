@@ -18,7 +18,7 @@ class UserService {
     );
     return response.when(
         success: (json) {
-          var data = UserResponse.fromJson(json);
+          final data = UserResponse.fromJson(json);
           return AppResponse.success(data: data);
         },
         failure: (message) {
@@ -59,7 +59,7 @@ class UserService {
 
     return response.when(
         success: (json) {
-          var data = WalletResponse.fromJson(json);
+          final data = WalletResponse.fromJson(json);
           return AppResponse.success(data: data);
         },
         failure: (message) {
@@ -79,7 +79,7 @@ class UserService {
 
     return response.when(
         success: (json) {
-          var data = WalletResponse.fromJson(json);
+          final data = WalletResponse.fromJson(json);
           return AppResponse.success(data: data);
         },
         failure: (message) {
