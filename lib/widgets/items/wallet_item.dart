@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ex/core/domain/user/model/wallet.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
-import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
 import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
-import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:get/get.dart';
 
 class WalletItem extends StatelessWidget {
-  final WalletResponse walletResponse;
-  final Function(WalletResponse) onTapItem;
+  final Wallet wallet;
+  final Function(Wallet) onTapItem;
 
   const WalletItem({
     Key? key,
-    required this.walletResponse,
+    required this.wallet,
     required this.onTapItem
   }) : super(key: key);
 
@@ -24,7 +22,7 @@ class WalletItem extends StatelessWidget {
       children: [
 
         GestureDetector(
-          onTap: () => { onTapItem(walletResponse) },
+          onTap: () => { onTapItem(wallet) },
           child: Container(
               margin: const EdgeInsets.only(right: 16),
               padding: const EdgeInsets.all(16),
@@ -55,7 +53,7 @@ class WalletItem extends StatelessWidget {
                           const SizedBox(width: 8),
 
                           Text(
-                            WalletResponse.mapType(context, walletResponse.type.orEmpty),
+                            wallet.type.orEmpty,
                             style: AppStyle.textRegular(color: AppColor.green100),
                           )
 
@@ -72,7 +70,7 @@ class WalletItem extends StatelessWidget {
                     const SizedBox(height: 4),
 
                     Text(
-                        walletResponse.name.orEmpty,
+                        wallet.name.orEmpty,
                         style: AppStyle.textRegular()
                     ),
 
@@ -86,7 +84,7 @@ class WalletItem extends StatelessWidget {
                     const SizedBox(height: 4),
 
                     Text(
-                        walletResponse.balance.currencyFormat,
+                        wallet.balance.currencyFormat,
                         style: AppStyle.textSemiBold(fontSize: 14)
                     )
 

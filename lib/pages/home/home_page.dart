@@ -97,7 +97,7 @@ class HomePage extends GetView<HomeController> {
                             const Spacer(),
 
                             Obx(() => Visibility(
-                                visible: !controller.walletLoading && controller.listWalletResponse.isNotEmpty,
+                                visible: !controller.walletLoading && controller.listWallet.isNotEmpty,
                                 child: GestureDetector(
                                     onTap: () => { Get.toNamed(AppRoute.addWallet) },
                                     child: Text(
@@ -113,7 +113,7 @@ class HomePage extends GetView<HomeController> {
                       const SizedBox(height: 16),
 
                       Obx(() => Visibility(
-                          visible: controller.listWalletResponse.isEmpty,
+                          visible: controller.listWallet.isEmpty,
                           child: Container(
                               padding: const EdgeInsets.all(16),
                               decoration: BoxDecoration(
@@ -163,12 +163,12 @@ class HomePage extends GetView<HomeController> {
                           child: Obx(() => ListView.builder(
                               shrinkWrap: true,
                               scrollDirection: Axis.horizontal,
-                              itemCount: controller.listWalletResponse.length,
+                              itemCount: controller.listWallet.length,
                               physics: const BouncingScrollPhysics(),
                               itemBuilder: (context, index) => Skeletonizer(
                                   enabled: controller.walletLoading,
                                   child: WalletItem(
-                                      walletResponse: controller.listWalletResponse[index],
+                                      wallet: controller.listWallet[index],
                                       onTapItem: (walletResponse) => {
                                         if (walletResponse.id != null) {
                                           Get.toNamed(
