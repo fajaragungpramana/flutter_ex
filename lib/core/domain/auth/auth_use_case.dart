@@ -7,9 +7,9 @@ abstract class AuthUseCase {
 
   Future<AppResponse<Auth>> login(LoginRequest loginRequest);
 
-  bool get isLogin;
+  Future<Auth> get auth;
 
-  void clear();
+  Future<void> clear();
 
   Future<AppResponse<Auth>> register(RegisterRequest registerRequest);
 

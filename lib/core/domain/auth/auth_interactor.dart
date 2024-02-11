@@ -29,10 +29,10 @@ class AuthInteractor implements AuthUseCase {
   }
 
   @override
-  bool get isLogin => _authRepository.isLogin;
+  Future<Auth> get auth async => Auth(isLogin: _authRepository.isLogin);
 
   @override
-  void clear() => _authRepository.clear();
+  Future<void> clear() async => _authRepository.clear();
 
   @override
   Future<AppResponse<Auth>> register(RegisterRequest registerRequest) async {
