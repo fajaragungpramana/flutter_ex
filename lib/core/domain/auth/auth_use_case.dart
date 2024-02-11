@@ -1,18 +1,16 @@
-import 'dart:ffi';
-
 import 'package:flutter_ex/core/app/app_response.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/register_request.dart';
-import 'package:flutter_ex/core/data/remote/auth/response/login_response.dart';
+import 'package:flutter_ex/core/domain/auth/model/auth.dart';
 
 abstract class AuthUseCase {
 
-  Future<AppResponse<LoginResponse>> login(LoginRequest loginRequest);
+  Future<AppResponse<Auth>> login(LoginRequest loginRequest);
 
-  bool get isLogin;
+  Future<Auth> get auth;
 
-  void clear();
+  Future<void> clear();
 
-  Future<AppResponse<bool>> register(RegisterRequest registerRequest);
+  Future<AppResponse<Auth>> register(RegisterRequest registerRequest);
 
 }

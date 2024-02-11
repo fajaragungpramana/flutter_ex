@@ -1,16 +1,16 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/core/data/remote/auth/auth_service.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/register_request.dart';
+import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/widgets/views/ex_hud_progress.dart';
 import 'package:get/get.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterController extends GetxController {
-  final AuthService _authService;
+  final AuthUseCase _authUseCase;
 
-  RegisterController(this._authService);
+  RegisterController(this._authUseCase);
 
   final fullNameController = TextEditingController();
   final emailController = TextEditingController();
@@ -79,7 +79,7 @@ class RegisterController extends GetxController {
   void onRegister() async {
     Get.dialog(const ExHudProgress());
 
-    var result = await _authService.register(RegisterRequest(
+    var result = await _authUseCase.register(RegisterRequest(
         fullName: fullNameController.text,
         email: emailController.text,
         password: passwordConfirmController.text
@@ -88,14 +88,14 @@ class RegisterController extends GetxController {
     Get.back();
     result.when(
         success: (data) {
-          Get.back();
-
-          Get.snackbar(
-              _appLocalization.signUpSuccessfully,
-              _appLocalization.signUpSuccessfullyMessage,
-              colorText: Colors.white,
-              backgroundColor: AppColor.green100
-          );
+          if (data?.isRegister == true) {
+            Get.snackbar(
+                _appLocalization.signUpSuccessfully,
+                _appLocalization.signUpSuccessfullyMessage,
+                colorText: Colors.white,
+                backgroundColor: AppColor.green100
+            );
+          }
         },
         failure: (message) {
           Get.showSnackbar(

@@ -1,8 +1,8 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/core/data/remote/transaction/response/transaction_response.dart';
-import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
+import 'package:flutter_ex/core/domain/transaction/model/transaction.dart';
 import 'package:flutter_ex/core/domain/transaction/transaction_use_case.dart';
+import 'package:flutter_ex/core/domain/user/model/wallet.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
 import 'package:flutter_ex/pages/detail_wallet/detail_wallet_event.dart';
 import 'package:get/get.dart';
@@ -15,13 +15,13 @@ class DetailWalletController extends GetxController {
 
   DetailWalletController(this._eventBus, this._userUseCase, this._transactionUseCase);
 
-  final PagingController<int, TransactionResponse> pagingController = PagingController(firstPageKey: 1);
+  final PagingController<int, Transaction> pagingController = PagingController(firstPageKey: 1);
 
   final _walletLoading = true.obs;
   get walletLoading => _walletLoading.value;
 
-  final Rx<WalletResponse> _walletResponse = const WalletResponse().obs;
-  WalletResponse get walletResponse => _walletResponse.value;
+  final Rx<Wallet> _wallet = Wallet().obs;
+  Wallet get wallet => _wallet.value;
 
   @override
   void onInit() async {
@@ -43,7 +43,7 @@ class DetailWalletController extends GetxController {
 
   void _getWallet(double? id) async {
     _walletLoading.value = true;
-    _walletResponse.value = WalletResponse.skeleton();
+    _wallet.value = Wallet.skeleton();
 
     final response = await _userUseCase.getWallet(id);
 
@@ -51,7 +51,7 @@ class DetailWalletController extends GetxController {
         success: (data) {
           if (data != null) {
             _walletLoading.value = false;
-            _walletResponse.value = data;
+            _wallet.value = data;
           }
         },
         failure: (message) {

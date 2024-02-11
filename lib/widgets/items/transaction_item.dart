@@ -1,31 +1,29 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_ex/core/data/remote/transaction/response/transaction_response.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_ex/core/domain/transaction/model/transaction.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
-import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 
 class TransactionItem extends StatelessWidget {
-  final TransactionResponse transactionResponse;
-  final Function(TransactionResponse) onTapItem;
+  final Transaction transaction;
+  final Function(Transaction) onTapItem;
 
   const TransactionItem({
     Key? key,
-    required this.transactionResponse,
+    required this.transaction,
     required this.onTapItem
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => GestureDetector(
-    onTap: () => { onTapItem(transactionResponse) },
+    onTap: () => { onTapItem(transaction) },
     child: Container(
         padding: const EdgeInsets.only(bottom: 16),
         child: Row(
             children: [
 
-              transactionResponse.type == "DEBIT" ?
-              Assets.lib.resources.drawables.icTransactionDebit.image() : Assets.lib.resources.drawables.icTransactionCredit.image(),
+              transaction.image,
 
               const SizedBox(width: 16),
 
@@ -35,7 +33,7 @@ class TransactionItem extends StatelessWidget {
                       children: [
 
                         Text(
-                            transactionResponse.name.orEmpty,
+                            transaction.name.orEmpty,
                             style: AppStyle.textSemiBold(fontSize: 14),
                             overflow: TextOverflow.ellipsis
                         ),
@@ -43,7 +41,7 @@ class TransactionItem extends StatelessWidget {
                         const SizedBox(height: 4),
 
                         Text(
-                            transactionResponse.description.orEmpty,
+                            transaction.description.orEmpty,
                             style: AppStyle.textRegular(fontSize: 12, color: AppColor.black50),
                             overflow: TextOverflow.ellipsis
                         )
@@ -59,14 +57,14 @@ class TransactionItem extends StatelessWidget {
                   children: [
 
                     Text(
-                        transactionResponse.payment!.amount.orZero.currencyFormat,
+                        transaction.amount.currencyFormat,
                         style: AppStyle.textSemiBold(fontSize: 14)
                     ),
 
                     const SizedBox(height: 4),
 
                     Text(
-                      transactionResponse.createdAt.dateFormat,
+                      transaction.dateTime.orEmpty,
                       style: AppStyle.textRegular(fontSize: 12, color: AppColor.black50),
                     )
 

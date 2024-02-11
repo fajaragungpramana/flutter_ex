@@ -30,8 +30,10 @@ class SplashController extends GetxController {
   }
 
   _setDelay(int seconds) async {
+    final auth = await _authUseCase.auth;
+
     await Future.delayed(Duration(seconds: seconds), () {
-      Get.offAndToNamed(_authUseCase.isLogin ? AppRoute.main : AppRoute.login);
+      Get.offAndToNamed(auth.isLogin == true ? AppRoute.main : AppRoute.login);
     });
   }
 

@@ -1,7 +1,6 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/user/request/wallet_request.dart';
-import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
 import 'package:flutter_ex/core/domain/type/type_use_case.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
@@ -55,11 +54,11 @@ class AddWalletController extends GetxController {
             Get.bottomSheet(
                 TypeBottomSheet(
                     listType: data,
-                    onItemPressed: (typeResponse) {
+                    onItemTap: (type) {
                       Get.back();
 
-                      _typeId = typeResponse.id.orZero;
-                      typeController.text = WalletResponse.mapType(Get.context as BuildContext, typeResponse.name.orEmpty);
+                      _typeId = type.id.orZero;
+                      typeController.text = type.name.orEmpty;
                     }
                 ),
                 shape: AppStyle.roundedRectangleCorner(

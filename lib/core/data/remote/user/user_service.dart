@@ -59,8 +59,7 @@ class UserService {
 
     return response.when(
         success: (json) {
-          final data = WalletResponse.fromJson(json);
-          return AppResponse.success(data: data);
+          return AppResponse.success(data: json);
         },
         failure: (message) {
           return AppResponse.failure(message: message);
