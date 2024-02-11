@@ -26,12 +26,12 @@ class HomePage extends GetView<HomeController> {
                 children: [
 
                   Text(
-                      controller.userResponse.fullName.orEmpty,
+                      controller.user.fullName.orEmpty,
                       style: AppStyle.textSemiBold(fontSize: 20)
                   ),
 
                   Text(
-                      controller.userResponse.email.orEmpty,
+                      controller.user.email.orEmpty,
                       style: AppStyle.textRegular(
                           color: AppColor.black50,
                           fontSize: 14

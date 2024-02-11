@@ -1,11 +1,11 @@
 import 'package:flutter_ex/core/app/app_response.dart';
 import 'package:flutter_ex/core/data/remote/user/request/wallet_request.dart';
-import 'package:flutter_ex/core/data/remote/user/response/user_response.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
+import 'package:flutter_ex/core/domain/user/model/user.dart';
 
 abstract class UserUseCase {
 
-  Future<AppResponse<UserResponse>> me();
+  Future<AppResponse<User>> me();
 
   Future<AppResponse<List<WalletResponse>>> listWallet();
 

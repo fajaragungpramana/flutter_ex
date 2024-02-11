@@ -1,7 +1,7 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/core/data/remote/user/response/user_response.dart';
 import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
+import 'package:flutter_ex/core/domain/user/model/user.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/pages/home/home_event.dart';
@@ -16,8 +16,8 @@ class HomeController extends GetxController {
   final _userLoading = true.obs;
   bool get userLoading => _userLoading.value;
 
-  final Rx<UserResponse> _userResponse = const UserResponse().obs;
-  UserResponse get userResponse => _userResponse.value;
+  final Rx<User> _user = User().obs;
+  User get user => _user.value;
 
   final _walletLoading = true.obs;
   bool get walletLoading => _walletLoading.value;
@@ -52,14 +52,14 @@ class HomeController extends GetxController {
 
   void _me() async {
     _userLoading.value = true;
-    _userResponse.value = UserResponse.skeleton();
+    _user.value = User.skeleton();
 
     var result = await _userUseCase.me();
     result.when(
         success: (data) {
           if (data != null) {
             _userLoading.value = false;
-            _userResponse.value = data;
+            _user.value = data;
           }
         },
         failure: (message) {
