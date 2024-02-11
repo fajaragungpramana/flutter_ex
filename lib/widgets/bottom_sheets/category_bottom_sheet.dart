@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/core/data/remote/category/response/category_response.dart';
+import 'package:flutter_ex/core/domain/category/model/category.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_bottom_sheet.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CategoryBottomSheet extends StatelessWidget {
-  final List<CategoryResponse> listCategory;
-  final Function(CategoryResponse) onItemTap;
+  final List<Category> listCategory;
+  final Function(Category) onItemTap;
 
   const CategoryBottomSheet({
     Key? key,
@@ -36,7 +36,7 @@ class CategoryBottomSheet extends StatelessWidget {
                     child: GestureDetector(
                         onTap: () => { onItemTap(listCategory[index]) },
                         child: Text(
-                          CategoryResponse.mapName(context, listCategory[index].name.orEmpty),
+                          listCategory[index].name.orEmpty,
                           style: AppStyle.textRegular(),
                           textAlign: TextAlign.start,
                         )

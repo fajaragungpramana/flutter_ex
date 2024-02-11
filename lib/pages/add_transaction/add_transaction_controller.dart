@@ -59,7 +59,7 @@ class AddTransactionController extends GetxController {
                       Get.back();
 
                       _categoryId = categoryResponse.id.orZero;
-                      categoryController.text = CategoryResponse.mapName(Get.context as BuildContext, categoryResponse.name.orEmpty);
+                      categoryController.text = categoryResponse.name.orEmpty;
                     }
                 ),
                 shape: AppStyle.roundedRectangleCorner(topLeft: 16, topRight: 16),

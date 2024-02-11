@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/core/data/remote/type/response/type_response.dart';
-import 'package:flutter_ex/core/data/remote/user/response/wallet_response.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_bottom_sheet.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_ex/core/domain/type/model/type.dart';
 
 class TypeBottomSheet extends StatelessWidget {
-  final List<TypeResponse> listType;
-  final Function(TypeResponse) onItemPressed;
+  final List<Type> listType;
+  final Function(Type) onItemTap;
 
   const TypeBottomSheet({
     Key? key,
     required this.listType,
-    required this.onItemPressed
+    required this.onItemTap
   }) : super(key: key);
   
   @override
@@ -35,9 +34,9 @@ class TypeBottomSheet extends StatelessWidget {
                 itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     child: GestureDetector(
-                      onTap: () => { onItemPressed(listType[index]) },
+                      onTap: () => { onItemTap(listType[index]) },
                       child: Text(
-                        WalletResponse.mapType(context, listType[index].name.orEmpty),
+                        listType[index].name.orEmpty,
                         style: AppStyle.textRegular(),
                         textAlign: TextAlign.start,
                       )

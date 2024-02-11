@@ -11,9 +11,4 @@ class UserResponse with _$UserResponse {
   }) = _UserResponse;
 
   factory UserResponse.fromJson(Map<String, dynamic> json) => _$UserResponseFromJson(json);
-
-  static UserResponse skeleton() => const UserResponse(
-    fullName: "**************",
-    email: "****************************"
-  );
 }

@@ -55,7 +55,9 @@ class LoginController extends GetxController {
     Get.back();
     result.when(
         success: (data) {
-          Get.offAllNamed(AppRoute.main);
+          if (data?.isLogin == true) {
+            Get.offAllNamed(AppRoute.main);
+          }
         },
         failure: (message) {
           Get.showSnackbar(

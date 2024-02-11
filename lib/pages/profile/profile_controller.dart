@@ -46,8 +46,8 @@ class ProfileController extends GetxController {
     );
   }
 
-  void onLogout() {
-    _authUseCase.clear();
+  void onLogout() async {
+    await _authUseCase.clear();
 
     Get.offAndToNamed(AppRoute.login);
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/transaction/response/transaction_response.dart';
+import 'package:flutter_ex/core/domain/transaction/model/transaction.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/pages/detail_wallet/detail_wallet_controller.dart';
@@ -46,7 +47,7 @@ class DetailWalletPage extends GetView<DetailWalletController> {
                     Obx(() => Skeletonizer(
                         enabled: controller.walletLoading,
                         child: Text(
-                            controller.walletResponse.name.orEmpty,
+                            controller.wallet.name.orEmpty,
                             style: AppStyle.textSemiBold(fontSize: 24)
                         )
                     )),
@@ -63,7 +64,7 @@ class DetailWalletPage extends GetView<DetailWalletController> {
                     Obx(() => Skeletonizer(
                         enabled: controller.walletLoading,
                         child: Text(
-                            controller.walletResponse.balance.currencyFormat,
+                            controller.wallet.balance.currencyFormat,
                             style: AppStyle.textSemiBold(fontSize: 24)
                         )
                     )),
@@ -101,11 +102,11 @@ class DetailWalletPage extends GetView<DetailWalletController> {
           children: [
 
             Expanded(
-                child: PagedListView<int, TransactionResponse>(
+                child: PagedListView<int, Transaction>(
                     pagingController: controller.pagingController,
-                    builderDelegate: PagedChildBuilderDelegate<TransactionResponse>(
+                    builderDelegate: PagedChildBuilderDelegate<Transaction>(
                         itemBuilder: (context, item, index) => TransactionItem(
-                            transactionResponse: item,
+                            transaction: item,
                             onTapItem: (transactionResponse) {  }
                         )
                     )
