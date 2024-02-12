@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/register_request.dart';
 import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
+import 'package:flutter_ex/pages/register/register_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/widgets/views/ex_hud_progress.dart';
 import 'package:get/get.dart';
@@ -44,6 +45,16 @@ class RegisterController extends GetxController {
     super.onInit();
   }
 
+  void setEvent(RegisterEvent registerEvent) {
+    switch (registerEvent) {
+      case RegisterEvent.register:
+        _onRegister();
+
+      default:
+        break;
+    }
+  }
+
   void _setFullName() async {
     _fullNameErrorMessage.value = fullNameController.text.length >= 4 ? "" : _appLocalization.invalidFullNameFormat;
     _onRegisterEnable();
@@ -76,7 +87,7 @@ class RegisterController extends GetxController {
             passwordConfirmController.text.isNotEmpty && _confirmPasswordErrorMessage.value.isEmpty;
   }
 
-  void onRegister() async {
+  void _onRegister() async {
     Get.dialog(const ExHudProgress());
 
     var result = await _authUseCase.register(RegisterRequest(

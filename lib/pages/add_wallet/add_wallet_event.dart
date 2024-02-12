@@ -1,0 +1,3 @@
+enum AddWalletEvent {
+  listType, setWallet
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/pages/add_transaction/add_transaction_controller.dart';
+import 'package:flutter_ex/pages/add_transaction/add_transaction_event.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
@@ -23,7 +24,7 @@ class AddTransactionPage extends GetView<AddTransactionController> {
       footer: Obx(() => ExButton(
           enable: controller.isAddTransactionEnable,
           labelText: AppLocalizations.of(context)!.next,
-          onPressed: () => { controller.setTransaction() }
+          onPressed: () => { controller.setEvent(AddTransactionEvent.setTransaction) }
       )),
       children: [
 
@@ -63,7 +64,7 @@ class AddTransactionPage extends GetView<AddTransactionController> {
                     labelText: AppLocalizations.of(context)!.category,
                     readOnly: true,
                     suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image(),
-                    onTap: () => { controller.listCategory() }
+                    onTap: () => { controller.setEvent(AddTransactionEvent.listCategory) }
                 )
             )
 

@@ -6,6 +6,7 @@ import 'package:flutter_ex/core/domain/category/category_use_case.dart';
 import 'package:flutter_ex/core/domain/transaction/transaction_use_case.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
+import 'package:flutter_ex/pages/add_transaction/add_transaction_event.dart';
 import 'package:flutter_ex/pages/detail_wallet/detail_wallet_event.dart';
 import 'package:flutter_ex/pages/home/home_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
@@ -44,7 +45,16 @@ class AddTransactionController extends GetxController {
     super.onInit();
   }
 
-  void listCategory() async {
+  void setEvent(AddTransactionEvent event) {
+    switch (event) {
+      case AddTransactionEvent.listCategory:
+        _listCategory();
+      case AddTransactionEvent.setTransaction:
+        _setTransaction();
+    }
+  }
+
+  void _listCategory() async {
     Get.dialog(const ExHudProgress());
     final response = await _categoryUseCase.listCategory();
 
@@ -81,7 +91,8 @@ class AddTransactionController extends GetxController {
     );
   }
 
-  void setTransaction() async {
+  void _setTransaction() async {
+    Get.dialog(const ExHudProgress());
     final response = await _transactionUseCase.setTransaction(
         TransactionRequest(
           name: nameController.text,
@@ -92,6 +103,7 @@ class AddTransactionController extends GetxController {
         )
     );
 
+    Get.back();
     response.when(
         success: (data) {
           Get.back();

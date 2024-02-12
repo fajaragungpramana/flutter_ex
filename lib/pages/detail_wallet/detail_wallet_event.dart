@@ -1,3 +1,3 @@
 enum DetailWalletEvent {
-  refresh
+  wallet, listTransaction, refresh
 }
