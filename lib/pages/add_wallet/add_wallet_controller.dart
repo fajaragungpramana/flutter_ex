@@ -5,6 +5,7 @@ import 'package:flutter_ex/core/domain/type/type_use_case.dart';
 import 'package:flutter_ex/core/domain/user/user_use_case.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
+import 'package:flutter_ex/pages/add_wallet/add_wallet_event.dart';
 import 'package:flutter_ex/pages/home/home_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
@@ -42,7 +43,16 @@ class AddWalletController extends GetxController {
     super.onInit();
   }
 
-  void listType() async {
+  void setEvent(AddWalletEvent event) {
+    switch (event) {
+      case AddWalletEvent.listType:
+        _listType();
+      case AddWalletEvent.setWallet:
+        _setWallet();
+    }
+  }
+
+  void _listType() async {
     Get.dialog(const ExHudProgress());
 
     final response = await _typeUseCase.listType();
@@ -82,7 +92,7 @@ class AddWalletController extends GetxController {
     );
   }
 
-  void setWallet() async {
+  void _setWallet() async {
     Get.dialog(const ExHudProgress());
 
     final response = await _userUseCase.setWallet(WalletRequest(

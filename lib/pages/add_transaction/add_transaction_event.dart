@@ -1,0 +1,3 @@
+enum AddTransactionEvent {
+  listCategory, setTransaction
+}

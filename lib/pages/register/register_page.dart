@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/pages/register/register_controller.dart';
+import 'package:flutter_ex/pages/register/register_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
@@ -27,7 +28,7 @@ class RegisterPage extends GetView<RegisterController> {
           Obx(() => ExButton(
               labelText: AppLocalizations.of(context)!.signIn,
               enable: controller.isRegisterEnable,
-              onPressed: () { controller.onRegister(); }
+              onPressed: () => controller.setEvent(RegisterEvent.register)
           )),
 
           const SizedBox(height: 16),
