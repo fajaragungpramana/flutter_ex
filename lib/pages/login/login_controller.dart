@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/core/data/remote/auth/request/login_request.dart';
 import 'package:flutter_ex/core/domain/auth/auth_use_case.dart';
+import 'package:flutter_ex/pages/login/login_event.dart';
 import 'package:flutter_ex/routes/app_route.dart';
 import 'package:flutter_ex/widgets/views/ex_hud_progress.dart';
 import 'package:get/get.dart';
@@ -29,6 +30,16 @@ class LoginController extends GetxController {
     super.onInit();
   }
 
+  void setEvent(LoginEvent event) {
+    switch (event) {
+      case LoginEvent.login:
+        _onLogin();
+
+      default:
+        break;
+    }
+  }
+
   void _setEmail() async {
     var isValidEmail = EmailValidator.validate(emailController.text);
     _emailErrorMessage.value = isValidEmail ? "" : AppLocalizations.of(Get.context as BuildContext)!.invalidEmailFormat;
@@ -45,7 +56,7 @@ class LoginController extends GetxController {
     _isLoginEnable.value = email.isNotEmpty && _emailErrorMessage.isEmpty && password.isNotEmpty;
   }
 
-  void onLogin() async {
+  void _onLogin() async {
     Get.dialog(const ExHudProgress());
 
     var email = emailController.text;

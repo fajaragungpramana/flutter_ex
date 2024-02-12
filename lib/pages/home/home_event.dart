@@ -1,3 +1,3 @@
 enum HomeEvent {
-  refresh
+  me, listWallet, refresh
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/pages/login/login_controller.dart';
+import 'package:flutter_ex/pages/login/login_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/routes/app_route.dart';
@@ -28,7 +29,7 @@ class LoginPage extends GetView<LoginController> {
           Obx(() => ExButton(
               labelText: AppLocalizations.of(context)!.signIn,
               enable: controller.isLoginEnable,
-              onPressed: () => controller.onLogin()
+              onPressed: () => controller.setEvent(LoginEvent.login)
           )),
 
           const SizedBox(height: 16),

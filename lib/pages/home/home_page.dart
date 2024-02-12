@@ -3,6 +3,7 @@ import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';
 import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/pages/home/home_controller.dart';
+import 'package:flutter_ex/pages/home/home_event.dart';
 import 'package:flutter_ex/resources/values/app_color.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/routes/app_route.dart';
@@ -54,7 +55,7 @@ class HomePage extends GetView<HomeController> {
         ]
       ),
       body: RefreshIndicator(
-          onRefresh: () async { controller.onRequest(); },
+          onRefresh: () async { controller.setEvent(HomeEvent.refresh); },
           child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(
                   parent: AlwaysScrollableScrollPhysics()

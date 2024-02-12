@@ -23,22 +23,37 @@ class DetailWalletController extends GetxController {
   final Rx<Wallet> _wallet = Wallet().obs;
   Wallet get wallet => _wallet.value;
 
+  var _listTransactionPage = 1;
+
   @override
   void onInit() async {
-    final id = Get.arguments["id"];
-    _getWallet(id);
+    setEvent(DetailWalletEvent.wallet);
     pagingController.addPageRequestListener((pageKey) {
-      _listTransaction(id, pageKey);
+      setEvent(DetailWalletEvent.listTransaction);
     });
 
     _eventBus.on<DetailWalletEvent>().listen((event) {
       if (event == DetailWalletEvent.refresh) {
-        _getWallet(id);
-        pagingController.refresh();
+        setEvent(DetailWalletEvent.refresh);
       }
     });
 
     super.onInit();
+  }
+
+  void setEvent(DetailWalletEvent event) {
+    final id = Get.arguments["id"];
+
+    switch (event) {
+      case DetailWalletEvent.wallet:
+        _getWallet(id);
+      case DetailWalletEvent.listTransaction:
+        _listTransaction(id);
+      case DetailWalletEvent.refresh: {
+          _getWallet(id);
+          _listTransaction(id);
+      }
+    }
   }
 
   void _getWallet(double? id) async {
@@ -67,9 +82,9 @@ class DetailWalletController extends GetxController {
     );
   }
 
-  void _listTransaction(double? id, int page) async {
+  void _listTransaction(double? id) async {
     try {
-      final response = await _transactionUseCase.listTransaction(id, page);
+      final response = await _transactionUseCase.listTransaction(id, _listTransactionPage);
       response.when(
           success: (data) {
             if (data != null) {
@@ -77,8 +92,8 @@ class DetailWalletController extends GetxController {
               if (isLastPage) {
                 pagingController.appendLastPage(data);
               } else {
-                final nextPage = page + 1;
-                pagingController.appendPage(data, nextPage);
+                _listTransactionPage += 1;
+                pagingController.appendPage(data, _listTransactionPage);
               }
             }
           },

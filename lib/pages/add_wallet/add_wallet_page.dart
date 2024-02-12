@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ex/gen/assets.gen.dart';
 import 'package:flutter_ex/pages/add_wallet/add_wallet_controller.dart';
+import 'package:flutter_ex/pages/add_wallet/add_wallet_event.dart';
 import 'package:flutter_ex/resources/values/app_style.dart';
 import 'package:flutter_ex/widgets/views/ex_button.dart';
 import 'package:flutter_ex/widgets/views/ex_collapse_scaffold.dart';
@@ -22,7 +23,7 @@ class AddWalletPage extends GetView<AddWalletController> {
       footer: Obx(() => ExButton(
           enable: controller.isAddWalletEnable,
           labelText: AppLocalizations.of(context)!.next,
-          onPressed: () => { controller.setWallet() }
+          onPressed: () => { controller.setEvent(AddWalletEvent.setWallet) }
       )),
       children: [
 
@@ -40,7 +41,7 @@ class AddWalletPage extends GetView<AddWalletController> {
             labelText: AppLocalizations.of(context)!.type,
             readOnly: true,
             suffixIcon: Assets.lib.resources.drawables.icDropdownGreen.image(),
-            onTap: () => { controller.listType() }
+            onTap: () => { controller.setEvent(AddWalletEvent.listType) }
         )
 
       ]

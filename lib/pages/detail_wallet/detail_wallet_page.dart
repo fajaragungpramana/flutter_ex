@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ex/core/data/remote/transaction/response/transaction_response.dart';
 import 'package:flutter_ex/core/domain/transaction/model/transaction.dart';
 import 'package:flutter_ex/extension/double_extension.dart';
 import 'package:flutter_ex/extension/string_extension.dart';

@@ -31,23 +31,31 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     _registerEvent();
-
-    onRequest();
+    setEvent(HomeEvent.me);
+    setEvent(HomeEvent.listWallet);
 
     super.onInit();
-  }
-
-  void onRequest() async {
-    _me();
-    _getListWallet();
   }
 
   void _registerEvent() async {
     _eventBus.on<HomeEvent>().listen((event) {
       if (event == HomeEvent.refresh) {
-        onRequest();
+        setEvent(HomeEvent.refresh);
       }
     });
+  }
+
+  void setEvent(HomeEvent event) {
+    switch (event) {
+      case HomeEvent.me:
+        _me();
+      case HomeEvent.listWallet:
+        _getListWallet();
+      case HomeEvent.refresh: {
+          _me();
+          _getListWallet();
+      }
+    }
   }
 
   void _me() async {
